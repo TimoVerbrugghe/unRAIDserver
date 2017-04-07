@@ -1,0 +1,8 @@
+[Unit]
+Description = DuckDns IP Address update
+Wants=network-online.target
+OnFailure=unit-failure-notification@%n
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flock -w 0 /home/fileserver/Applications/duckdns/duckdns.lock /home/fileserver/Applications/duckdns/duckdns.sh

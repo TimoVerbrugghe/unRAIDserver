@@ -1,0 +1,43 @@
+Status: active
+
+To                         Action      From
+--                         ------      ----
+
+# SSH
+22/tcp                     ALLOW       Anywhere
+
+# Plex
+32400                      ALLOW       Anywhere
+
+# FTP
+8084/tcp				   ALLOW       Anywhere
+40000:41000/tcp            ALLOW       Anywhere
+
+# HTTP/Apache
+80                         ALLOW       Anywhere
+443                        ALLOW       Anywhere
+
+# SMB
+137/udp                    ALLOW       10.124.161.0/24
+138/udp                    ALLOW       10.124.161.0/24
+139/tcp                    ALLOW       10.124.161.0/24
+445/tcp                    ALLOW       10.124.161.0/24
+
+# CUPS
+631/tcp                    ALLOW       10.124.161.0/24
+
+# NFS
+2049                       ALLOW       10.124.161.0/24
+111                        ALLOW       10.124.161.0/24
+20048                      ALLOW       10.124.161.0/24
+
+# Zeroconf/Bonjour
+5353                       ALLOW       10.124.161.0/24
+
+# IP V6 rules
+22/tcp (v6)                ALLOW       Anywhere (v6)
+32400 (v6)                 ALLOW       Anywhere (v6)
+40000:41000/tcp (v6)       ALLOW       Anywhere (v6)
+80 (v6)                    ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+8084/tcp (v6)			   ALLOW       Anywhere (v6)

@@ -1,0 +1,9 @@
+[Unit]
+Description = Btrfs Scrub service
+OnFailure=unit-failure-notification@%n
+
+[Service]
+Type=oneshot
+ExecStart=/home/fileserver/Applications/btrfscheck/btrfsscrub.sh /
+ExecStart=/home/fileserver/Applications/btrfscheck/btrfsscrub.sh /home/fileserver/Media
+ExecStart=/home/fileserver/Applications/btrfscheck/btrfsscrub.sh /home/fileserver/Backup

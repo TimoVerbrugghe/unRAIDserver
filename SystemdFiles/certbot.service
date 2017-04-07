@@ -1,0 +1,15 @@
+[Unit]
+Description = Let's Encrypt renewal
+OnFailure=unit-failure-notification@%n
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/certbot renew --agree-tos --webroot -w /home/fileserver/Media/Network/
+
+# Create plexmediaserver certificate & apply correct permissions
+ExecStart=/usr/bin/openssl pkcs12 -export -in /etc/letsencrypt/live/timoverbrugghe.duckdns.org/fullchain.pem -inkey /etc/letsencrypt/live/timoverbrugghe.duckdns.org/privkey.pem -out /home/fileserver/Applications/plexmediaserver/certificate.pfx -passout pass:plexmediaserver
+ExecStart=/bin/chown fileserver:fileserver /home/fileserver/Applications/plexmediaserver/certificate.pfx
+ExecStart=/bin/chmod 644 /home/fileserver/Applications/plexmediaserver/certificate.pfx
+
+# Reload Apache service after renewing certificates (plexmediaserver does not need to be restarted)
+ExecStartPost=/bin/systemctl reload httpd.service

@@ -1,0 +1,14 @@
+youtubedl: /usr/bin/youtube-dl
+python: /usr/bin/python
+params:
+    - --no-playlist
+    - --no-warnings
+    - --playlist-end
+    - 1
+curl_params:
+convert: true
+avconv: /usr/bin/ffmpeg
+rtmpdump: /usr/bin/rtmpdump
+curl: /usr/bin/curl
+uglyUrls: false
+stream: false

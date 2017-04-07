@@ -1,0 +1,16 @@
+[Unit]
+Description=Radarr Service
+After=network.target
+OnFailure=unit-failure-notification@%n
+
+[Service]
+User=fileserver
+Group=fileserver
+ExecStart=/usr/bin/mono /home/fileserver/Applications/radarr/app/Radarr.exe --nobrowser --debug -data=/home/fileserver/Applications/radarr/data/
+Type=simple
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

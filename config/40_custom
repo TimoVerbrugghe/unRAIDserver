@@ -1,0 +1,34 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+menuentry "Clonezilla (Arch Backup)" {
+	insmod btrfs
+	search --no-floppy --fs-uuid --set a7d520ca-3a86-40f2-89ec-d62c862ce13e
+	set isofile="/home/fileserver/Applications/Backup/Clonezilla/clonezilla.iso"
+	loopback loop $isofile
+	linux (loop)/live/vmlinuz boot=live union=overlay username=user config components quiet noswap nolocales edd=on nomodeset nodmraid noeject ocs_prerun=" mount UUID=0843d5b7-24d7-40fe-8e68-495bce26dfd9 /mnt" ocs_prerun1="mount --bind /mnt/SystemImage /home/partimag/" ocs_live_run="/usr/sbin/ocs-sr --batch -q2 -j2 -z5p -p reboot savedisk Fileserver sda" ocs_live_extra_param="" keyboard-layouts=be2-latin1 timezone=Europe/Brussels ocs_live_batch="yes" locales=en_US.UTF-8 vga=788 ip=frommedia nosplash toram=filesystem.squashfs findiso=$isofile
+	initrd (loop)/live/initrd.img
+	savedefault 0
+}
+
+menuentry "Clonezilla (interactive)" {
+	insmod btrfs
+	search --no-floppy --fs-uuid --set a7d520ca-3a86-40f2-89ec-d62c862ce13e
+	set isofile="/home/fileserver/Applications/Backup/Clonezilla/clonezilla.iso"
+	loopback loop $isofile
+	linux (loop)/live/vmlinuz boot=live union=overlay username=user config components quiet noswap nolocales edd=on nomodeset nodmraid ocs_live_run="ocs-live-general" ocs_live_extra_param="" keyboard-layouts= ocs_live_batch="no" locales= vga=788 ip=frommedia nosplash toram=filesystem.squashfs findiso=$isofile
+	initrd (loop)/live/initrd.img
+	savedefault 0
+}
+
+menuentry "Clonezilla (Arch Restore)" {
+	insmod btrfs
+	search --no-floppy --fs-uuid --set a7d520ca-3a86-40f2-89ec-d62c862ce13e
+	set isofile="/home/fileserver/Applications/Backup/Clonezilla/clonezilla.iso"
+	loopback loop $isofile
+	linux (loop)/live/vmlinuz boot=live union=overlay username=user config components quiet noswap nolocales edd=on nomodeset nodmraid noeject ocs_prerun=" mount UUID=0843d5b7-24d7-40fe-8e68-495bce26dfd9 /mnt" ocs_prerun1="mount --bind /mnt/SystemImage /home/partimag/" ocs_live_run="/usr/sbin/ocs-sr --batch -p reboot restoredisk Fileserver sda" ocs_live_extra_param="" keyboard-layouts=be2-latin1 timezone=Europe/Brussels ocs_live_batch="yes" locales=en_US.UTF-8 vga=788 ip=frommedia nosplash toram=filesystem.squashfs findiso=$isofile
+	initrd (loop)/live/initrd.img
+	savedefault 0
+}

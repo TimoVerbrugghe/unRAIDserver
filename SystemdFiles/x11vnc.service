@@ -1,0 +1,13 @@
+[Unit]
+Description= x11vnc server - Display your physical monitor over vnc
+OnFailure=unit-failure-notification@%n
+
+[Service]
+Type=forking
+ExecStart= /usr/bin/x11vnc -norc -forever -shared -bg -autoport 5900 -o /home/fileserver/Applications/x11vnc/x11vnc.log -display :0 -auth /home/fileserver/.Xauthority -rfbauth /home/fileserver/Applications/x11vnc/passwd
+ExecStop=/home/fileserver/Applications/stopx11vnc.sh
+TimeoutStopSec=180
+KillMode=none
+SuccessExitStatus=1 2 3 SIGTERM SIGKILL
+[Install]
+WantedBy=default.target

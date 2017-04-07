@@ -1,0 +1,13 @@
+[Unit]
+Description=gcp-cups-connector startup script
+Requires=org.cups.cupsd.service
+After=network-online.target org.cups.cupsd.service
+Wants=network-online.target
+OnFailure=unit-failure-notification@%n
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gcp-cups-connector --config-filename /home/fileserver/Applications/gcp-cups-connector/gcp-cups-connector.config.json
+
+[Install]
+WantedBy=multi-user.target

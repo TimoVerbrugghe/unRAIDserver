@@ -1,0 +1,24 @@
+#
+# /etc/fstab: static file system information
+#
+# <file system> <dir>   <type>  <options>       <dump>  <pass>
+# Root partition
+UUID=a7d520ca-3a86-40f2-89ec-d62c862ce13e       /               btrfs           defaults,rw,ssd,space_cache=v2,compress=lzo,discard,noatime,nodiratime,subvolid=5,subvol=/      0 0
+
+# Boot partition
+UUID=679b52a5-e418-4cb3-8a28-00130e2dffb6       /boot           ext4            rw,relatime,data=ordered        0 2
+
+# EFI partition
+UUID=2D33-61D1          /boot/efi       vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro    0 2
+
+# swap partition
+UUID=a35dead9-1c72-4056-b8bb-f2109c005aac       none            swap            defaults        0 0
+
+# Main RAID Array (BTRFS Single Volume, 1 x 4 TB, 1 x 1 TB)
+UUID=0843d5b7-24d7-40fe-8e68-495bce26dfd9 /home/fileserver/Media btrfs defaults,x-systemd.automount,x-systemd.device-timeout=60,noatime,nodiratime,compress=lzo,autodefrag,space_cache=v2 0 0
+
+# Backup Drive (BTRFS Single Volume, 2 x 2TB, 1 x 1 TB)
+UUID=a6a1f05b-c8b9-48ab-ace1-cca6a5cb76cc /home/fileserver/Backup btrfs defaults,x-systemd.device-timeout=60,noatime,nodiratime,autodefrag,compress=lzo,space_cache=v2 0 0
+
+# Hugepages
+hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=1003        0 0
