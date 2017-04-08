@@ -1,0 +1,14 @@
+[Unit]
+Description = Will run ubuntuupdate.service every sunday, at 5 am
+
+[Timer]
+# OnCalendar Syntax: days year-month-day hour:minutes:seconds
+# 1..5 represents a range
+# * is wildcard
+# days works as an if statemtent (only run if day is equal to one of the options in days) (Optional)
+
+OnCalendar=Sun *-*-* 05:00:00
+Unit=ubuntuupdate.service
+
+[Install]
+WantedBy=multi-user.target
