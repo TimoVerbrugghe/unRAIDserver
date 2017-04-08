@@ -91,4 +91,8 @@ netctl start tuntap1
 	# Place adlists.list & whitelist.txt in /etc/pihole
 	# Update domains & whitelist
 	pihole -g
+	
+	# Enable auto updating for pihole
+	nano /etc/cron.d/pihole
+		# Uncomment the auto-update line in this cron file
 
