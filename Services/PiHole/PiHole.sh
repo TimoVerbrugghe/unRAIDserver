@@ -95,4 +95,10 @@ netctl start tuntap1
 	# Enable auto updating for pihole
 	nano /etc/cron.d/pihole
 		# Uncomment the auto-update line in this cron file
+		
+	# Enable OS auto updating
+	# Move ubuntuupdate.service & ubuntuupdate.timer to /etc/systemd/system
+	systemctl enable ubuntuupdate.service
+	systemctl enable ubuntuupdate.timer
+	systemctl start ubuntuupdate.timer
 
