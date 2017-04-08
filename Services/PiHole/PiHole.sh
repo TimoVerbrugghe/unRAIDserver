@@ -70,6 +70,7 @@ netctl start tuntap1
 	ufw allow from 10.124.161.0/24 to any port 80 proto tcp
 	ufw allow from 10.124.161.0/24 to any port 53
 	ufw allow from 10.124.161.0/24 to any port 22 proto tcp
+	ufw reject from 10.124.161.0/24 to any port 443
 	ufw enable	
 
 	# Faster boot
