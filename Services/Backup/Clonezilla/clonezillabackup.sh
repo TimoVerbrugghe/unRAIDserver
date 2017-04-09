@@ -30,7 +30,7 @@ rm -rf /home/fileserver/Media/SystemImage/Fileserver >/dev/null 2>&1
 
 # Clean up caches
 printf "Cleaning caches\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
-yes | paccache -rk 1 >/dev/null 2>&1
+yes | paccache -rk 0 >/dev/null 2>&1
 yes | paccache -ruk0 >/dev/null 2>&1
 yes | pacaur -Scc --noconfirm 2>&1 || true && # It can be that command fails because no packages to delete, in that case, still give out value true so script can continue
 rm -rf /home/fileserver/.build/packages/* 2>&1 &&
