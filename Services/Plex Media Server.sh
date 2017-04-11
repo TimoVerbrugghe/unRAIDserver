@@ -25,3 +25,7 @@
 	systemctl start plexmediaserver.service
 
 # Configure Plex Media Server by going to port 32400/web
+
+## Trakt TV plugin
+	# Download latest trakt TV plugin release from https://github.com/trakt/Plex-Trakt-Scrobbler
+	# Unzip & move Trakttv.bundle to /home/fileserver/Applications/plexmediaserver/Plex\ Media\ Server/Plug-ins/
