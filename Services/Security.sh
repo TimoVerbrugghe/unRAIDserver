@@ -43,6 +43,7 @@
 			# SSH jail (in a seperated /etc/fail2ban/jail.d/ssh-iptables.conf)
 				nano /etc/fail2ban/jail.d/ssh-iptables.conf
 					IgnoreIP = 127.0.0.0/8 10.124.161.0/24 192.168.0.1
+					# Delete sendmail-whois action
 		
 		systemctl enable fail2ban
 		systemctl start fail2ban
@@ -51,5 +52,3 @@
 
 ## Physical security
 	# Denying console login as root
-
-## (Optional) Grsecurity
