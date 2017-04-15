@@ -116,3 +116,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 
 ## Change Audio Settings
 	# Make sure Audio Level is at 16 bit, 48000 hz for streaming purposes
+
+## Updating Windows
+	# In case of a major Windows update that needs user input before login, enable the extra VNC display & set it as the default display
+	# Set the firewall to temporarily enable port 5902

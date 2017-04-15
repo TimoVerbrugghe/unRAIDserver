@@ -81,8 +81,16 @@ args = "-name Windows \
 
 # -drive file=/home/fileserver/Applications/WindowsVM/virtio-win.iso,id=virtiocd,format=raw,if=none -device ide-cd,bus=ide.1,drive=virtiocd \
 
-######################################A
+######################################
 # Load in the Windows 10 Install DVD #
 ######################################
 
 # -drive file=/home/fileserver/Applications/WindowsVM/windows10.iso,id=isocd,format=raw,if=none -device ide-cd,bus=ide.0,drive=isocd \
+
+##############################
+# Enable VNC & extra display #
+##############################
+
+# -usbdevice tablet is needed to get the right mouse position in VNC
+
+# -vnc :2 -vga qxl -usbdevice tablet \
