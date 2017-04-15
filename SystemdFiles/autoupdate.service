@@ -1,6 +1,0 @@
-[Unit]
-Description = Arch Auto Update Service
-
-[Service]
-Type=oneshot
-ExecStart=/home/fileserver/Applications/autoupdate/autoupdate.sh
