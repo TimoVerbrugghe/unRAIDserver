@@ -14,21 +14,35 @@ MEDIA_LOCATION="/home/fileserver/Media"
 BACKUP_LOCATION="/home/fileserver/Backup"
 
 BACKUP_FOLDERS=(Applications Books Games Movies Music Network OSInstallISO Photos Software SystemImage TVShows)
+ERRORVALUE=0
 
 #############
 # Functions #
 #############
 
-function backupToMedia () {
-	# This function expects 1 argument, the folder you want to restore
-	printf "Backing up %s to ~/Media\n" "$1" >> $BACKUP_LOG 2>&1
-	rsync --log-file=$RSYNC_LOG -avhP --delete "/home/fileserver/$1/" "$MEDIA_LOCATION/$1" >/dev/null 2>&1
+function mountCheck () {
+	if [[ $(mount | grep -c $1) == 0 ]]; then
+
+	# Error - Media is not mounted. Sending Message to Sysadmin
+	$PUSHBULLET_SCRIPT "ERROR - \"$1\" not Mounted" "During Daily Backup, the mount check of \"$1\" failed." >/dev/null 2>&1
+	exit 1
+	fi
 }
 
-function backupToBackup () {
-	# This function expects 1 argument, the folder you want to restore
-	printf "Backing up %s to ~/Backup\n" "$1" >> $BACKUP_LOG 2>&1
-	rsync --log-file=$RSYNC_LOG -avhP --delete "$MEDIA_LOCATION/$1/" "$BACKUP_LOCATION/$1" >/dev/null 2>&1
+function errorCheck () {
+	ERRORVALUE="$?"
+	if [ $ERRORVALUE -ne 0 ]; then
+  		$PUSHBULLET_SCRIPT "ERROR - ArchServer Backup failed" "During daily backup, rsync failed backing up files (error code different than 0)." >/dev/null 2>&1
+		exit 1
+	fi
+}
+
+function backup () {
+	# This function expects 2 arguments, the backup location & the folder you want to restore
+	printf "Backing up %s to %s\n" "$1" "$2" >> $BACKUP_LOG 2>&1
+	rsync --log-file=$RSYNC_LOG -avhP --delete "$2/$1/" "$2/$1" >/dev/null 2>&1
+
+	errorCheck
 }
 
 #################
@@ -40,30 +54,16 @@ printf "Starting Daily Backup. Time & Date right now is $(date)\n" >>/home/files
 # Checking if Media & Backup is mounted
 printf "Checking if Media & Backup is successfully mounted\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
 
-if [[ $(mount | grep -c /home/fileserver/Media) == 0 ]]; then
-
-	# Error - Media is not mounted. Sending Message to Sysadmin
-	$PUSHBULLET_SCRIPT "ERROR - Media not Mounted" "During Daily Backup, the mount check of ~/Media failed." >/dev/null 2>&1
-	exit 1
-fi
-
-if [[ $(mount | grep -c /home/fileserver/Backup) == 0 ]]; then
-
-	# Error - Backup is not mounted. Sending Message to Sysadmin
-	$PUSHBULLET_SCRIPT "ERROR - Backup not Mounted" "During Daily Backup, the mount check of ~/Backup failed." >/dev/null 2>&1
-	exit 1
-fi
+mountCheck $MEDIA_LOCATION
+mountCheck $BACKUP_LOCATION
 
 # Backing up Applications Folder to ~/Media
-backupToMedia Applications
+backup Applications $MEDIA_LOCATION
 
 # Backing up all folders in Media to Backup
 for i in "${BACKUP_FOLDERS[@]}"; do
-	backupToBackup $i
+	backup $i $BACKUP_LOCATION
 done
-
-# End of Backup, Sending message to sysadmin
-$PUSHBULLET_SCRIPT "ArchServer: Daily Backup Completed" "Daily Backup of /Media to /Backup has successfully finished." >/dev/null 2>&1
 
 # Ending backup
 printf "End of Daily Backup.\n\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1

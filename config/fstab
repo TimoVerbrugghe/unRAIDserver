@@ -15,7 +15,7 @@ UUID=2D33-61D1          /boot/efi       vfat            rw,relatime,fmask=0022,d
 UUID=a35dead9-1c72-4056-b8bb-f2109c005aac       none            swap            defaults        0 0
 
 # Main RAID Array (BTRFS Single Volume, 1 x 4 TB, 1 x 1 TB)
-UUID=0843d5b7-24d7-40fe-8e68-495bce26dfd9 /home/fileserver/Media btrfs defaults,x-systemd.automount,x-systemd.device-timeout=60,noatime,nodiratime,compress=lzo,autodefrag,space_cache=v2 0 0
+UUID=0843d5b7-24d7-40fe-8e68-495bce26dfd9 /home/fileserver/Media btrfs defaults,noauto,x-systemd.automount,x-systemd.device-timeout=60,noatime,nodiratime,compress=lzo,autodefrag,space_cache=v2 0 0
 
 # Backup Drive (BTRFS Single Volume, 2 x 2TB, 1 x 1 TB)
 UUID=a6a1f05b-c8b9-48ab-ace1-cca6a5cb76cc /home/fileserver/Backup btrfs defaults,x-systemd.device-timeout=60,noatime,nodiratime,autodefrag,compress=lzo,space_cache=v2 0 0
