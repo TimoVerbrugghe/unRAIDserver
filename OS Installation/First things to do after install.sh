@@ -103,9 +103,9 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 		export PS1="${GREEN}\\u@\h \\W${RESET}> "
 
 		# Add neofetch prompt
-		# Install neofetch & move config file from config folder to /etc/neofetch
+		# Install neofetch & move config file from config folder to /home/fileserver/Applications/neofetch/config
 		pacaur -Syu neofetch
-		if [ -f /usr/bin/neofetch ]; then neofetch; fi
+			if [ -f /usr/bin/neofetch ]; then neofetch --config /home/fileserver/Applications/neofetch/config; fi
 
 ## Autologin
 systemctl edit getty@tty1

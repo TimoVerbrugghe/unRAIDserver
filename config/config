@@ -37,6 +37,7 @@ print_info() {
     info "Public IP" public_ip
     # info "Users" users
     # info "Install Date" install_date
+    # info "Locale" locale # This only works on glibc systems.
 
     info line_break
     info cols
@@ -57,7 +58,7 @@ print_info() {
 # Example:
 # on:  '4.8.9-1-ARCH'
 # off: 'Linux 4.8.9-1-ARCH'
-kernel_shorthand="off"
+kernel_shorthand="on"
 
 
 # Distro
@@ -137,6 +138,17 @@ shell_version="on"
 # Supports: Linux with 'cpufreq'
 # NOTE: Any file in '/sys/devices/system/cpu/cpu0/cpufreq' can be used as a value.
 speed_type="bios_limit"
+
+# CPU speed shorthand
+#
+# Default: 'off'
+# Values: 'on', 'off'.
+# Flag:    --speed_shorthand.
+#
+# Example:
+# on:    'i7-6500U (4) @ 3.1GHz'
+# off:   'i7-6500U (4) @ 3.100GHz'
+speed_shorthand="off"
 
 # Shorten the output of the CPU function
 #
@@ -317,7 +329,7 @@ disk_show=('/' '/home/fileserver/Media')
 # What to append to the Disk subtitle.
 #
 # Default: 'mount'
-# Values:  'mount', 'name'
+# Values:  'mount', 'name', 'dir'
 # Flag:    --disk_subtitle
 #
 # Example:
@@ -326,7 +338,12 @@ disk_show=('/' '/home/fileserver/Media')
 #
 # mount:  'Disk (/): 74G / 118G (66%)'
 #         'Disk (/mnt/Local Disk): 74G / 118G (66%)'
-disk_subtitle="name"
+#         'Disk (/mnt/Videos): 74G / 118G (66%)'
+#
+# dir:    'Disk (/): 74G / 118G (66%)'
+#         'Disk (Local Disk): 74G / 118G (66%)'
+#         'Disk (Videos): 74G / 118G (66%)'
+disk_subtitle="dir"
 
 
 # Song
@@ -387,7 +404,7 @@ install_time_format="24h"
 # Example:
 # colors=(distro)      - Text is colored based on Distro colors.
 # colors=(4 6 1 8 8 6) - Text is colored in the order above.
-colors=(14 15 14 14 14 7)
+colors=(distro)
 
 
 # Text Options
@@ -571,7 +588,7 @@ ascii_distro="auto"
 # Example:
 # ascii_colors=(distro)      - Ascii is colored based on Distro colors.
 # ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
-ascii_colors=(14 37)
+ascii_colors=(distro)
 
 # Bold ascii logo
 # Whether or not to bold the ascii logo.
@@ -670,16 +687,6 @@ scrot="off"
 # Flag:    --scrot_cmd
 scrot_cmd="auto"
 
-# Screenshot Directory
-# Where to save the screenshots
-#
-# Default: '~/Pictures/'
-# Values:  'dir'
-# Flag:    --scrot_dir
-#
-# Note: Neofetch won't create the directory if it doesn't exist.
-scrot_dir="$HOME/Pictures/"
-
 # Screenshot Filename
 # What to name the screenshots
 #
@@ -707,4 +714,4 @@ image_host="teknik"
 #
 # NOTE: Don't change this value, neofetch reads this to determine
 # how to handle backwards compatibility.
-config_version="3.0.1"
+config_version="3.1.0"
