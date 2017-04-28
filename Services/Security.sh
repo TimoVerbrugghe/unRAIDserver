@@ -23,7 +23,6 @@
 ## Kernel hardening
 	# Restricting access to kernel logs
 	# Restricting access to kernel pointers in the proc filesystem
-	# hidepid
 
 ## Network & Firewalls
 	# Firewall

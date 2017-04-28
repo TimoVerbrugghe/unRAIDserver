@@ -4,15 +4,28 @@
 # It is HIGHLY recommended that you generate this module in a VM or Container.
 # You can generate a new systemd-nspawn container with
 	# pacman -Syu arch-install-scripts
+	# mkdir ~/MyContainer
 	# pacstrap -i -c -d ~/MyContainer base base-devel --ignore linux
+		# Install Anyway? -> NO
 	# systemd-nspawn -b -D ~/MyContainer
+	# Login with username "root" (no password)
+	# Poweroff vm with command "poweroff"
+
+#######################################
+## VARIABLES - REVIEW BEFORE INSTALL ##
+#######################################
+CJOSE_VERSION=0.4.1
+MOD_AUTH_OPENIDC_VERSION=2.2.0
+
+############
+## SCRIPT ##
+############
 
 ## PART 0: Preparing for installation - downloading extra packages
 pacman --noconfirm -S gcc openssl curl apache jansson pkg-config hiredis automake autoconf make check
 
 ## PART 1: Installing CJose
 # Initializing variables
-CJOSE_VERSION=0.4.1
 CJOSE_TGZ=cjose-$CJOSE_VERSION.tar.gz
 
 # Download & Unpack CJose
@@ -35,7 +48,6 @@ echo "Done installing CJose - Now going to create module"
 
 ## Part 2: Creating mod_auth_openidc.so module
 # Initializing variables
-MOD_AUTH_OPENIDC_VERSION=2.1.0
 MOD_AUTH_OPENIDC_TGZ=mod_auth_openidc-$MOD_AUTH_OPENIDC_VERSION.tar.gz
 
 # Download & unpack mod_auth_openidc

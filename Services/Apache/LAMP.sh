@@ -51,3 +51,5 @@
 # Enable Apache
 	systemctl enable httpd
 	systemctl start httpd
+
+# It could be that you need to recreate mod_auth_openidc when apache/php updates. Please follow instructions at mod_auth_openidc.sh to regenerate.
