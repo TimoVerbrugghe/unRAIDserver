@@ -19,8 +19,9 @@ printf "Starting ripping AUDIO CD/DVD. Time & Date right now is $(date)\n" >> "$
 printf "Sending message\n" >> "$LOG"
 $PUSHBULLET_SCRIPT "ArchServer: Audio Rip Started" "ArchServer has identified an audio CD in its tray and has begun ripping. A seperate message will be sent when completed."
 
-# For some reason, abcde is very picky with path, so exporting path and adding /usr/bin to it
+# For some reason, abcde is very picky with path, so creating temporary PATH variable and adding /usr/bin to it
 export PATH="$PATH:/usr/bin"
+
 # Start rip using custom configuration file (which defines the output folder)
 abcde -d "$DEVNAME" -c "$ABCDE_CONFIG" >> "$LOG"
 
