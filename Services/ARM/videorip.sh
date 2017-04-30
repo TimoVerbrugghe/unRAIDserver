@@ -68,8 +68,8 @@ RIPSEC=$((RIPEND-RIPSTART));
 RIPTIME="$((RIPSEC / 3600)) hours, $(((RIPSEC / 60) % 60)) minutes and $((RIPSEC % 60)) seconds."
 
 # Setting right permissions
-chmod -R 755 "$DEST"
-chown -R fileserver:fileserver "$DEST"
+chmod -R 755 "$RIPFOLDER"
+chown -R fileserver:fileserver "$RIPFOLDER"
 
 # Ripping completed, sending message to sysadmin
 printf "Video CD/DVD ripping completed in %s. Sending message\n\n" "$RIPTIME" >> "$LOG"

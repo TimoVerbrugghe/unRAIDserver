@@ -32,8 +32,8 @@ mkdir -p "$DEST"
 cat "$DEVNAME" > "$DEST"
 		
 # Setting right permissions
-chmod -R 755 "$DEST"
-chown -R fileserver:fileserver "$DEST"
+chmod -R 755 "$RIPFOLDER"
+chown -R fileserver:fileserver "$RIPFOLDER"
 
 # Ripping completed, sending message
 printf "Ripping completed. Sending message\n\n" >> "$LOG"
