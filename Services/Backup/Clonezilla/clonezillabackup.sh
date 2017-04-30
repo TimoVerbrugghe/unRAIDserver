@@ -9,9 +9,11 @@ rm -rf /home/fileserver/Applications/Backup/logs/backup.log >/dev/null 2>&1
 rm -rf /home/fileserver/Applications/Backup/logs/rsync.log >/dev/null 2>&1
 rm -rf /home/fileserver/Applications/Backup/logs/windowsvmuserfolder.log >/dev/null 2>&1
 rm -rf /home/fileserver/Applications/btrfscheck/btrfscheck.log >/dev/null 2>&1
+rm -rf /home/fileserver/Applications/ARM/logs/* >/dev/null 2>&1
 
 touch /home/fileserver/Applications/Backup/logs/backup.log >/dev/null 2>&1
 touch /home/fileserver/Applications/Backup/logs/rsync.log >/dev/null 2>&1
+touch /home/fileserver/Applications/Backup/logs/windowsvmuserfolder.log >/dev/null 2>&1
 touch /home/fileserver/Applications/btrfscheck/btrfscheck.log >/dev/null 2>&1
 
 chmod 755 -R /home/fileserver/Applications/Backup/logs >/dev/null 2>&1

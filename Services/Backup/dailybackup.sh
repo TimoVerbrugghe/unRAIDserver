@@ -49,10 +49,10 @@ function backup () {
 # Backup Script #
 #################
 
-printf "Starting Daily Backup. Time & Date right now is $(date)\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
+printf "Starting Daily Backup. Time & Date right now is $(date)\n" >> $BACKUP_LOG 2>&1
 
 # Checking if Media & Backup is mounted
-printf "Checking if Media & Backup is successfully mounted\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
+printf "Checking if Media & Backup is successfully mounted\n" >> $BACKUP_LOG 2>&1
 
 mountCheck $MEDIA_LOCATION
 mountCheck $BACKUP_LOCATION
@@ -66,5 +66,5 @@ for i in "${BACKUP_FOLDERS[@]}"; do
 done
 
 # Ending backup
-printf "End of Daily Backup.\n\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
+printf "End of Daily Backup.\n\n" >> $BACKUP_LOG 2>&1
 exit 0
