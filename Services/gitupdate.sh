@@ -34,6 +34,13 @@ su fileserver -c "composer install"
 /usr/bin/chmod +x /home/fileserver/Applications/pushbullet.sh
 /usr/bin/chmod +x /home/fileserver/Applications/stopx11vnc.sh
 
+/usr/bin/chmod +x /home/fileserver/Applications/ARM/arm_wrapper.sh
+/usr/bin/chmod +x /home/fileserver/Applications/ARM/audiorip.sh
+/usr/bin/chmod +x /home/fileserver/Applications/ARM/datarip.sh
+/usr/bin/chmod +x /home/fileserver/Applications/ARM/getmovietitle.py
+/usr/bin/chmod +x /home/fileserver/Applications/ARM/identify.sh
+/usr/bin/chmod +x /home/fileserver/Applications/ARM/videorip.sh
+
 # Restart services for which config files are linked
 # Apache, Samba, FTP
 /usr/bin/systemctl restart httpd smbd nmbd vsftpd

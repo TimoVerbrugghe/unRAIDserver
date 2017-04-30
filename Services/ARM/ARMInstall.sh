@@ -13,8 +13,11 @@
 
 # Place files at correct locations
 	# Move 51-automedia.rules to /etc/udev/rules.d/
-	# Move abcde.conf, arm_wrapper.sh, audiorip.sh, datarip.sh, getmovietitle.py, identify.sh & videorip.sh to /home/fileserver/Applications/ARM/
+	# Move requirements.txt, abcde.conf, arm_wrapper.sh, audiorip.sh, datarip.sh, getmovietitle.py, identify.sh & videorip.sh to /home/fileserver/Applications/ARM/
 
 # Create log & output folder
 	mkdir /home/fileserver/Applications/ARM/logs
 	mkdir /home/fileserver/Media/DriveRip/
+
+# Install python dependencies
+	pip3 install -r requirements.txt
