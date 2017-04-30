@@ -5,7 +5,7 @@
 # The scripts are heavily modified to integrate pushbullet notifications, make them easier to read and stripped of features that weren't needed (such as handbrake encoding)
 
 # Installing dependencies
-	pacaur -Syu makemkv-cli at abcde lame mp3gain glyr
+	pacaur -Syu makemkv-cli at abcde lame mp3gain glyr python-pip python-pycurl python-requests python-urllib3 python-xmltodict
 
 # Enable & start atd service
 	systemctl enable atd

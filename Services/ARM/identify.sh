@@ -12,6 +12,7 @@
 	MOVIETITLE_SCRIPT="/home/fileserver/Applications/ARM/getmovietitle.py"
 	VIDEORIP_SCRIPT="/home/fileserver/Applications/ARM/videorip.sh"
 	DATARIP_SCRIPT="/home/fileserver/Applications/ARM/datarip.sh"
+	AUDIORIP_SCRIPT="/home/fileserver/Applications/ARM/audiorip.sh"
 	LOG="/home/fileserver/Applications/ARM/logs/identify.log"
 
 ##################
