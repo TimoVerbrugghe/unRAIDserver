@@ -50,6 +50,7 @@ rm -rf /home/fileserver/.wget-hsts 2>&1 &&
 rm -rf /home/fileserver/.thumbnails 2>&1 &&
 rm -rf /home/fileserver/Downloads/* 2>&1 &&
 rm -rf /home/fileserver/Desktop/* 2>&1 &&
+rm -rf /home/fileserver/Media/DriveRip/* 2>&1 &&
 
 # Removing unnecessary packages
 printf "Removing unnecessary packages\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1

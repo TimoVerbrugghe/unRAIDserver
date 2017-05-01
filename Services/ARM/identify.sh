@@ -73,9 +73,6 @@ else
 	printf "Unable to identify CD/DVD. Putting gathered information in log & exiting.\n" >> "$LOG"
 	printf "$ID_CDROM_MEDIA_TRACK_COUNT_AUDIO\n" >> "$LOG"
 	printf "$ID_FS_TYPE\n" >> "$LOG"
-
-	printf "Sending message\n\n" >> "$LOG"
-	$PUSHBULLET_SCRIPT "ArchServer: CD/DVD not identified" "ArchServer could not identify the CD/DVD you inserted."
 fi
 
 exit 0

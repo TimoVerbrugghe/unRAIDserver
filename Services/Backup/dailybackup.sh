@@ -13,7 +13,7 @@ BACKUP_LOG="/home/fileserver/Applications/Backup/logs/backup.log"
 MEDIA_LOCATION="/home/fileserver/Media"
 BACKUP_LOCATION="/home/fileserver/Backup"
 
-BACKUP_FOLDERS=(Applications DriveRip Books Games Movies Music Network OSInstallISO Photos Software SystemImage TVShows)
+BACKUP_FOLDERS=(Applications Books Games Movies Music Network OSInstallISO Photos Software SystemImage TVShows)
 ERRORVALUE=0
 
 #############
