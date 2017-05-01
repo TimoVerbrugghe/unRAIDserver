@@ -43,7 +43,7 @@ printf "Video Title is ${VIDEO_TITLE}\n" >> "$LOG"
 printf "Ripping video ${ID_FS_LABEL} from ${DEVNAME}\n" >> "$LOG"
 
 printf "Sending message\n" >> "$LOG"
-$PUSHBULLET_SCRIPT "ArchServer: Video Rip Started" "ArchServer has identified an Video CD/DVD in its tray and has begun ripping. A seperate message will be sent when completed."
+$PUSHBULLET_SCRIPT "ArchServer: Video Rip Started" "ArchServer has identified an Video CD/DVD in its tray and has begun ripping. A separate message will be sent when completed."
 
 # Create destination folder if not already created
 mkdir -p "$DEST"

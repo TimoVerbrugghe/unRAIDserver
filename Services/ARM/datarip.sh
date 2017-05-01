@@ -22,7 +22,7 @@
 printf "Starting ripping DATA CD/DVD. Time & Date right now is $(date)\n" >> "$LOG"
 
 printf "Sending message\n" >> "$LOG"
-$PUSHBULLET_SCRIPT "ArchServer: Data Rip Started" "ArchServer has identified an Data CD/DVD in its tray and has begun ripping. A seperate message will be sent when completed."
+$PUSHBULLET_SCRIPT "ArchServer: Data Rip Started" "ArchServer has identified an Data CD/DVD in its tray and has begun ripping. A separate message will be sent when completed."
 
 # Create destination folder if not already created
 mkdir -p "$DEST"
