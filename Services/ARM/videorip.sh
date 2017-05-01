@@ -29,10 +29,10 @@
 	MINLENGTH="600"
 
 # Setting Destination folder
+	VIDEO_TITLE=$1
 	DEST="${RIPFOLDER}/${VIDEO_TITLE}"
 
 # Other Variables
-	VIDEO_TITLE=$1
 	LOG="/home/fileserver/Applications/ARM/logs/videorip.log"
 
 ###################
