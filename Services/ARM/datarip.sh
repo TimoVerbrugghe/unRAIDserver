@@ -27,9 +27,7 @@ $PUSHBULLET_SCRIPT "ArchServer: Data Rip Started" "ArchServer has identified an 
 # Create destination folder if not already created
 mkdir -p "$DEST"
 
-# Using cat instead of dd because of performance
-# dd if=/dev/sr0 of=$DEST/$FILENAME 
-cat "$DEVNAME" > "$DEST"
+dd if=/dev/sr0 of=$DEST/$FILENAME >> "$LOG"
 		
 # Setting right permissions
 chmod -R 755 "$RIPFOLDER"
