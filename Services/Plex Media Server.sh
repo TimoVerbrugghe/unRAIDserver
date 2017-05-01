@@ -30,6 +30,7 @@
 	# Download latest trakt TV plugin release from https://github.com/trakt/Plex-Trakt-Scrobbler
 	# Unzip & move Trakttv.bundle to /home/fileserver/Applications/plexmediaserver/Plex\ Media\ Server/Plug-ins/
 
+## SSL support
 	# Go to Settings -> Server -> Network
 	# Custom certificate location -> /home/fileserver/Applications/plexmediaserver/certificate.pfx
 	# Custom certificate encryption key -> plexmediaserver
