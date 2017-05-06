@@ -17,7 +17,7 @@ netctl enable tuntap1
 netctl start tuntap1
 
 ## Set up new ubuntu server VM
-	# Move qemuargspihole, startpihole, stoppihole to ~/Applications/pihole/
+	# Move qemuargspihole to ~/Applications/pihole/
 	# Move pihole.service to /etc/systemd/system/pihole.service
 	systemctl enable pihole.service
 

@@ -1,0 +1,16 @@
+[Unit]
+Description=QEMU virtual machine - pfSense
+After=syslog.target network.target
+OnFailure=unit-failure-notification@%n
+
+[Service]
+Type=forking
+PIDFile=/run/qemu_pfsense.pid
+EnvironmentFile=/home/fileserver/Applications/pfsense/qemuargspfsense
+ExecStart=/usr/bin/qemu-system-x86_64 $args
+ExecStop=/bin/sh -c '{ echo system_powerdown; sleep 5; } | telnet localhost 7102; while ps ax | grep "/usr/bin/qemu-system-x86_64 -name pfSense" | grep -vq grep; do echo "Still waiting... (Waiting for 10 more seconds)"; sleep 10; done; echo "pfSense successfully shutdown"'
+TimeoutStopSec=60
+KillMode=none
+
+[Install]
+WantedBy=multi-user.target
