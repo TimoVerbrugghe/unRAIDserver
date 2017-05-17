@@ -10,5 +10,5 @@ convert: true
 avconv: /usr/bin/ffmpeg
 rtmpdump: /usr/bin/rtmpdump
 curl: /usr/bin/curl
-uglyUrls: false
-stream: false
+uglyUrls: true
+stream: true
