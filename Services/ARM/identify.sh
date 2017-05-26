@@ -21,12 +21,6 @@
 
 printf "Starting Identify Script. Time & Date right now is $(date)\n" >> "$LOG"
 
-# Set Home to home folder of user that is setup to run MakeMKV
-# export HOME="/root/"
-
-# Output UDEV info
-# udevadm info -q env -n "$DEVNAME" >> "$LOG"
-
 if [ "$ID_FS_TYPE" == "udf" ]; then
 	printf "Identified udf\n" >> "$LOG"
 	printf "Found ${ID_FS_LABEL} on ${DEVNAME}\n" >> "$LOG"
