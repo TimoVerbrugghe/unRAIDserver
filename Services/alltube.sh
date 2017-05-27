@@ -13,7 +13,6 @@
 	chmod -R 777 ~/Media/Network/alltube/templates_c/
 
 # Enable php extension gmp
-	nano /etc/php/php.ini
-		extension=gmp.so
+	# Place extensions.ini in /etc/php/conf.d/extensions.ini
 		
 # Place config.yml file in root folder of alltube (see ArchServerGit config folder)

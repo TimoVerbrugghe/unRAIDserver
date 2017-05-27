@@ -5,8 +5,8 @@
 	bzip2 -d nextcloud-10.0.1.tar.bz2
 	tar -xvf nextcloud-10.0.1.tar
 
-# Uncomment following line in /etc/php/conf.d/apcu.ini
-	extension=apcu.so
+# Apcu & OPcache
+	# Place apcu.ini & opcache.ini in /etc/php/conf.d/
 
 ## Setup nextcloud database
 	mysql -u root -p

@@ -36,18 +36,8 @@
 	mysql_secure_installation
 
 # Connect php with mariadb
-	# Uncomment following lines in /etc/php/php.ini
-	extension=bz2.so
-	extension=curl.so
-	extension=gd.so
-	extension=iconv.so
-	extension=intl.so
-	extension=mcrypt.so
-	extension=mysqli.so
-	extension=pdo_mysql.so
-	extension=xmlrpc.so
-	extension=zip.so
-
+	# Place extensions.ini in /etc/php/conf.d/extensions.ini
+	
 # Enable Apache
 	systemctl enable httpd
 	systemctl start httpd
