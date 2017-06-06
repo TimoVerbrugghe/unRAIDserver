@@ -27,11 +27,11 @@ args = "-name Windows \
 -drive file=/dev/sdb,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \
 -drive file=/dev/sdg,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \
 -object iothread,id=iothread0 \
--device virtio-scsi,iothread=iothread0 \
--device scsi-hd,drive=disk0 \
 -object iothread,id=iothread1 \
--device virtio-scsi,iothread=iothread1 \
--device scsi-hd,drive=disk1 \
+-device virtio-scsi,iothread=iothread0,id=scsi0 \
+-device virtio-scsi,iothread=iothread1,id=scsi1 \
+-device scsi-hd,drive=disk0,bus=scsi0.0 \
+-device scsi-hd,drive=disk1,bus=scsi1.0 \
 -device virtio-net-pci,netdev=network0,mac=52:54:00:00:00:01 \
 -netdev tap,id=network0,ifname=tap0,script=no,downscript=no"
 

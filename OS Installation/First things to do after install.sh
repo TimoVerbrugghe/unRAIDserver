@@ -110,6 +110,6 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 ## Autologin
 systemctl edit getty@tty1
 
-[Service]
-ExecStart=
-ExecStart=-/usr/bin/agetty --autologin fileserver --noclear %I $TERM
+	[Service]
+	ExecStart=
+	ExecStart=-/usr/bin/agetty --autologin fileserver --noclear %I $TERM

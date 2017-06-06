@@ -41,21 +41,21 @@ timedatectl set-ntp true
 # Get current interface name
 ip addr
 
-# /etc/netctl/staticIPwired
-Interface= <interfacename>
-Connection=ethernet
-IP=static
-Address=('10.124.161.101/24')
-Gateway=('10.124.161.93')
-DNS=('8.8.8.8' '8.8.4.4')
-TimeoutUp=300
-TimeoutCarrier=300
+# /etc/netctl/wired
+	Interface= <interfacename>
+	Connection=ethernet
+	IP=static
+	Address=('10.124.161.101/24')
+	Gateway=('10.124.161.93')
+	DNS=('8.8.8.8' '8.8.4.4')
+	TimeoutUp=300
+	TimeoutCarrier=300
 
 # /etc/netctl/hooks/status
 
-#!/bin/sh
-ExecUpPost="systemctl start network-online.target"
-ExecDownPre="systemctl stop network-online.target"
+	#!/bin/sh
+	ExecUpPost="systemctl start network-online.target"
+	ExecDownPre="systemctl stop network-online.target"
 
 netctl enable staticIPwired
 

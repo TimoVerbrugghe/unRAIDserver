@@ -86,7 +86,13 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		Mode='tap'
 		User='nobody'
 		Group='nobody'
-	
+
+	# No more ip address is required in the wired profile
+	nano /etc/netctl/wired 
+		Interface=enp3s0
+		Connection=ethernet
+		IP=no
+
 	netctl enable bridge
 	netctl disable enp3s0
 
