@@ -1,5 +1,5 @@
 [Unit]
-Description = Will run certbot.service every day at 3:30 am (with a randomized delay of 30 seconds to )
+Description = Will run certbot.service every day at 5:30 am (with a randomized delay of 30 seconds)
 
 [Timer]
 # OnCalendar Syntax: days year-month-day hour:minutes:seconds
@@ -7,7 +7,7 @@ Description = Will run certbot.service every day at 3:30 am (with a randomized d
 # * is wildcard
 # days works as an if statemtent (only run if day is equal to one of the options in days) (Optional)
 
-OnCalendar= *-*-* 3:30:00
+OnCalendar= *-*-* 5:30:00
 RandomizedDelaySec=30s
 Persistent=true
 Unit=certbot.service

@@ -1,5 +1,5 @@
 [Unit]
-Description = Will run gitupdate.service every week on Tuesday, at 5 am
+Description = Will run gitupdate.service every day at midnight
 
 [Timer]
 # OnCalendar Syntax: days year-month-day hour:minutes:seconds
@@ -7,7 +7,7 @@ Description = Will run gitupdate.service every week on Tuesday, at 5 am
 # * is wildcard
 # days works as an if statemtent (only run if day is equal to one of the options in days) (Optional)
 
-OnCalendar=Tue *-*-* 05:00:00
+OnCalendar=*-*-* 00:00:00
 Unit=gitupdate.service
 
 [Install]

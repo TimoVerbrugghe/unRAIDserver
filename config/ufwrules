@@ -18,21 +18,22 @@ To                         Action      From
 443                        ALLOW       Anywhere
 
 # SMB
-137/udp                    ALLOW       10.124.161.0/24
-138/udp                    ALLOW       10.124.161.0/24
-139/tcp                    ALLOW       10.124.161.0/24
-445/tcp                    ALLOW       10.124.161.0/24
-
-# CUPS
-631/tcp                    ALLOW       10.124.161.0/24
+137/udp                    ALLOW       192.168.0.0/24
+138/udp                    ALLOW       192.168.0.0/24
+139/tcp                    ALLOW       192.168.0.0/24
+445/tcp                    ALLOW       192.168.0.0/24
 
 # NFS
-2049                       ALLOW       10.124.161.0/24
-111                        ALLOW       10.124.161.0/24
-20048                      ALLOW       10.124.161.0/24
+2049                       ALLOW       192.168.0.0/24
+111                        ALLOW       192.168.0.0/24
+20048                      ALLOW       192.168.0.0/24
 
 # Zeroconf/Bonjour
-5353                       ALLOW       10.124.161.0/24
+5353                       ALLOW       192.168.0.0/24
+
+# Unifi
+8080					   ALLOW	   192.168.0.0/24
+8443					   ALLOW	   192.168.0.0/24
 
 # IP V6 rules
 22/tcp (v6)                ALLOW       Anywhere (v6)

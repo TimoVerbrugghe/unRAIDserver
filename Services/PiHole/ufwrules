@@ -1,0 +1,8 @@
+Status: active
+
+To                         Action      From
+--                         ------      ----
+53                         ALLOW       192.168.0.0/24
+80/tcp                     ALLOW       192.168.0.0/24
+22/tcp                     ALLOW       192.168.0.0/24
+443                        REJECT      192.168.0.0/24
