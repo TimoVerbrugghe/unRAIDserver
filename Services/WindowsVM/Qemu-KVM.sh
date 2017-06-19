@@ -72,8 +72,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		Connection=bridge
 		BindsToInterfaces=(enp3s0 tap0)
 		IP=static
-		Address='10.124.161.101/24'
-		Gateway='10.124.161.93'
+		Address='192.168.0.0/24'
+		Gateway='192.168.0.1'
 		DNS=('8.8.8.8' '8.8.4.4')
 		TimeoutUp=300
 		TimeoutCarrier=300

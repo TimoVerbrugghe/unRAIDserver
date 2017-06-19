@@ -52,9 +52,9 @@ netctl start tuntap1
 	# Set up static IP
 	nano /etc/network/interfaces
 		iface enp3s0 inet static
-	        address 10.124.161.103
+	        address 192.168.0.4
 	        netmask 255.255.255.0
-	        gateway 10.124.161.93
+	        gateway 192.168.0.1
 	        dns-nameservers 8.8.8.8 8.8.4.4
 
 	# Set up SSH
@@ -65,13 +65,7 @@ netctl start tuntap1
 		systemctl enable sshd
 		systemctl start sshd
 
-	# Set up UFW
-	ufw default deny
-	ufw allow from 10.124.161.0/24 to any port 80 proto tcp
-	ufw allow from 10.124.161.0/24 to any port 53
-	ufw allow from 10.124.161.0/24 to any port 22 proto tcp
-	ufw reject from 10.124.161.0/24 to any port 443
-	ufw enable	
+	# Set up UFW -> see ufwrules in pihole folder
 
 	# Faster boot
 	nano /etc/default/grub

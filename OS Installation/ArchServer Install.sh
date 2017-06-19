@@ -45,8 +45,8 @@ ip addr
 	Interface= <interfacename>
 	Connection=ethernet
 	IP=static
-	Address=('10.124.161.101/24')
-	Gateway=('10.124.161.93')
+	Address=('192.168.0.3/24')
+	Gateway=('192.168.0.1')
 	DNS=('8.8.8.8' '8.8.4.4')
 	TimeoutUp=300
 	TimeoutCarrier=300
