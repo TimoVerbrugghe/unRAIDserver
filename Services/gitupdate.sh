@@ -34,6 +34,7 @@ su fileserver -c "composer install"
 /usr/bin/chmod +x /home/fileserver/Applications/gitupdate.sh
 /usr/bin/chmod +x /home/fileserver/Applications/pushbullet.sh
 /usr/bin/chmod +x /home/fileserver/Applications/stopx11vnc.sh
+/usr/bin/chmod +x /home/fileserver/Applications/certbot.sh
 
 /usr/bin/chmod +x /home/fileserver/Applications/ARM/arm_wrapper.sh
 /usr/bin/chmod +x /home/fileserver/Applications/ARM/audiorip.sh

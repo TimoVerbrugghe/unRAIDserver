@@ -27,11 +27,9 @@ keytool -import -trustcacerts -alias unifi -deststorepass aircontrolenterprise -
 
 # Backup old unifi keystore
 mv /var/lib/unifi/data/keystore /var/lib/unifi/data/keystore.bak
-mv /usr/lib/unifi/data/keystore /usr/lib/unifi/data/keystore.bak
 
 # Copy new unifi keystore
 cp /etc/letsencrypt/live/timoverbrugghe.duckdns.org/keystore /var/lib/unifi/data/keystore
-cp /etc/letsencrypt/live/timoverbrugghe.duckdns.org/keystore /usr/lib/unifi/data/keystore
 
 # Reload Apache & Unifi service after renewing certificates (plexmediaserver does not need to be restarted)
 systemctl restart unifi httpd
