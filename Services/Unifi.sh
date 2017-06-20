@@ -13,3 +13,5 @@
 
  # Add firewall exceptions
  	# Port 8080 & 8443 on local network
+
+ # Run systemd service certbot to enable SSL on unifi controller
