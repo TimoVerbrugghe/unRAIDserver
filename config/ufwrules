@@ -33,12 +33,4 @@ To                         Action      From
 
 # Unifi
 8080					   ALLOW	   192.168.0.0/24
-8443					   ALLOW	   192.168.0.0/24
-
-# IP V6 rules
-22/tcp (v6)                ALLOW       Anywhere (v6)
-32400 (v6)                 ALLOW       Anywhere (v6)
-40000:41000/tcp (v6)       ALLOW       Anywhere (v6)
-80 (v6)                    ALLOW       Anywhere (v6)
-443 (v6)                   ALLOW       Anywhere (v6)
-8084/tcp (v6)			   ALLOW       Anywhere (v6)
+8443					   ALLOW	   Anywhere
