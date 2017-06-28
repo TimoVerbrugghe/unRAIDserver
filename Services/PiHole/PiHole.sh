@@ -47,7 +47,7 @@ netctl start tuntap1
 	sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y
 
 	# Installation of nano, wget (needed for pihole install) & openssh, ufw
-	sudo apt-get install nano wget openssh-server ufw
+	sudo apt-get install nano curl openssh-server ufw
 
 	# Set up static IP
 	nano /etc/network/interfaces
@@ -73,11 +73,15 @@ netctl start tuntap1
 
 	update-grub
 
+	# Time synchronization
+	ln -sf /usr/share/zoneinfo/Europe/Brussels /etc/localtime
+	timedatectl set-ntp true
+
 	# Install Pi-Hole
-	wget -O basic-install.sh https://install.pi-hole.net
-	bash basic-install.sh
+	curl -sSL https://install.pi-hole.net | bash
 		# Follow Pi-Hole installation instructions
 		# Do net let Pi-Hole setup IP address or firewall (already manually set up)
+			# Pi-Hole will STILL create a file /etc/dhcpcd.conf with your IP address in it, this file needs to be changed if ip address of pi-hole (or VM) ever changes
 
 	# Change admin password
 	sudo pihole -a -p <newpassword>

@@ -1,6 +1,5 @@
 [Unit]
-Description = Will run gitupdate.service every day at midnight
-
+Description = Will run gitupdate.service every day at 00:30 (to avoid conflicts with other services)
 [Timer]
 # OnCalendar Syntax: days year-month-day hour:minutes:seconds
 # 1..5 represents a range

@@ -14,6 +14,7 @@ Type=simple
 TimeoutStopSec=20
 KillMode=process
 Restart=always
+SuccessExitStatus=9
 
 [Install]
 WantedBy=multi-user.target

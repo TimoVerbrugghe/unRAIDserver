@@ -21,3 +21,4 @@
 
 "C:\Users\ArchServer\Desktop\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\192.168.0.3\Media\Games\PS1\PaRappaTheRapper.bin"
 "C:\Users\ArchServer\Desktop\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\192.168.0.3\Media\Games\PS1\CrashTeamRacing.bin"
+"C:\Users\ArchServer\Desktop\GameApps\RetroArch\retroarch.exe" -L "C:\Users\ArchServer\Desktop\GameApps\RetroArch\cores\glupen64_libretro.dll" "\\10.124.161.101\Media\Games\N64\Conker Bad Fur Day.z64"

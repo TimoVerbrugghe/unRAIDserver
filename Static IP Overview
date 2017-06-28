@@ -1,0 +1,8 @@
+## Static IP overview
+192.168.0.1		Telenet Modem/Router combo
+192.168.0.2		
+192.168.0.3		ArchServer
+192.168.0.4		Pi-Hole
+192.168.0.5		HTPC
+192.168.0.6		XBOX One 						# Nog in te stellen
+192.168.0.7		OnePlus One
