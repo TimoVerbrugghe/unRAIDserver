@@ -2,7 +2,10 @@ Status: active
 
 To                         Action      From
 --                         ------      ----
-53                         ALLOW       192.168.0.0/24
-80/tcp                     ALLOW       192.168.0.0/24
 22/tcp                     ALLOW       192.168.0.0/24
-443                        REJECT      192.168.0.0/24
+53                         ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+443/tcp                    REJECT      Anywhere
+53 (v6)                    ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+443/tcp (v6)               REJECT      Anywhere (v6)

@@ -67,14 +67,24 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 
 # Set up netctl bridge
 	nano /etc/netctl/bridge
+
 		Description="Bridge configuration for qemu"
 		Interface=br0
 		Connection=bridge
-		BindsToInterfaces=(enp3s0 tap0)
+		BindsToInterfaces=(enp3s0 tap0 tap1)
+
+		## IPv4 configuration
 		IP=static
-		Address='192.168.0.0/24'
+		Address='192.168.0.3/24'
 		Gateway='192.168.0.1'
-		DNS=('8.8.8.8' '8.8.4.4')
+
+		## IPv6 configuration
+		IP6=static
+		Address6='2a02:1810:4f2b:7900::0003/64'
+		Gateway6='fe80::1'
+
+		## General configuration
+		DNS=('8.8.8.8' '8.8.4.4' '2001:4860:4860::8888' '2001:4860:4860::8844')
 		TimeoutUp=300
 		TimeoutCarrier=300
 		SkipForwardingDelay=yes

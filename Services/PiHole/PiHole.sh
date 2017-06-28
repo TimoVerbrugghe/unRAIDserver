@@ -36,6 +36,8 @@ netctl start tuntap1
 # Ubuntu Server VM #
 ####################
 
+# Pi-Hole is only supported up to Ubuntu 16.10 - Later versions are not yet officially supported - Using Ubuntu 16.04.2 LTS in Pi-Hole VM
+
 # Go through Ubuntu Server Installation (You can connect to a vnc server at port :5901 for a graphical install, make sure firewall allows port 5901)
 	# Hostname PiHole
 	# User pihole
@@ -51,11 +53,17 @@ netctl start tuntap1
 
 	# Set up static IP
 	nano /etc/network/interfaces
-		iface enp3s0 inet static
+		iface <interfacename> inet static
 	        address 192.168.0.4
 	        netmask 255.255.255.0
 	        gateway 192.168.0.1
 	        dns-nameservers 8.8.8.8 8.8.4.4
+
+	    iface <interfacename> inet6 static
+	    	address 2a02:1810:4f2b:7900::4
+	        netmask 64
+	        gateway fe80::1
+	        dns-nameservers 2001:4860:4860::8888 2001:4860:4860::8844
 
 	# Set up SSH
 	nano /etc/ssh/sshd_config
@@ -82,6 +90,7 @@ netctl start tuntap1
 		# Follow Pi-Hole installation instructions
 		# Do net let Pi-Hole setup IP address or firewall (already manually set up)
 			# Pi-Hole will STILL create a file /etc/dhcpcd.conf with your IP address in it, this file needs to be changed if ip address of pi-hole (or VM) ever changes
+			# Pi-Hole will not enable IPv6 OpenDNS support, need to enable it through the web admin interface
 
 	# Change admin password
 	sudo pihole -a -p <newpassword>

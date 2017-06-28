@@ -1,9 +1,3 @@
-raw.githubusercontent.com
-mirror1.malwaredomains.com
-sysctl.org
-zeustracker.abuse.ch
-s3.amazonaws.com
-hosts-file.net
 clients4.google.com
 reddestdream.github.io
 adaway.org

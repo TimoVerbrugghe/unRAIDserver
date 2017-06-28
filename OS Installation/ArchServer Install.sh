@@ -45,11 +45,16 @@ ip addr
 	Interface= <interfacename>
 	Connection=ethernet
 	IP=static
-	Address=('192.168.0.3/24')
-	Gateway=('192.168.0.1')
-	DNS=('8.8.8.8' '8.8.4.4')
+	Address='192.168.0.3/24'
+	Gateway='192.168.0.1'
+	IP6=static
+	Address6='2a02:1810:4f2b:7900::0003/64'
+	Gateway6='fe80::1'
+	# Using IPv4 & IPv6 Google DNS servers
+	DNS=('8.8.8.8' '8.8.4.4' '2001:4860:4860::8888' '2001:4860:4860::8844')
 	TimeoutUp=300
 	TimeoutCarrier=300
+
 
 # /etc/netctl/hooks/status
 

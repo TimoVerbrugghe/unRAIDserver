@@ -1,8 +1,9 @@
 ## Static IP overview
-192.168.0.1		Telenet Modem/Router combo
-192.168.0.2		
-192.168.0.3		ArchServer
-192.168.0.4		Pi-Hole
-192.168.0.5		HTPC
-192.168.0.6		XBOX One 						# Nog in te stellen
-192.168.0.7		OnePlus One
+Telenet Modem/Router combo		192.168.0.1 / <Gateway Address created by using local link address>
+Ubiquity Unifi AC AP Pro		192.168.0.2 / <Static IPv6 not set>
+ArchServer						192.168.0.3 / 2a02:1810:4f2b:7900::3
+Pi-Hole							192.168.0.4 / 2a02:1810:4f2b:7900::4
+HTPC							192.168.0.5 / 2a02:1810:4f2b:7900::5
+XBOX One 						192.168.0.6 / <Static IPv6 not set>
+OnePlus One 					192.168.0.7 / <Static IPv6 not set>
+Surface							192.168.0.8 / 2a02:1810:4f2b:7900::8
