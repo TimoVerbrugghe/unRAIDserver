@@ -7,3 +7,4 @@ HTPC							192.168.0.5 / 2a02:1810:4f2b:7900::5
 XBOX One 						192.168.0.6 / <Static IPv6 not set>
 OnePlus One 					192.168.0.7 / <Static IPv6 not set>
 Surface							192.168.0.8 / 2a02:1810:4f2b:7900::8
+Windows 10 Desktop				192.168.0.9 / 2a02:1810:4f2b:7900::9
