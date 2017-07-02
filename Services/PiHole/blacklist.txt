@@ -1,0 +1,11 @@
+api.mixpanel.com
+spade.twitch.com
+pubads.g.doubleclick.net
+sb.scorecardresearch.com
+ad.pandora.tv
+ads.pandora.tv.net
+stats.pandora.com
+adserver.pandora.com
+wsp.mgid.com
+s0.2mdn.net
+vsp-alexa-eu.amazon.com

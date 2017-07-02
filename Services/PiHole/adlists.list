@@ -6,6 +6,16 @@ https://hosts-file.net/grm.txt
 https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts
 https://raw.githubusercontent.com/StevenBlack/hosts/master/data/KADhosts/hosts
 https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts
+https://v.firebog.net/hosts/BillStearns.txt
+http://sysctl.org/cameleon/hosts
+https://www.dshield.org/feeds/suspiciousdomains_Low.txt
+http://www.joewein.net/dl/bl/dom-bl-base.txt
+https://raw.githubusercontent.com/piwik/referrer-spam-blacklist/master/spammers.txt
+https://hostsfile.org/Downloads/hosts.txt
+http://someonewhocares.org/hosts/zero/hosts
+https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt
+https://raw.githubusercontent.com/vokins/yhosts/master/hosts
+http://winhelp2002.mvps.org/hosts.txt
 
 # Advertising Lists
 
@@ -16,6 +26,7 @@ https://hosts-file.net/ad_servers.txt
 http://v.firebog.net/hosts/Easylist.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/data/SpotifyAds/hosts
 https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts
+https://v.firebog.net/hosts/static/SamsungSmart.txt
 
 # Tracking & Telemetry Lists
 

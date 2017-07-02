@@ -1,0 +1,34 @@
+## Services and external/internal ports used by ARCHSERVER
+Apache				80/tcp & 443/tcp
+SSH					22/tcp
+Plex				32400/tcp & 1900,1901
+FTP					8084/tcp & 40000:41000/tcp
+SMB					137,138/udp & 139,445/tcp
+NFS					2049,111,20048
+Zeroconf/Bonjour	5353
+Unifi				8080,8443,6789,8843,8880,10001,3478
+Crashplan			4243
+Sonarr				8081
+Radarr				8082
+Deluge				8083,6771 (+ several random ports)
+Shellinabox			8085
+Websockets (noVNC)	8086
+NetData				8087
+Jackett				8088
+NzbGet				8089
+x11vnc				5900
+Cups				631
+Qemu (telnet)		7100, 7101
+RPC.statd			42417,48867
+MySQL				3306
+
+## Services and external/internal ports used by HTPC
+Kodi				36666, 8080, 52307, 1908, 9090, 1900, 4794, 9777
+SSH					22/tcp
+SMB					137,138/udp & 139,445/tcp
+
+## Services and external/internal ports used by Pi-Hole
+Pi-Hole				4771
+Dnsmasq				53
+Lighttpd			80
+Dhcpcd				68,546

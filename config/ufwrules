@@ -34,3 +34,6 @@ To                         Action      From
 # Unifi
 8080					   ALLOW	   192.168.0.0/24
 8443					   ALLOW	   Anywhere
+
+# Crashplan
+4243/tcp                   ALLOW       192.168.0.0/24

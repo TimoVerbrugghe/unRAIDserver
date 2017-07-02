@@ -49,7 +49,7 @@ netctl start tuntap1
 	sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y
 
 	# Installation of nano, wget (needed for pihole install) & openssh, ufw
-	sudo apt-get install nano curl openssh-server ufw
+	sudo apt-get install nano curl openssh-server ufw php-zip
 
 	# Set up static IP
 	nano /etc/network/interfaces
