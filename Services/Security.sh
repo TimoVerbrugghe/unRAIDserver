@@ -3,8 +3,9 @@
 
 ## Deny user login access after 5 failed login attempts
 	nano /etc/pam.d/system-login
-	# Comment out first auth required tally.so line
-	auth required pam_tally.so deny=5 unlock_time=600 onerr=succeed file=/var/log/faillog
+	# Comment out first auth required tally.so line & add following lines to the auth/account section
+	auth required pam_tally2.so deny=5 unlock_time=600 onerr=succeed file=/var/log/faillog
+	account required pam_tally2.so
 
 ## Only allow certain users
 	nano /etc/pam.d/su && nano /etc/pam.d/su-l
