@@ -138,5 +138,5 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 	# Set the firewall to temporarily enable port 5902
 
 ## Enabling remote moonlight streaming
-	# Assign a static IP to the Windows VM
+	# Assign a static IP(v4 & v6) to the Windows VM
 	# Open the required moonlight streaming ports, more information at their Github -> https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#streaming-over-the-internet
