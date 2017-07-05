@@ -5,15 +5,15 @@
 
 # Reset any changes done in the ArchServerGit repository (updating is only done one-way or by manually committing!)
 /usr/bin/git -C /home/fileserver/Applications/ArchServerGit/ reset --hard
-/usr/bin/git -C /home/fileserver/Media/Network/vnc/ reset --hard
-/usr/bin/git -C /home/fileserver/Media/Network/scanner/ reset --hard
-/usr/bin/git -C /home/fileserver/Media/Network/alltube/ reset --hard
+su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/vnc/ reset --hard"
+su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/scanner/ reset --hard"
+su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/alltube/ reset --hard"
 
 # Updating Git repositories
 /usr/bin/git -C /home/fileserver/Applications/ArchServerGit/ pull
-/usr/bin/git -C /home/fileserver/Media/Network/vnc/ pull
-/usr/bin/git -C /home/fileserver/Media/Network/scanner/ pull
-/usr/bin/git -C /home/fileserver/Media/Network/alltube/ pull
+su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/vnc/ pull"
+su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/scanner/ pull"
+su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/alltube/ pull"
 
 ## Post Processing
 # Alltube -> Npm & Composer reinstall after update
