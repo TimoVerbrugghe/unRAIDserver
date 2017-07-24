@@ -11,7 +11,7 @@ args = "-name Windows \
 -machine type=q35,accel=kvm \
 -cpu host,kvm=off,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_vendor_id=whatever  \
 -smp 4,sockets=1,cores=4,threads=1 \
--m 8192 \
+-m 12288 \
 -mem-path /dev/hugepages \
 -mem-prealloc \
 -balloon none \

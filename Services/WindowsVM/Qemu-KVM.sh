@@ -56,9 +56,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 # Add to /etc/fstab
 	hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=<GIDOFKVMGROUP>        0 0
 
-# Change HugePages to 8 gb
+# Change HugePages to 12 gb (6144 * 2048kb)
 	nano /etc/sysctl.d/40-hugepage.conf
-	vm.nr_hugepages = 4200
+	vm.nr_hugepages = 6144
 
 ## Enabling networking
 # Enable bridge helper
