@@ -89,11 +89,6 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		TimeoutCarrier=300
 		SkipForwardingDelay=yes
 
-		## Start network-online target when this profile is started
-		ExecUpPost="systemctl start network-online.target"
-		ExecDownPre="systemctl stop network-online.target"
-
-
 	nano /etc/netctl/tuntap
 		Description='Tuntap connection for qemu'
 		Interface=tap0
