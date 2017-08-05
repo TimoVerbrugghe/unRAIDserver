@@ -89,6 +89,11 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		TimeoutCarrier=300
 		SkipForwardingDelay=yes
 
+		## Start network-online target when this profile is started
+		ExecUpPost="systemctl start network-online.target"
+		ExecDownPre="systemctl stop network-online.target"
+
+
 	nano /etc/netctl/tuntap
 		Description='Tuntap connection for qemu'
 		Interface=tap0
@@ -97,11 +102,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		User='nobody'
 		Group='nobody'
 
-	# No more ip address is required in the wired profile
-	nano /etc/netctl/wired 
-		Interface=enp3s0
-		Connection=ethernet
-		IP=no
+	# default Wired profile now needs to be deleted
+	netctl disable wired
+	rm -rf /etc/netctl/wired
 
 	netctl enable bridge
 	netctl disable enp3s0

@@ -1,5 +1,7 @@
 [Unit]
 Description= x11vnc server - Display your physical monitor over vnc
+Wants=network-online.target
+After=network-online.target
 OnFailure=unit-failure-notification@%n
 
 [Service]

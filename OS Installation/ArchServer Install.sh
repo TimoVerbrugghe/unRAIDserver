@@ -54,13 +54,9 @@ ip addr
 	DNS=('8.8.8.8' '8.8.4.4' '2001:4860:4860::8888' '2001:4860:4860::8844')
 	TimeoutUp=300
 	TimeoutCarrier=300
-
-
-# /etc/netctl/hooks/status
-
-	#!/bin/sh
+	# Start network-online target when this profile is started
 	ExecUpPost="systemctl start network-online.target"
-	ExecDownPre="systemctl stop network-online.target"
+	ExecDownPre="systemctl stop network-online.target"	
 
 netctl enable staticIPwired
 

@@ -1,5 +1,6 @@
 [Unit]
 Description = Startup notification ArchServer
+Requires=network-online.target
 After=network-online.target
 OnFailure=unit-failure-notification@%n
 

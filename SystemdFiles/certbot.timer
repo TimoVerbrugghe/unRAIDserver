@@ -1,5 +1,7 @@
 [Unit]
 Description = Will run certbot.service every day at 5:30 am (with a randomized delay of 30 seconds)
+Wants=network-online.target
+After=network-online.target
 
 [Timer]
 # OnCalendar Syntax: days year-month-day hour:minutes:seconds

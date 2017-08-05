@@ -1,5 +1,7 @@
 [Unit]
 Description = Will run duckdns.service every hour
+Wants=network-online.target
+After=network-online.target
 
 [Timer]
 # OnCalendar Syntax: days year-month-day hour:minutes:seconds
