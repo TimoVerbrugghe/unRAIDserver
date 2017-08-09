@@ -6,7 +6,6 @@
 # Variables #
 #############
 
-PUSHBULLET_SCRIPT="/home/fileserver/Applications/pushbullet.sh"
 RSYNC_LOG="/home/fileserver/Applications/Backup/logs/rsync.log"
 BACKUP_LOG="/home/fileserver/Applications/Backup/logs/backup.log"
 
