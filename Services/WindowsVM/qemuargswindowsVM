@@ -25,7 +25,7 @@ args = "-name Windows \
 -device vfio-pci,host=00:14.0,addr=10 \
 -device vfio-pci,host=00:1b.0,addr=11 \
 -drive file=/dev/sdb,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \
--drive file=/dev/sdg,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \
+-drive file=/dev/sdf,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \
 -object iothread,id=iothread0 \
 -object iothread,id=iothread1 \
 -device virtio-scsi,iothread=iothread0,id=scsi0 \
@@ -63,7 +63,7 @@ args = "-name Windows \
 # -device vfio-pci,host=00:14.0,addr=10 \ -> Pass through all USB 3.0 ports
 # -device vfio-pci,host=00:1b.0,addr=11 \ -> Pass through Intel HD Audio
 # -drive file=/dev/sdb,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 500 gb SSD (OS Drive)
-# -drive file=/dev/sdg,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 1 TB HDD (Extra Drive)
+# -drive file=/dev/sdf,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 1 TB HDD (Extra Drive)
 # -object iothread,id=iothread0 \ -> IO thread opstarten, 1 per harde schijf die wordt aangesloten op de VM
 # -device virtio-scsi,iothread=iothread0 \
 # -device scsi-hd,drive=disk0 \
