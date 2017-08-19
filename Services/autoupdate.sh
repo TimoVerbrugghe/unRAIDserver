@@ -23,7 +23,7 @@ UPDATE_LOG="/home/fileserver/Applications/autoupdate/autoupdate.log"
 #####################
 
 printf "Starting ArchServer Auto Update. Time & Date right now is $(date)\n" >> $UPDATE_LOG 2>&1
-pacaur -Syuq --noedit --noconfirm >> $UPDATE_LOG 2>&1
+su fileserver -c "pacaur -Syuq --noedit --noconfirm" >> $UPDATE_LOG 2>&1
 
 # Getting return code from pacaur. If this return code is not 0 (so an error has occured with the pacaur update), notify system administrator
 errorval="$?"
