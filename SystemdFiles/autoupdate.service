@@ -3,5 +3,7 @@ Description = ArchServer Auto Update Service
 OnFailure=unit-failure-notification@%n
 
 [Service]
+User=fileserver
+Group=fileserver
 Type=oneshot
 ExecStart=/home/fileserver/Applications/autoupdate/autoupdate.sh
