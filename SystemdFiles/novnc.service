@@ -1,5 +1,7 @@
 [Unit]
 Description = noVNC (Websockets start)
+Wants=network-online.target
+After=network-online.target
 OnFailure=unit-failure-notification@%n
 
 [Service]

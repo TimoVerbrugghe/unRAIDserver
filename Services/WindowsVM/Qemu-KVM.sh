@@ -56,9 +56,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 # Add to /etc/fstab
 	hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=<GIDOFKVMGROUP>        0 0
 
-# Change HugePages to 8 gb
+# Change HugePages to 12 gb (6144 * 2048kb)
 	nano /etc/sysctl.d/40-hugepage.conf
-	vm.nr_hugepages = 4200
+	vm.nr_hugepages = 6144
 
 ## Enabling networking
 # Enable bridge helper
@@ -97,11 +97,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		User='nobody'
 		Group='nobody'
 
-	# No more ip address is required in the wired profile
-	nano /etc/netctl/wired 
-		Interface=enp3s0
-		Connection=ethernet
-		IP=no
+	# default Wired profile now needs to be deleted
+	netctl disable wired
+	rm -rf /etc/netctl/wired
 
 	netctl enable bridge
 	netctl disable enp3s0
@@ -136,3 +134,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 ## Updating Windows
 	# In case of a major Windows update that needs user input before login, enable the extra VNC display & set it as the default display
 	# Set the firewall to temporarily enable port 5902
+
+## Enabling remote moonlight streaming
+	# Assign a static IP(v4 & v6) to the Windows VM
+	# Open the required moonlight streaming ports, more information at their Github -> https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#streaming-over-the-internet

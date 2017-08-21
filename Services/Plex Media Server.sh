@@ -16,9 +16,9 @@
 		PLEX_MEDIA_SERVER_TMPDIR=/tmp
 		TMPDIR=/tmp
 
-# Change systemd file
-	systemctl edit plexmediaserver.service
-		# Add content from plexmediaserver.conf
+# Add override.conf
+	mkdir /etc/systemd/system/plexmediaserver.serice.d/
+	# move override.conf to /etc/systemd/system/plexmediaserver.serice.d/
 
 # Enable & start systemd service
 	systemctl enable plexmediaserver.service
@@ -29,6 +29,7 @@
 ## Trakt TV plugin
 	# Download latest trakt TV plugin release from https://github.com/trakt/Plex-Trakt-Scrobbler
 	# Unzip & move Trakttv.bundle to /home/fileserver/Applications/plexmediaserver/Plex\ Media\ Server/Plug-ins/
+	# Go to Plex homepage -> Channels -> Trakt.tv -> Settings icon (top right) -> Authenticate using Trakt pin
 
 ## SSL support
 	# Go to Settings -> Server -> Network

@@ -1,6 +1,7 @@
 [Unit]
 Description=QEMU virtual machine - pfSense
-After=syslog.target network.target
+Wants=network-online.target
+After=network-online.target
 OnFailure=unit-failure-notification@%n
 
 [Service]

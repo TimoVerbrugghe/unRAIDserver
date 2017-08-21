@@ -55,14 +55,8 @@ ip addr
 	TimeoutUp=300
 	TimeoutCarrier=300
 
-
-# /etc/netctl/hooks/status
-
-	#!/bin/sh
-	ExecUpPost="systemctl start network-online.target"
-	ExecDownPre="systemctl stop network-online.target"
-
 netctl enable staticIPwired
+systemctl enable netctl-wait-online.service
 
 ## Bootloader installation
 # Make sure all partitions are mounted to the correct folders!

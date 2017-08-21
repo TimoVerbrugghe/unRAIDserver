@@ -1,6 +1,7 @@
 [Unit]
 Description=NZBGet Daemon
 Documentation=http://nzbget.net/Documentation
+Wants=network-online.target
 After=network-online.target
 OnFailure=unit-failure-notification@%n
 

@@ -1,5 +1,7 @@
 # Custom domains added by Timo (based on https://wally3k.github.io/)
 
+https://v.firebog.net/hosts/lists.php?type=nocross
+
 # Suspicious lists
 
 https://hosts-file.net/grm.txt
@@ -56,3 +58,5 @@ https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
 
 # Extra lists to block youtube ads
 https://raw.githubusercontent.com/HenningVanRaumle/pihole-ytadblock/master/ytadblock.txt
+http://earth.traven.me/bl.txt
+
