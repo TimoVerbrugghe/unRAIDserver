@@ -32,3 +32,4 @@ Pi-Hole				4771
 Dnsmasq				53
 Lighttpd			80
 Dhcpcd				68,546
+SSH					22/tcp

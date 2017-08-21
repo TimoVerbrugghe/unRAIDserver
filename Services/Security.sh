@@ -16,7 +16,7 @@
 ## Deny root access for ssh
 	# https://wiki.archlinux.org/index.php/Secure_Shell#Deny
 	nano /etc/ssh/sshd_config
-	PermitRootLogin no 
+	PermitRootLogin no
 
 ## At this point in time, we are not going to use MAC control - skip to kernel hardening
 
@@ -36,18 +36,10 @@
 		# TCP / IP stack hardening
 
 	# SSH
-		# Install Fail2ban
-			# https://wiki.archlinux.org/index.php/Fail2ban
-			# Capabilities
-			# SSH jail (in a separated /etc/fail2ban/jail.d/ssh-iptables.conf)
-				nano /etc/fail2ban/jail.d/ssh-iptables.conf
-					IgnoreIP = 127.0.0.0/8 192.168.0.0/24
-					# Delete sendmail-whois action
-		
-		systemctl enable fail2ban
-		systemctl start fail2ban
-
 		# Google Authenticator
+		# Install sshguard -> https://wiki.archlinux.org/index.php/sshguard
+			# UFW
+			# Systemd
 
 ## Physical security
 	# Denying console login as root
