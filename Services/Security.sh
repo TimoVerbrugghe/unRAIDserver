@@ -77,9 +77,6 @@
 		systemctl start fail2ban
 
 		# Google Authenticator
-		# Install sshguard -> https://wiki.archlinux.org/index.php/sshguard
-			# UFW
-			# Systemd
 
 ## Physical security
 	# Denying console login as root
