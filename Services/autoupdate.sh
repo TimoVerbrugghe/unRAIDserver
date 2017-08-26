@@ -17,6 +17,7 @@
 
 PUSHBULLET_SCRIPT="/home/fileserver/Applications/pushbullet.sh"
 UPDATE_LOG="/home/fileserver/Applications/autoupdate/autoupdate.log"
+PLEX_VERSION=$(pacman -Qm | grep plex)
 
 #####################
 # Autoupdate Script #
@@ -24,6 +25,18 @@ UPDATE_LOG="/home/fileserver/Applications/autoupdate/autoupdate.log"
 
 printf "Starting ArchServer Auto Update. Time & Date right now is $(date)\n" >> $UPDATE_LOG 2>&1
 su fileserver -c "pacaur -Syuq --noedit --noconfirm" >> $UPDATE_LOG 2>&1
+
+#####################
+# Plex Update Check #
+#####################
+
+# Check if Plex was updated, and if it was, restart the service
+PLEX_VERSION2=$(pacman -Qm | grep plex)
+
+if [ "$PLEX_VERSION" != "$PLEX_VERSION2" ]; then
+	systemctl daemon-reload
+	systemctl restart plexmediaserver
+fi
 
 # Getting return code from pacaur. If this return code is not 0 (so an error has occured with the pacaur update), notify system administrator
 errorval="$?"
