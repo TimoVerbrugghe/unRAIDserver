@@ -1,5 +1,5 @@
 [Unit]
-Description = Will run duckdns.service every hour
+Description = Will run duckdns.service every day at midnight
 Wants=network-online.target
 After=network-online.target
 
@@ -9,7 +9,7 @@ After=network-online.target
 # * is wildcard
 # days works as an if statemtent (only run if day is equal to one of the options in days) (Optional)
 
-OnCalendar= *-*-* *:00:00
+OnCalendar= *-*-* 00:00:00
 Unit=duckdns.service
 
 [Install]
