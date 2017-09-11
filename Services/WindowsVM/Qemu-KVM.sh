@@ -1,6 +1,6 @@
 ## Qemu-KVM Installation on Arch
 # Install qemu & ovmf package
-	pacman -Syu qemu-headless ovmf-git
+	pacman -Syu qemu-headless ovmf-git dtc
 
 # Change grub boot options - /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"

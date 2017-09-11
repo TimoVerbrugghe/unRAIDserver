@@ -1,6 +1,10 @@
 ## PHP Scanner Server installation on Arch Linux
 # Install needed packages
-	pacman -Syu imagemagick sane usbutils tesseract zip libpaper sed grep unzip
+	pacman -Syu imagemagick sane usbutils tesseract zip libpaper sed grep unzip hplip
+
+# Enable sane hpaio driver
+	nano /etc/sane/dll.conf
+		# Uncoomment before hpaio
 
 # Install FPDF
 	# Download tgz from http://www.fpdf.org/

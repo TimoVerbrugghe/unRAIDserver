@@ -1,0 +1,14 @@
+[Unit]
+Description=QEMU virtual machine - Hackintosh
+Wants=network-online.target
+After=network-online.target
+OnFailure=unit-failure-notification@%n
+
+[Service]
+Type=forking
+PIDFile=/run/qemu_hackintosh.pid
+EnvironmentFile=/home/fileserver/Applications/hackintosh/qemuargshackintosh
+ExecStart=/usr/bin/qemu-system-x86_64 $args
+ExecStop=/bin/sh -c '{ echo system_powerdown; sleep 5; } | telnet localhost 7102; while ps ax | grep "/usr/bin/qemu-system-x86_64 -name PiHole" | grep -vq grep; do echo "Still waiting... (Waiting for 10 more seconds)"; sleep 10; done; echo "Hackintosh successfully shutdown"'
+TimeoutStopSec=60
+KillMode=none

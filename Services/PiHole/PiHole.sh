@@ -1,6 +1,9 @@
 ## Pi-Hole Installation on ArchServer
 # If WindowsVM has not been installed yet, follow instructions in Qemu-Kvm.sh (Services/WindowsVM) first to set up qemu-kvm & bridged networking
 
+## Install packages
+	pacman -Syu seabios
+
 ## Set up new bridge for Qemu VM
 nano /etc/netctl/tuntap1
 		Description='Tuntap connection for qemu - PiHole'
