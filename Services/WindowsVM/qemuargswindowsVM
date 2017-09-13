@@ -32,7 +32,8 @@ args = "-name Windows \
 -device scsi-hd,drive=disk0,bus=scsi0.0 \
 -device scsi-hd,drive=disk1,bus=scsi1.0 \
 -device virtio-net-pci,netdev=network0,mac=52:54:00:00:00:01 \
--netdev tap,id=network0,ifname=tap0,script=no,downscript=no"
+-netdev tap,id=network0,ifname=tap0,script=no,downscript=no \
+-usbdevice host:045e:0800"
 
 ############################
 # Explanation of Arguments #
