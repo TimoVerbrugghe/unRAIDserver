@@ -18,3 +18,10 @@
 # Go to the default port (8112) & start configuration
 	# Default password deluge
 	# Password fileserver
+
+# After initial startup, you can change the port in the config file
+	nano /home/fileserver/.config/deluge/web.conf
+		port: 8080
+
+# Install AutoRemovePlus plugin, download from https://github.com/omaralvarez/deluge-autoremoveplus/releases
+	# Upload the python egg file to the deluge web interface (settings -> plugins)  
