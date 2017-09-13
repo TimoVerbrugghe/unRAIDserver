@@ -24,16 +24,13 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 
 # Add Graphics card, USB 3.0 ports & Intel HD Audio Controller to vfio.conf
 	nano /etc/modprobe.d/vfio.conf
-	options vfio-pci ids=10de:1c03,10de:10f1,8086:8cb1,8086:8ca0
+	options vfio-pci ids=10de:1c03,10de:10f1,8086:8ca0
 		# 10de:1c03 & 10de:10f1 -> Nvidia Graphics Card
-		# 8086:8cb1 -> USB 3.0 ports
 		# 8086:8ca0 -> Intel HD Audio Controller
 
 # Blacklist nvidia nouveau, USB 3.0 & Intel HD Audio Controller
 	nano /etc/modprobe.d/blacklist.conf
 		blacklist nouveau
-		blacklist xhci_pci
-		blacklist xhci_hcd
 		blacklist snd_hda_intel
 
 # Change /etc/mkinitcpio.conf

@@ -22,7 +22,6 @@ args = "-name Windows \
 -rtc clock=host,base=localtime \
 -device vfio-pci,host=01:00.0,addr=09.0,multifunction=on \
 -device vfio-pci,host=01:00.1,addr=09.1 \
--device vfio-pci,host=00:14.0,addr=10 \
 -device vfio-pci,host=00:1b.0,addr=11 \
 -drive file=/dev/sdb,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \
 -drive file=/dev/sdf,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \
@@ -60,7 +59,6 @@ args = "-name Windows \
 # -rtc clock=host,base=localtime \ -> Synchronize clocks between guest and host
 # -device vfio-pci,host=01:00.0,addr=09.0,multifunction=on \ -> PCI Passthrough of NVIDIA Graphics Card
 # -device vfio-pci,host=01:00.1,addr=09.1 \ -> PCI Passthrough of NVIDIA Graphics Card - Audio
-# -device vfio-pci,host=00:14.0,addr=10 \ -> Pass through all USB 3.0 ports
 # -device vfio-pci,host=00:1b.0,addr=11 \ -> Pass through Intel HD Audio
 # -drive file=/dev/sdb,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 500 gb SSD (OS Drive)
 # -drive file=/dev/sdf,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 1 TB HDD (Extra Drive)
