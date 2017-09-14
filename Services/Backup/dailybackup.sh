@@ -15,6 +15,8 @@ BACKUP_LOCATION="/home/fileserver/Backup"
 BACKUP_FOLDERS=(Applications Books Games Movies Music Network OSInstallISO Photos Software SystemImage TVShows)
 ERRORVALUE=0
 
+PUSHBULLET_SCRIPT="/home/fileserver/Applications/pushbullet.sh"
+
 #############
 # Functions #
 #############
@@ -39,7 +41,7 @@ function errorCheck () {
 function backup () {
 	# This function expects 2 arguments, the backup location & the folder you want to restore
 	printf "Backing up %s to %s\n" "$1" "$2" >> $BACKUP_LOG 2>&1
-	rsync --log-file=$RSYNC_LOG -avhP --delete "$2/$1/" "$2/$1" >/dev/null 2>&1
+	rsync --log-file=$RSYNC_LOG -avhP --delete "$1/" "$2" >/dev/null 2>&1
 
 	errorCheck
 }
@@ -61,7 +63,7 @@ backup Applications $MEDIA_LOCATION
 
 # Backing up all folders in Media to Backup
 for i in "${BACKUP_FOLDERS[@]}"; do
-	backup $i $BACKUP_LOCATION
+	backup $MEDIA_LOCATION/$i $BACKUP_LOCATION/$i
 done
 
 # Ending backup
