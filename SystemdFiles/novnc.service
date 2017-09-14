@@ -6,7 +6,7 @@ OnFailure=unit-failure-notification@%n
 
 [Service]
 Type=simple
-ExecStart=/home/fileserver/Media/Network/vnc/utils/websockify/run :8086 localhost:5900
+ExecStart=/home/fileserver/Media/Network/vnc/utils/websockify/run --web /home/fileserver/Media/Network/vnc/ :8086 localhost:5900
 
 [Install]
 WantedBy=multi-user.target
