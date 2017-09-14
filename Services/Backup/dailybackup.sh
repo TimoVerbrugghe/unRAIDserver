@@ -59,7 +59,7 @@ mountCheck $MEDIA_LOCATION
 mountCheck $BACKUP_LOCATION
 
 # Backing up Applications Folder to ~/Media
-backup /home/fileserver/Applications $MEDIA_LOCATION
+backup /home/fileserver/Applications $MEDIA_LOCATION/Applications
 
 # Backing up all folders in Media to Backup
 for i in "${BACKUP_FOLDERS[@]}"; do
