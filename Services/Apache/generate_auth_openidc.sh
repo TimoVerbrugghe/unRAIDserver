@@ -14,8 +14,8 @@
 #######################################
 ## VARIABLES - REVIEW BEFORE INSTALL ##
 #######################################
-CJOSE_VERSION=0.4.1
-MOD_AUTH_OPENIDC_VERSION=2.2.0
+CJOSE_VERSION=0.5.1
+MOD_AUTH_OPENIDC_VERSION=2.3.1
 
 ############
 ## SCRIPT ##
