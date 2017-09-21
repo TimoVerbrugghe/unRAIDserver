@@ -5,7 +5,6 @@
 ## Certbot Let's Encrypt renewal
 certbot renew --agree-tos --webroot -w /home/fileserver/Media/Network/
 
-
 ## PlexMediaServer certificate creation
 # Create PKCS12 certificate
 openssl pkcs12 -export -in /etc/letsencrypt/live/timoverbrugghe.duckdns.org/fullchain.pem -inkey /etc/letsencrypt/live/timoverbrugghe.duckdns.org/privkey.pem -out /home/fileserver/Applications/plexmediaserver/certificate.pfx -passout pass:plexmediaserver

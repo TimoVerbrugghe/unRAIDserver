@@ -24,7 +24,7 @@ PLEX_VERSION=$(pacman -Qm | grep plex)
 #####################
 
 printf "Starting ArchServer Auto Update. Time & Date right now is $(date)\n" >> $UPDATE_LOG 2>&1
-su fileserver -c "pacaur -Syuq --noedit --noconfirm" >> $UPDATE_LOG 2>&1
+su fileserver -c "pacaur -Syu --noedit --noconfirm" >> $UPDATE_LOG 2>&1
 
 #####################
 # Plex Update Check #
