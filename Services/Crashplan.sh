@@ -16,6 +16,10 @@
 	nano /opt/crashplan/bin/run.conf
 	# change -Xmx option at SRV options to 4096 mb
 
+# Enlarge inotify watches
+	nano /etc/sysctl.d/99-sysctl.conf
+		fs.inotify.max_user_watches = 100000
+
 # Enable systemd server
 	systemctl enable crashplan-pro.service
 	systemctl start crashplan-pro.service
