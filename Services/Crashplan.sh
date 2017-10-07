@@ -1,4 +1,4 @@
-## Crashplan Installation on Arch
+e## Crashplan Installation on Arch
 # Install Crashplan Pro Service
 	pacaur -Syu crashplan-pro
 
@@ -13,7 +13,7 @@
 	sudo archlinux-java set java-8-openjdk/jre
 
 # Change memory for crashplan
-	nano /opt/crashplan/bin/run.conf
+	nano /opt/crashplan-pro/bin/run.conf
 	# change -Xmx option at SRV options to 4096 mb
 
 # Enlarge inotify watches
