@@ -23,8 +23,8 @@ args = "-name Windows \
 -device vfio-pci,host=01:00.0,addr=09.0,multifunction=on \
 -device vfio-pci,host=01:00.1,addr=09.1 \
 -device vfio-pci,host=00:1b.0,addr=11 \
--drive file=/dev/sdb,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \
--drive file=/dev/sdf,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \
+-drive file=/dev/disk/by-id/ata-Samsung_SSD_750_EVO_500GB_S36SNWBH531856L,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \
+-drive file=/dev/disk/by-id/ata-WDC_WD10EACS-00D6B1_WD-WCAU42857769,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \
 -object iothread,id=iothread0 \
 -object iothread,id=iothread1 \
 -device virtio-scsi,iothread=iothread0,id=scsi0 \

@@ -1,7 +1,7 @@
 ## Services and external/internal ports used by ARCHSERVER
 Apache				80/tcp & 443/tcp
 SSH					22/tcp
-Plex				32400/tcp & 1900,1901
+Plex				32400/tcp & 1900/udp,32410/udp,32412/udp,32413/udp,32414/udp,32469/tcp
 FTP					8084/tcp & 40000:41000/tcp
 SMB					137,138/udp & 139,445/tcp
 NFS					2049,111,20048
