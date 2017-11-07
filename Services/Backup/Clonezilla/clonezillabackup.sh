@@ -50,18 +50,18 @@ rm -rf /home/fileserver/.dvdcss 2>&1 &&
 rm -rf /home/fileserver/.bzr.log 2>&1 &&
 rm -rf /home/fileserver/.wget-hsts 2>&1 &&
 rm -rf /home/fileserver/.thumbnails 2>&1 &&
-rm -rf /home/fileserver/Downloads/* 2>&1 &&
+
+printf "Cleaning Desktop & DriveRip folder" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
 rm -rf /home/fileserver/Desktop/* 2>&1 &&
 rm -rf /home/fileserver/Media/DriveRip/* 2>&1 &&
+
+printf "Cleaning completed Downloads folder\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
+rm -rf /home/fileserver/Media/Downloads/complete/tvshows/* 2>&1
+rm -rf /home/fileserver/Media/Downloads/complete/movies/* 2>&1
 
 # Removing unnecessary packages
 printf "Removing unnecessary packages\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
 yes | pacman -Rns $(pacman -Qtdq) 2>&1 || true && # It can be that command fails because no packages to delete, in that case, still give out value true so script can continue
-
-# Cleaning completed Downloads folder
-printf "Cleaning completed Downloads folder\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
-rm -rf /home/fileserver/Media/Downloads/complete/tvshows/* 2>&1
-rm -rf /home/fileserver/Media/Downloads/complete/movies/* 2>&1
 
 # Setup of boot environment
 printf "Setting up boot environment\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
