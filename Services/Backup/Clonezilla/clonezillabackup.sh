@@ -51,7 +51,7 @@ rm -rf /home/fileserver/.bzr.log 2>&1 &&
 rm -rf /home/fileserver/.wget-hsts 2>&1 &&
 rm -rf /home/fileserver/.thumbnails 2>&1 &&
 
-printf "Cleaning Desktop & DriveRip folder" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
+printf "Cleaning Desktop & DriveRip folder\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
 rm -rf /home/fileserver/Desktop/* 2>&1 &&
 rm -rf /home/fileserver/Media/DriveRip/* 2>&1 &&
 
