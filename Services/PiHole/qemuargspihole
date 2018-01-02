@@ -1,5 +1,5 @@
 args="-name PiHole \
--bios /usr/share/ovmf/x64/ovmf_x64.bin \
+-bios /usr/share/ovmf/ovmf_code_x64.bin \
 -daemonize \
 -pidfile /run/qemu_pihole.pid \
 -vga std \

@@ -2,7 +2,7 @@
 # This file can be used in conjunction with the script startwindowsVM to start up a Qemu KVM VM OR it can be used in a systemd service unit
 
 args = "-name Windows \
--bios /usr/share/ovmf/x64/ovmf_x64.bin \
+-bios /usr/share/ovmf/ovmf_code_x64.bin \
 -daemonize \
 -pidfile /run/qemu_windowsvm.pid \
 -vga none \
