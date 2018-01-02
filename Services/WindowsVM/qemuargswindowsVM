@@ -3,7 +3,7 @@
 
 args = "-name Windows \
 -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/ovmf_code_x64.bin \
--drive if=pflash,format=raw,file=/home/fileserver/Applications/pihole/ovmf_windowsvm_vars.bin \
+-drive if=pflash,format=raw,file=/home/fileserver/Applications/WindowsVM/ovmf_windowsvm_vars.bin \
 -daemonize \
 -pidfile /run/qemu_windowsvm.pid \
 -vga none \
@@ -40,7 +40,8 @@ args = "-name Windows \
 # Explanation of Arguments #
 ############################
 
-# -bios /usr/share/ovmf/x64/ovmf_x64.bin \ -> Use an EFI (OVMF) Bios, updated through AUR package
+# -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/ovmf_code_x64.bin \ -> Use an EFI (OVMF) Bios, updated through AUR package
+# -drive if=pflash,format=raw,file=/home/fileserver/Applications/pihole/ovmf_windowsvm_vars.bin \ -> Use seperate vars file for OVMF
 # -daemonize \
 # -pidfile /run/qemu_windowsvm.pid \
 # -vga none \ -> do not use any of the built-in VGA emulation

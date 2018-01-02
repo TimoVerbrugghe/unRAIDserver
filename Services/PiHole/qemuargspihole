@@ -27,7 +27,8 @@ args="-name PiHole \
 # Explanation of Arguments #
 ############################
 
-# -bios /usr/share/ovmf/x64/ovmf_x64.bin \ -> Use an EFI (OVMF) Bios, updated through AUR package
+# -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/ovmf_code_x64.bin \ -> Use an EFI (OVMF) Bios, updated through AUR package
+# -drive if=pflash,format=raw,file=/home/fileserver/Applications/pihole/ovmf_pihole_vars.bin \ -> Use seperate vars file for OVMF
 # -daemonize \
 # -pidfile /run/qemu_windowsvm.pid \
 # -vga std \ -> Use the standard vga that qemu provides (for the VNC server)
