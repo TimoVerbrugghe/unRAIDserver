@@ -39,6 +39,17 @@ netctl start tuntap1
 
 	# Start the pihole VM
 
+	## When first booting into pihole, EFI shell needs the ubuntu efi file added as a boot option
+		# Type "exit" in the efi shell
+		# In the bios, go to Boot Maintenance Manager
+		# Boot options -> Add boot option -> Select hard drive (No volume label) -> <EFI> -> <ubuntu> -> grubx64.efi
+		# Input any description
+		# Commit changes
+
+		# Change boot order
+		# Put your newly added boot order as first one -> F10 Save
+		# Exit bios (continue/reset options)
+
 ####################
 # Ubuntu Server VM #
 ####################

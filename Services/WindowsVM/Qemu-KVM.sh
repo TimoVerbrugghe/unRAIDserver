@@ -111,6 +111,17 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 
 ## Reboot to make changes permanent
 
+## POSSIBLE -> When first booting into windows, EFI shell needs the windows efi file added as a boot option
+	# Type "exit" in the efi shell
+	# In the bios, go to Boot Maintenance Manager
+	# Boot options -> Add boot option -> Select hard drive (No volume label) -> <EFI> -> <Microsoft> -> <Boot> -> bootmgfw.efi 
+	# Input any description
+	# Commit changes
+
+	# Change boot order
+	# Put your newly added boot order as first one -> F10 Save
+	# Exit bios (continue/reset options)
+
 ## Change Graphics Card to accept Signal Based Interrupts
 	# Go to Device Manager -> Graphics Card -> Details -> Device Instance Path
 		# Note down Device Instance Path
