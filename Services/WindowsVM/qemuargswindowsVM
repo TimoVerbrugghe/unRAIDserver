@@ -63,8 +63,8 @@ args = "-name Windows \
 # -device vfio-pci,host=01:00.0,addr=09.0,multifunction=on \ -> PCI Passthrough of NVIDIA Graphics Card
 # -device vfio-pci,host=01:00.1,addr=09.1 \ -> PCI Passthrough of NVIDIA Graphics Card - Audio
 # -device vfio-pci,host=00:1b.0,addr=11 \ -> Pass through Intel HD Audio
-# -drive file=/dev/sdb,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 500 gb SSD (OS Drive)
-# -drive file=/dev/sdf,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 1 TB HDD (Extra Drive)
+# -drive file=/dev/disk/by-id/ata-Samsung_SSD_750_EVO_500GB_S36SNWBH531856L,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 500 gb SSD (OS Drive)
+# -drive file=/dev/disk/by-id/ata-WDC_WD10EACS-00D6B1_WD-WCAU42857769,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \ -> Initialize 1 TB HDD (Extra Drive)
 # -object iothread,id=iothread0 \ -> IO thread opstarten, 1 per harde schijf die wordt aangesloten op de VM
 # -device virtio-scsi,iothread=iothread0 \
 # -device scsi-hd,drive=disk0 \
