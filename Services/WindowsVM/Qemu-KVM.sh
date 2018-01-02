@@ -2,6 +2,10 @@
 # Install qemu & ovmf package
 	pacman -Syu qemu-headless ovmf-git dtc
 
+# Create folder & OVMF (UEFI) vars file
+	mkdir /home/fileserver/Application/WindowsVM/
+	cp /usr/share/ovmf/ovmf_vars_x64.bin /home/fileserver/Applications/WindowsVM/ovmf_windowsvm_vars.bin
+
 # Change grub boot options - /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 
@@ -101,7 +105,6 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 	netctl enable bridge
 	netctl disable enp3s0
 
-## Make sure that WindowsVM folder is in /home/fileserver/Applications
 # Move windowsvm.service to /etc/systemd/system
 	systemctl enable windowsvm.service
 

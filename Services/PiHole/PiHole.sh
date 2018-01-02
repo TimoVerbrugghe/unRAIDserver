@@ -30,6 +30,9 @@ netctl start tuntap1
 	mkdir /home/fileserver/Applications/pihole
 	chattr +C /home/fileserver/Applications/pihole
 
+	# Create folder & OVMF (UEFI) vars file
+	cp /usr/share/ovmf/ovmf_vars_x64.bin /home/fileserver/Applications/pihole/ovmf_pihole_vars.bin
+
 	# Create pihole hard drive image
 	qemu-img create -f raw /home/fileserver/Applications/pihole/pihole.img 10G
 
