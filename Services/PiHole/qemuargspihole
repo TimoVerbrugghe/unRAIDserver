@@ -1,5 +1,6 @@
 args="-name PiHole \
--bios /usr/share/ovmf/ovmf_code_x64.bin \
+-drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/ovmf_code_x64.bin \
+-drive if=pflash,format=raw,file=/home/fileserver/Applications/pihole/ovmf_pihole_vars.bin \
 -daemonize \
 -pidfile /run/qemu_pihole.pid \
 -vga std \
