@@ -122,8 +122,11 @@ netctl start tuntap1
 		# Uncomment the auto-update line in this cron file
 		
 	# Enable OS auto updating
-	# Move ubuntuupdate.service & ubuntuupdate.timer to /etc/systemd/system
-	systemctl enable ubuntuupdate.service
-	systemctl enable ubuntuupdate.timer
-	systemctl start ubuntuupdate.timer
-
+	apt-get install unattended-upgrades
+	dpkg-reconfigre unattended-upgrades
+	nano /etc/apt/apt.conf.d/50unattended-upgrades
+		# Set up unattended upgrades file
+			# uncomment "${distro_id} ${distro_codename}-updates"; line
+	nano /etc/apt/apt.conf.d/20auto-upgrades
+		# Add APT::Periodic::AutocleanInterval "7";
+		# Add APT::Periodic::Download-Upgradeable-Packages "1";
