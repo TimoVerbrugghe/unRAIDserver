@@ -56,15 +56,15 @@ printf "Starting Daily Backup. Time & Date right now is $(date)\n" >> $BACKUP_LO
 printf "Checking if Media & Backup is successfully mounted\n" >> $BACKUP_LOG 2>&1
 
 mountCheck $MEDIA_LOCATION
-mountCheck $BACKUP_LOCATION
+#mountCheck $BACKUP_LOCATION
 
 # Backing up Applications Folder to ~/Media
 backup /home/fileserver/Applications $MEDIA_LOCATION/Applications
 
 # Backing up all folders in Media to Backup
-for i in "${BACKUP_FOLDERS[@]}"; do
-	backup $MEDIA_LOCATION/$i $BACKUP_LOCATION/$i
-done
+#for i in "${BACKUP_FOLDERS[@]}"; do
+#	backup $MEDIA_LOCATION/$i $BACKUP_LOCATION/$i
+#done
 
 # Ending backup
 printf "End of Daily Backup.\n\n" >> $BACKUP_LOG 2>&1
