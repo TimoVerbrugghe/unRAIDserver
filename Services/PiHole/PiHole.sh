@@ -92,6 +92,14 @@ netctl start tuntap1
 		systemctl start sshd
 
 	# Set up UFW -> see ufwrules in pihole folder
+	# Perform these commands to set up iptables for Pi-Hole
+	iptables -A INPUT -p tcp --destination-port 443 -j REJECT --reject-with tcp-reset
+	iptables -A INPUT -p udp --destination-port 80 -j REJECT --reject-with icmp-port-unreachable
+	iptables -A INPUT -p udp --destination-port 443 -j REJECT --reject-with icmp-port-unreachable
+
+	ip6tables -A INPUT -p tcp --destination-port 443 -j REJECT --reject-with tcp-reset
+	ip6tables -A INPUT -p udp --destination-port 80 -j REJECT --reject-with icmp6-port-unreachable
+	ip6tables -A INPUT -p udp --destination-port 443 -j REJECT --reject-with icmp6-port-unreachable
 
 	# Faster boot
 	nano /etc/default/grub
