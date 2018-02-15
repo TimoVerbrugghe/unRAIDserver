@@ -9,3 +9,4 @@ OnePlus One 					192.168.0.7 / <Static IPv6 not set>
 Surface							192.168.0.8 / 2a02:1810:4f2b:7900::8
 Windows 10 Desktop				192.168.0.9 / 2a02:1810:4f2b:7900::9
 Windows 10 Gaming VM			192.168.0.10 / 2a02:1810:4f2b:7900::10
+HP Envy 5540					192.168.0.11

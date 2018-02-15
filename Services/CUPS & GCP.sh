@@ -1,6 +1,6 @@
 ## CUPS
 # Install packages
-	pacman -Syu cups hplip 
+	pacman -Syu cups hplip libcups
 
 # Enable systemd services
 	systemctl enable org.cups.cupsd.service
@@ -26,7 +26,7 @@
 	# Go to .cache/pacaur/gcp-cups-connector
 	# copy the pkgver from PKGBUILD
 
-	cd ~/build/
+	cd ~/.build/
 	curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/gcp-cups-connector.tar.gz
 	tar -xvf gcp-cups-connector.tar.gz
 	cd gcp-cups-connector

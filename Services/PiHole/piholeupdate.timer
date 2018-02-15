@@ -1,5 +1,5 @@
 [Unit]
-Description = Will run ubuntuupdate.service every sunday, at 5 am
+Description = Will run piholeupdate.service every sunday, at 6:34 am
 
 [Timer]
 # OnCalendar Syntax: days year-month-day hour:minutes:seconds
@@ -7,8 +7,8 @@ Description = Will run ubuntuupdate.service every sunday, at 5 am
 # * is wildcard
 # days works as an if statemtent (only run if day is equal to one of the options in days) (Optional)
 
-OnCalendar=Sun *-*-* 05:00:00
-Unit=ubuntuupdate.service
+OnCalendar=Sun *-*-* 06:34:00
+Unit=piholeupdate.service
 
 [Install]
 WantedBy=multi-user.target
