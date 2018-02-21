@@ -55,6 +55,7 @@
 		systemctl enable avahi-daemon.service
 		systemctl start avahi-daemon.service
 
+	## Samba
 	# Move correct smb.conf (config/smb.conf) to etc/samba/smb.conf
 
 	# create samba password
@@ -63,3 +64,8 @@
 
 	# Enable systemd samba services
 	systemctl enable smbd.service nmbd.service
+
+	## Enable network discovery of Samba servers for Windows 10
+		# Go to "Turn Windows Features On or Off"
+		# Enable SMB/CIFS 1.0 features
+		# Restart PC
