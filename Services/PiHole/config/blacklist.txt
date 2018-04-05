@@ -9,8 +9,6 @@ adserver.pandora.com
 wsp.mgid.com
 s0.2mdn.net
 vsp-alexa-eu.amazon.com
-
-# Block Youtube Ads
 ads.doubleclick.net
 s.ytimg.com
 ad.youtube.com
