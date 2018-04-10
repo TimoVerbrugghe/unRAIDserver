@@ -2,8 +2,8 @@
 "\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\ZeldaFourSwordAdventures.iso"
 "\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\LuigiMansion.iso"
 "\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\SuperMarioSunshine.iso"
-"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\SmashingDrive.iso"
-"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\SSX3.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\SmashingDrive.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\SSX3.iso"
 
 "\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\ZeldaSkywardSword.iso"
 "\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\MarioKartWii.iso"
@@ -14,7 +14,7 @@
 "\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\MetroidPrimeTrilogy.iso"
 
 # Nestopia (NES)
-"\\ARCHSERVER\Media\Games\GameApps\nestopia\nestopia.exe" "\\ARCHSERVER\Media\Games\NES\Zelda II Adventure of Link.nes" -video fullscreen width : 1920 -video fullscreen height : 1080 -preferences fullscreen on start : yes -view size fullscreen : stretched
+"\\ARCHSERVER\Media\Games\GameApps\nestopia\nestopia.exe" "\\ARCHSERVER\Media\Games\NES\Zelda II - The Adventure of Link.nes" -video fullscreen width : 1920 -video fullscreen height : 1080 -preferences fullscreen on start : yes -view size fullscreen : stretched
 
 "\\ARCHSERVER\Media\Games\GameApps\nestopia\nestopia.exe" "\\ARCHSERVER\Media\Games\NES\The Legend of Zelda.nes" -video fullscreen width : 1920 -video fullscreen height : 1080 -preferences fullscreen on start : yes -view size fullscreen : stretched
 
@@ -26,7 +26,7 @@
 "\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Zelda - A Link to the Past.gba"
 "\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Zelda - The Minish Cap.gba"
 "\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Yu-Gi-Oh!.gba"
-"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Medabots - Rokusho Version.gba"
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Medabots Rokusho Version.gba"
 "\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Pokemon FireRed Version.gba"
 
 # ePSXe (PS1)
@@ -37,7 +37,7 @@
 "\\ARCHSERVER\Media\Games\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\ARCHSERVER\Media\Games\PS1\CrashBandicootWarped.bin"
 
 # PCSX2 (PS2)
-"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\SpiderMan2.iso" --fullscreen --nogui --fullboot
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\SpiderMan2.iso" --fullscreen --nogui --fullboot --cfgpath="\\ARCHSERVER\Media\Games\GameApps\PCSX2\Spiderman2-config"
 "\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\BurnoutRevenge.iso" --fullscreen --nogui --fullboot
 "\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\KingdomHearts.iso" --fullscreen --nogui --fullboot
 "\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\KingdomHeartsII.iso" --fullscreen --nogui --fullboot

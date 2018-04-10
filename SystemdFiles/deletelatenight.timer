@@ -1,0 +1,14 @@
+[Unit]
+Description = Will run deletelatenight.service every first sunday of the month, at 1:00 am
+
+[Timer]
+# OnCalendar Syntax: days year-month-day hour:minutes:seconds
+# 1..5 represents a range
+# * is wildcard
+# days works as an if statemtent (only run if day is equal to one of the options in days) (Optional)
+
+OnCalendar=Sun *-*-1..7 1:00:00
+Unit=deletelatenight.service
+
+[Install]
+WantedBy=multi-user.target
