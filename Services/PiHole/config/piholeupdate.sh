@@ -28,18 +28,6 @@ printf "Adding Wally3k list to adlists.list file\n" >> $PIHOLE_UPDATE_LOG 2>&1
 curl https://v.firebog.net/hosts/lists.php?type=nocross >> /etc/pihole/adlists.list
 
 ######################
-# RESET YOUTUBE LIST #
-######################
-printf "Resetting youtube list\n" >> $PIHOLE_UPDATE_LOG 2>&1
-# This script takes the pihole log and scans it for youtube ads, then appends it to a locally stored list which pihole can take into its gravity list
-# http://localhost/youtube-ads-list.txt needs to be added to adlists.list
-
-# Greps the log for youtube ads and appends to /var/www/html/youtube-ads-list.txt
-grep r*.googlevideo.com /var/log/pihole.log | awk '{print $8}'| grep -v '^googlevideo.com\|redirector' | sort -nr | uniq >> /var/www/html/youtube-ads-list.txt
-# Removes duplicate lines from /var/www/html/youtube-ads-list.txt
-perl -i -ne 'print if ! $x{$_}++' /var/www/html/youtube-ads-list.txt
-
-######################
 # RESET GRAVITY LIST #
 ######################
 printf "Updating Pi-Hole\n" >> $PIHOLE_UPDATE_LOG 2>&1

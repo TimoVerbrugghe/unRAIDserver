@@ -1,24 +1,59 @@
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Gamecube\ZeldaFourSwordAdventures.iso"
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Gamecube\LuigiMansion.iso"
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Gamecube\SuperMarioSunshine.iso"
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Wii\ZeldaSkywardSword.iso"
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Wii\MarioKartWii.iso"
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Wii\SuperMarioGalaxy.iso"
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Wii\SuperMarioGalaxy2.iso"
-"C:\Users\ArchServer\Desktop\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\192.168.0.3\Media\Games\Wii\PunchOut.iso"
+# Dolphin (GameCube & Wii)
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\ZeldaFourSwordAdventures.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\LuigiMansion.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\SuperMarioSunshine.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\SmashingDrive.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Gamecube\SSX3.iso"
 
-"C:\Users\ArchServer\Desktop\GameApps\RetroArch\retroarch.exe" -L "C:\Users\ArchServer\Desktop\GameApps\RetroArch\cores\nestopia_libretro.dll" "\\192.168.0.3\Media\Games\NES\Zelda II Adventure of Link.nes"
-"C:\Users\ArchServer\Desktop\GameApps\RetroArch\retroarch.exe" -L "C:\Users\ArchServer\Desktop\GameApps\RetroArch\cores\nestopia_libretro.dll" "\\192.168.0.3\Media\Games\NES\The Legend of Zelda.nes"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\ZeldaSkywardSword.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\MarioKartWii.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\SuperMarioGalaxy.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\SuperMarioGalaxy2.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\PunchOut.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\CodeLyokoQuestForInfinity.iso"
+"\\ARCHSERVER\Media\Games\GameApps\Dolphin-x64\Dolphin.exe" -b -e "\\ARCHSERVER\Media\Games\Wii\MetroidPrimeTrilogy.iso"
 
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe" "\\192.168.0.3\Media\Games\GBC\Zelda - Oracle of Ages.gbc"
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe" "\\192.168.0.3\Media\Games\GBC\Zelda - Oracle of Seasons.gbc"
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe" "\\192.168.0.3\Media\Games\GBC\Zelda - Link's Awakening DX.gbc"
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\192.168.0.3\Media\Games\GBA\Zelda - A Link to the Past.gba"
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\192.168.0.3\Media\Games\GBA\Zelda - The Minish Cap.gba"
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\192.168.0.3\Media\Games\GBA\Yu-Gi-Oh!.gba"
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\192.168.0.3\Media\Games\GBA\Medabots - Rokusho Version.gba"
-"C:\Users\ArchServer\Desktop\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\192.168.0.3\Media\Games\GBA\Pokemon FireRed Version.gba"
+# Nestopia (NES)
+"\\ARCHSERVER\Media\Games\GameApps\nestopia\nestopia.exe" "\\ARCHSERVER\Media\Games\NES\Zelda II - The Adventure of Link.nes" -video fullscreen width : 1920 -video fullscreen height : 1080 -preferences fullscreen on start : yes -view size fullscreen : stretched
 
-"C:\Users\ArchServer\Desktop\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\192.168.0.3\Media\Games\PS1\PaRappaTheRapper.bin"
-"C:\Users\ArchServer\Desktop\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\192.168.0.3\Media\Games\PS1\CrashTeamRacing.bin"
-"C:\Users\ArchServer\Desktop\GameApps\RetroArch\retroarch.exe" -L "C:\Users\ArchServer\Desktop\GameApps\RetroArch\cores\glupen64_libretro.dll" "\\10.124.161.101\Media\Games\N64\Conker Bad Fur Day.z64"
+"\\ARCHSERVER\Media\Games\GameApps\nestopia\nestopia.exe" "\\ARCHSERVER\Media\Games\NES\The Legend of Zelda.nes" -video fullscreen width : 1920 -video fullscreen height : 1080 -preferences fullscreen on start : yes -view size fullscreen : stretched
+
+# VisualBoyAdvance (GB,GBC & GBA)
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe" "\\ARCHSERVER\Media\Games\GBC\Zelda - Oracle of Ages.gbc"
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe" "\\ARCHSERVER\Media\Games\GBC\Zelda - Oracle of Seasons.gbc"
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe" "\\ARCHSERVER\Media\Games\GBC\Zelda - Link's Awakening DX.gbc"
+
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Zelda - A Link to the Past.gba"
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Zelda - The Minish Cap.gba"
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Yu-Gi-Oh!.gba"
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Medabots Rokusho Version.gba"
+"\\ARCHSERVER\Media\Games\GameApps\VisualBoyAdvance\VisualBoyAdvance-M-WX.exe"  "\\ARCHSERVER\Media\Games\GBA\Pokemon FireRed Version.gba"
+
+# ePSXe (PS1)
+"\\ARCHSERVER\Media\Games\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\ARCHSERVER\Media\Games\PS1\PaRappaTheRapper.bin"
+"\\ARCHSERVER\Media\Games\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\ARCHSERVER\Media\Games\PS1\CrashTeamRacing.bin"
+"\\ARCHSERVER\Media\Games\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\ARCHSERVER\Media\Games\PS1\CrashBandicoot.bin"
+"\\ARCHSERVER\Media\Games\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\ARCHSERVER\Media\Games\PS1\CrashBandicoot2.bin"
+"\\ARCHSERVER\Media\Games\GameApps\ePSXe\ePSXe.exe" -slowboot -nogui -loadbin "\\ARCHSERVER\Media\Games\PS1\CrashBandicootWarped.bin"
+
+# PCSX2 (PS2)
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\SpiderMan2.iso" --fullscreen --nogui --fullboot --cfgpath="\\ARCHSERVER\Media\Games\GameApps\PCSX2\Spiderman2-config"
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\BurnoutRevenge.iso" --fullscreen --nogui --fullboot
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\KingdomHearts.iso" --fullscreen --nogui --fullboot
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\KingdomHeartsII.iso" --fullscreen --nogui --fullboot
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\TimeCrisis2.iso" --fullscreen --nogui --fullboot
+
+# Cemu (Wii U)
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Captain Toad Treasure Tracker [AKBP01]\code\Kinopio.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Donkey Kong Country Tropical Freeze [ARKP01]\code\rs10_production.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Hyrule Warriors [BWPP01]\code\ProjectZ.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\MARIO KART 8 [AMKP01]\code\Turbo.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\New SUPER MARIO BROS. U [ARPP01]\code\red-pro2.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\PIKMIN 3 [AC3P01]\code\carrot.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Star Fox Guard [BWFP01]\code\PRJ_031.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Star Fox Zero [AFXP01]\code\PRJ_030.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\SUPER MARIO 3D WORLD [ARDP01]\code\RedCarpet.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\The Legend of Zelda Breath of the Wild [ALZP01]\code\U-King.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\THE LEGEND OF ZELDA The Wind Waker HD [BCZP01]\code\cking.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\THE LEGEND OF ZELDA Twilight Princess HD [AZAP01]\code\Zelda.rpx"
+"\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Yoshi's Woolly World [AYCP01]\code\pj023.rpx"
