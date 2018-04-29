@@ -43,6 +43,10 @@
 "\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\KingdomHeartsII.iso" --fullscreen --nogui --fullboot
 "\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\TimeCrisis2.iso" --fullscreen --nogui --fullboot
 
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\HarryPotter1.iso" --fullscreen --nogui --fullboot
+"\\ARCHSERVER\Media\Games\GameApps\PCSX2\pcsx2.exe" "\\ARCHSERVER\Media\Games\PS2\QuidditchWorldCup.iso" --fullscreen --nogui --fullboot
+
+
 # Cemu (Wii U)
 "\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Captain Toad Treasure Tracker [AKBP01]\code\Kinopio.rpx"
 "\\ARCHSERVER\Media\Games\GameApps\cemu\Cemu.exe" -f -g "\\ARCHSERVER\Media\Games\Wii U\Cemu\Donkey Kong Country Tropical Freeze [ARKP01]\code\rs10_production.rpx"
