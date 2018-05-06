@@ -48,4 +48,4 @@ su fileserver -c "composer install"
 
 # Restart services for which config files are linked
 # Apache, Samba, FTP
-/usr/bin/systemctl restart httpd smbd nmbd vsftpd
+/usr/bin/systemctl restart httpd smb nmb vsftpd
