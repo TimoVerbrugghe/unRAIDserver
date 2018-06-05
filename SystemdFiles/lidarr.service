@@ -1,0 +1,18 @@
+[Unit]
+Description=Lidarr Service
+Wants=network-online.target
+After=network-online.target
+OnFailure=unit-failure-notification@%n
+
+[Service]
+User=fileserver
+Group=fileserver
+ExecStart=/usr/bin/mono /home/fileserver/Applications/lidarr/app/Lidarr.exe --nobrowser --debug -data=/home/fileserver/Applications/lidarr/data/
+Type=simple
+TimeoutStopSec=20
+KillMode=process
+Restart=always
+SuccessExitStatus=9
+
+[Install]
+WantedBy=multi-user.target

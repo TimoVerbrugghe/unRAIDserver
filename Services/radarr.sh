@@ -2,7 +2,9 @@
 # Create folders & Git clone the radarr github project
 	mkdir ~/Applications/radarr/app && mkdir ~/Applications/radarr/data
 	cd ~/Applications/radarr/app
-	git clone https://github.com/Radarr/Radarr
+
+	# dot after clone command makes sure that git is cloned in current directory and that git clone does not create a new one
+	git clone https://github.com/Radarr/Radarr . 
 
 # Move radarr systemd file to /etc/systemd/system/
 # Enable & start systemd service
