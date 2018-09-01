@@ -33,3 +33,6 @@ Dnsmasq				53
 Lighttpd			80
 Dhcpcd				68,546
 SSH					22/tcp
+
+## Services and external/internal ports used by WindowsVM
+Parsec				8000-8011/udp

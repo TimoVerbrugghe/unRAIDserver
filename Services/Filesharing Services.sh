@@ -5,7 +5,7 @@
 	pacman -Syu nfs-utils
 
 	# Add share to /etc/exports
-	/home/fileserver/Media 192.168.0.0/24(rw,sync,no_root_squash,no_subtree_check,insecure)
+	/home/fileserver/Media 192.168.0.0/24(rw,async,all_squash,no_subtree_check,insecure,anonuid=1000)
 
 	# Enable systemd service for nfs
 	systemctl enable nfs-server.service
