@@ -15,7 +15,6 @@ args = "-name Windows \
 -m 12288 \
 -mem-path /dev/hugepages \
 -mem-prealloc \
--balloon none \
 -monitor telnet:localhost:7100,server,nowait,nodelay \
 -nographic \
 -serial none \
