@@ -1,8 +1,0 @@
-[Unit]
-Description = Xbox remote power on
-OnFailure=unit-failure-notification@%n
-
-[Service]
-EnvironmentFile=/home/fileserver/Applications/xboxremotepower/xboxremotepowervariables
-Type=oneshot
-ExecStart=/usr/bin/python /home/fileserver/Applications/xboxremotepower/xbox-remote-power.py -a ${IP_ADDR} -i ${LIVE_ID}

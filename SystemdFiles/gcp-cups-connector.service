@@ -7,7 +7,7 @@ OnFailure=unit-failure-notification@%n
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/gcp-cups-connector --config-filename /home/fileserver/Applications/gcp-cups-connector/gcp-cups-connector.config.json
+ExecStart=/home/fileserver/Applications/gcp-cups-connector/gcp-cups-connector --config-filename /home/fileserver/Applications/gcp-cups-connector/gcp-cups-connector.config.json
 
 [Install]
 WantedBy=multi-user.target

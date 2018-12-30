@@ -20,28 +20,10 @@
 
 ## Google cloud Print
 # Install packages
-	yay -Syu gcp-cups-connector
+	yay -Syu bzr avahi git
 
-	## IF THIS INSTALLATION FAILS -> BUILD MANUALLY
-	# Go to .cache/yay/gcp-cups-connector
-	# copy the pkgver from PKGBUILD
+# Download and compile gcp-connector from source
+	cd ~/
+	go get github.com/google/cloud-print-connector/...
 
-	cd ~/.build/
-	curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/gcp-cups-connector.tar.gz
-	tar -xvf gcp-cups-connector.tar.gz
-	cd gcp-cups-connector
-
-	nano .SRCINFO && nano PKGBUILD
-		# Change pkgver to the latest version in both files
-
-	makepkg -sri
-
-
-	gcp-connector-util init
-		# Follow instructions
-
-	# Move gcp-cups-connector.config.json to ~/Applications/gcp-cups-connector
-
-	# Place systemd service file to /etc/systemd/system
-	systemctl enable gcp-cups-connector.service
-	systemctl start gcp-cusp-connector.service
+# 
