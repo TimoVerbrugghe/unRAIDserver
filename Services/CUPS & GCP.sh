@@ -26,4 +26,15 @@
 	cd ~/
 	go get github.com/google/cloud-print-connector/...
 
-# 
+# Configure Google Cloud Print
+	cd ~/go/bin/
+	./gcp-connector-util init
+
+# Move files & clean up
+	mkdir ~/Applications/gcp-cups-connector
+	mv ~/go/bin/gcp-cups-connector ~/go/bin/gcp-cups-connector.config.json ~/Applications/gcp-cups-connector/
+	rm -rf ~/go/
+
+# Move systemd files (gcp-cups-connector.service) to /etc/systemd/system and enable/start them
+	systemctl enable gcp-cups-connector
+	systemctl start gcp-cups-connector
