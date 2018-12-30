@@ -1,6 +1,6 @@
 ## Shellinabox
 # Install the shellinabox package
-pacaur -Syu shellinabox-git
+yay -Syu shellinabox-git
 
 # Create data directory
 mkdir ~/Applications/shellinabox

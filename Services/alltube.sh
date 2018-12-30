@@ -1,6 +1,6 @@
 ## Installation of the alltube service & webpage
 # Install npm, composer, youtube-dl, ffmpeg & rtmpdump
-	pacaur -Syu npm composer youtube-dl ffmpeg rtmpdump
+	yay -Syu npm composer youtube-dl ffmpeg rtmpdump
 
 # Clone the develop branch of the alltube github project
 	git clone -b develop https://github.com/Rudloff/alltube

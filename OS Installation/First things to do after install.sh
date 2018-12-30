@@ -52,23 +52,10 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 	BUILDENV=(!distcc color ccache check !sign)
 	COMPRESSXZ=(xz -c -z - --threads=0)
 
-	# Install cower, then pacaur
-	# Before installing cower
-	gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-
-	# Download snapshot of cower from https://aur.archlinux.org/packages/cower/
-	cd ~/.build/
-	curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz
-	tar -xvf cower.tar.gz
-	cd cower
-	makepkg -sri
-
-	# Download snapshot of pacaur
-	cd ~/.build/
-	curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/pacaur.tar.gz
-	tar -xvf pacaur.tar.gz
-	cd pacaur
-	makepkg -sri
+	# Install yay
+		git clone https://aur.archlinux.org/yay.git
+		cd yay
+		makepkg -si
 
 ## Booting
 	# Num Lock activation
@@ -104,7 +91,7 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 
 		# Add neofetch prompt
 		# Install neofetch & move config file from config folder to /home/fileserver/Applications/neofetch/config
-		pacaur -Syu neofetch
+		yay -Syu neofetch
 			if [ -f /usr/bin/neofetch ]; then neofetch --config /home/fileserver/Applications/neofetch/config; fi
 
 ## Autologin

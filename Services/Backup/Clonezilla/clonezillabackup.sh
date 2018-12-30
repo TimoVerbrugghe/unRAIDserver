@@ -36,9 +36,9 @@ rm -rf /home/fileserver/Media/SystemImage/Fileserver >/dev/null 2>&1
 printf "Cleaning caches\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
 yes | paccache -rk 0 >/dev/null 2>&1
 yes | paccache -ruk0 >/dev/null 2>&1
-yes | pacaur -Scc --noconfirm 2>&1 || true && # It can be that command fails because no packages to delete, in that case, still give out value true so script can continue
+yes | yay -Scc --noconfirm 2>&1 || true && # It can be that command fails because no packages to delete, in that case, still give out value true so script can continue
 rm -rf /home/fileserver/.build/packages/* 2>&1 &&
-rm -rf /home/fileserver/.cache/pacaur/* 2>&1 &&
+rm -rf /home/fileserver/.cache/yay/* 2>&1 &&
 rm -rf /home/fileserver/.m2 2>&1 &&
 rm -rf /home/fileserver/.mysql_history 2>&1 &&
 rm -rf /home/fileserver/.npm 2>&1 &&

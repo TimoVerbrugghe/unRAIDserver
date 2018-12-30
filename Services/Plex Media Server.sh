@@ -1,7 +1,7 @@
 ## Plex Media Server Installation on Arch
 # https://wiki.archlinux.org/index.php/Plex
 # Install plex package
-	pacaur -Syu plex-media-server
+	yay -Syu plex-media-server
 
 # Make work directories & copy needed files
 	mkdir ~/Applications/plexmediaserver/conf.d/plexmediaserver

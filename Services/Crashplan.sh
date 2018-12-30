@@ -1,6 +1,6 @@
 e## Crashplan Installation on Arch
 # Install Crashplan Pro Service
-	pacaur -Syu crashplan-pro
+	yay -Syu crashplan-pro
 
 	## Temporary other installation procedure for version 4.9.0
 		# Download snapshot from AUR

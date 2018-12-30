@@ -1,6 +1,6 @@
 ## Installation guide for Sonarr on Arch
 # Install sonarr package
-	pacaur -Syu sonarr
+	yay -Syu sonarr
 
 # Edit sonarr systemd file
 	systemctl edit sonarr

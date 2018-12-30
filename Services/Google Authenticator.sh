@@ -1,6 +1,6 @@
 ## Google Authenticator Install for Arch
 # Install required packages
-	pacaur -Syu libpam-google-authenticator
+	yay -Syu libpam-google-authenticator
 
 # Enable Google Authenticator on SSH
 	nano /etc/pam.d/sshd

@@ -20,10 +20,10 @@
 
 ## Google cloud Print
 # Install packages
-	pacaur -Syu gcp-cups-connector
+	yay -Syu gcp-cups-connector
 
 	## IF THIS INSTALLATION FAILS -> BUILD MANUALLY
-	# Go to .cache/pacaur/gcp-cups-connector
+	# Go to .cache/yay/gcp-cups-connector
 	# copy the pkgver from PKGBUILD
 
 	cd ~/.build/
