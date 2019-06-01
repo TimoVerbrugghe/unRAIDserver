@@ -9,7 +9,7 @@ args = "-name Windows \
 -vga none \
 -nodefaults \
 -enable-kvm \
--machine type=q35,accel=kvm \
+-machine type=q35,accel=kvm,kernel-irqchip=on \
 -cpu host,kvm=off,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_vendor_id=whatever  \
 -smp 4,sockets=1,cores=4,threads=1 \
 -m 12288 \
