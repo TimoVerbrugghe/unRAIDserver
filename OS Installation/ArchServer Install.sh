@@ -24,7 +24,7 @@ swapon /dev/sda3
 
 ## Install the base packages
 # Install these additional packages
-pacstrap /mnt base base-devel btrfs-progs openssh rsync wget curl ufw smartmontools sudo ntfs-3g intel-ucode ttf-dejavu haveged ccache libcdio libdvdread libdvdcss libdvdnav
+pacstrap /mnt base base-devel btrfs-progs openssh rsync wget curl ufw smartmontools sudo ntfs-3g intel-ucode ttf-dejavu haveged ccache libcdio libdvdread libdvdcss libdvdnav pacman-contrib
 
 ## Fstab
 # After generating fstab, be sure to change to current fstab with right mounting options.

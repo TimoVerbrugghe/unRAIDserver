@@ -9,8 +9,8 @@
 
 # Change environment file
 	nano ~/Applications/plexmediaserver/conf.d/plexmediaserver
-		LD_LIBRARY_PATH=/opt/plexmediaserver
-		PLEX_MEDIA_SERVER_HOME=/opt/plexmediaserver
+		LD_LIBRARY_PATH=/usr/lib/plexmediaserver/lib
+		PLEX_MEDIA_SERVER_HOME=/usr/lib/plexmediaserver
 		PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=/home/fileserver/Applications/plexmediaserver
 		PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
 		PLEX_MEDIA_SERVER_TMPDIR=/tmp
