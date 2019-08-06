@@ -15,7 +15,6 @@ Shellinabox			8085
 Websockets (noVNC)	8086
 NetData				8087
 Jackett				8088
-NzbGet				8089
 x11vnc				5900
 Cups				631
 Qemu (telnet)		7100, 7101
