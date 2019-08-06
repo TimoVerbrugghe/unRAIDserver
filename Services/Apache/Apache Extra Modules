@@ -12,7 +12,7 @@
  expires_module (shared)
  fastcgi_module (shared)
 
- mpm_prefork_module (shared)
+ mpm_event_module (shared)
 
  pagespeed_module (shared)
  php7_module (shared)
