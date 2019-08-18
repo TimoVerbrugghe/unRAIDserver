@@ -1,0 +1,20 @@
+[Unit]
+Description=Bazarr Service
+After=syslog.target network.target
+OnFailure=unit-failure-notification@%n
+
+[Service]
+WorkingDirectory=/home/fileserver/Applications/bazarr
+User=fileserver
+Group=fileserver
+UMask=0002
+Restart=on-failure
+RestartSec=5
+Type=simple
+ExecStart=/usr/bin/python2 /home/fileserver/Applications/bazarr/bazarr.py
+KillSignal=SIGINT
+TimeoutStopSec=20
+SyslogIdentifier=bazarr
+
+[Install]
+WantedBy=multi-user.target
