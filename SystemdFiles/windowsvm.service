@@ -1,6 +1,5 @@
 [Unit]
 Description=QEMU virtual machine - Windows VM
-Before=crashplan-pro.service bazarr.service gcp-cups-connector.service jackett.service lidarr.service novnc.service radarr.service sonarr.service plexmediaserver.service
 Wants=network-online.target
 After=network-online.target
 OnFailure=unit-failure-notification@%n
@@ -9,7 +8,6 @@ OnFailure=unit-failure-notification@%n
 Type=forking
 PIDFile=/run/qemu_windowsvm.pid
 EnvironmentFile=/home/fileserver/Applications/WindowsVM/qemuargswindowsVM
-ExecStartPre=/usr/bin/tee /proc/sys/vm/drop_caches
 ExecStart=/usr/bin/qemu-system-x86_64 $args
 ExecStop=/bin/sh -c '( sleep 2; echo "system_powerdown"; sleep 5; ) | telnet localhost 7100; while ps ax | grep "/usr/bin/qemu-system-x86_64 -name Windows" | grep -vq grep; do echo "Still waiting... (Waiting for 10 more seconds)"; sleep 10; done; echo "Windows VM successfully shutdown"'
 TimeoutStopSec=60
