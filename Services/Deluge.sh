@@ -2,18 +2,16 @@
 # Install deluge package
 	pacman -Syu deluge python2-service-identity python2-notify python2-mako
 
-# Edit the deluge systemd files
-	systemctl edit deluged
-		# Add content from deluged.conf
-	systemctl edit deluge-web
-		# Add content from deluge-web.conf
+# Add the deluge systemd files to the systemd user folder (since default arch linux install systemd files will overwrite fileserver user always with the deluge user on startup of the service)
+	/home/fileserver/.config/systemd/user/deluged.service
+	/home/fileserver/.config/systemd/user/deluge-web.service
 
 # Enable & start systemd service
-	systemctl enable deluged.service
-	systemctl enable deluge-web.service
+	systemctl --user enable deluged.service
+	systemctl --user enable deluge-web.service
 
-	systemctl start deluged.service
-	systemctl start deluge-web.service
+	systemctl --user start deluged.service
+	systemctl --user start deluge-web.service
 
 # Go to the default port (8112) & start configuration
 	# Default password deluge
