@@ -1,0 +1,11 @@
+
+
+https://github.com/animosity22/homescripts
+
+rclone copy --filter-from files2.txt /home/fileserver/Media/Photos gsuite:Photos -v -P --log-file /home/fileserver/Media/Photos/rclone.log --fast-list --transfers=40 --checkers=40 --drive-chunk-size=1M --max-transfer 700G --dry-run 
+
+rclone copy --filter-from files.txt /home/fileserver/Media/Games gsuite:Games -v -P --log-file /home/fileserver/rclone.log --fast-list --transfers=1 --checkers=1 --drive-chunk-size=1M --dry-run 
+
+rclone copy --filter-from /home/fileserver/Applications/rclone/rclone_exclusions /home/fileserver/Media/Movies gsuite:Movies -v -P --log-file /home/fileserver/Applications/rclone/rclone.log --fast-list --transfers=20 --checkers=20 --drive-chunk-size=1M --max-transfer 700G --dry-run 
+
+rclone copy --filter-from /home/fileserver/Applications/rclone/rclone_exclusions /home/fileserver/Media/TVShows gsuite:TVShows -v -P --log-file /home/fileserver/Applications/rclone/rclone.log --fast-list --transfers=20 --checkers=20 --drive-chunk-size=1M --max-transfer 700G --dry-run
