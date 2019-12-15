@@ -6,12 +6,11 @@
 
 ## Apache & PHP
 # Install apache package
-	pacman -Syu apache php php-fpm nghttp2 hiredis phpmyadmin php-gd php-intl php-mcrypt php-apcu
+	pacman -Syu apache php php-apache nghttp2 hiredis phpmyadmin php-gd php-intl php-mcrypt php-apcu
 
 # Replace httpd.conf at /etc/httpd/conf/httpd.conf
 # Replace httpd-vhosts.conf at /etc/httpd/conf/extra/httpd-vhosts.conf
 # Replace httpd-ssl.conf at /etc/httpd/conf/extra/httpd-ssl.conf
-# Place php-fpm.conf at /etc/httpd/conf/extra/php-fpm.conf
 # Place phpmyadmin.conf at /etc/httpd/conf/extra/phpmyadmin.conf
 
 # Regenerate password
@@ -38,10 +37,8 @@
 
 # Connect php with mariadb
 	# Place extensions.ini in /etc/php/conf.d/extensions.ini
-	
-# Enable Apache & php-fpm
-	systemctl enable php-fpm
-	systemctl start php-fpm
+
+# Start httpd
 	systemctl enable httpd
 	systemctl start httpd
 

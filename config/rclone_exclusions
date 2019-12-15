@@ -1,3 +1,5 @@
+## Exclusion file for rclone. Rules are read from top to bottom, so you start with your exclusions, then the folders you want to sync and you end with a general catch-all rule for any subdirectory you don't want to sync ##
+
 ## General Exclusions ##
 
 - .DS_Store
@@ -13,3 +15,16 @@
 
 - extrafanart/**
 - extrathumbs/**
+
+## Folders to sync ##
++ /Applications/**
++ /Games/**
++ /Movies/**
++ /Music/**
++ /Network/**
++ /Photos/**
++ /SystemImage/**
++ /TVShows/**
+
+## General catch-all ##
+- *
