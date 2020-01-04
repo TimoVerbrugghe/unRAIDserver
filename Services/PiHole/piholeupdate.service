@@ -1,7 +1,0 @@
-[Unit]
-Description = Pi-Hole Update
-After=network-online.target
-
-[Service]
-Type=oneshot
-ExecStart=/home/pihole/piholeupdate.sh

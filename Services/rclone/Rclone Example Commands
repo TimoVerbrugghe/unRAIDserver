@@ -1,7 +1,6 @@
 https://github.com/animosity22/homescripts 
 
 rclone copy \
---dry-run \
 -v \
 -P \
 --fast-list \
@@ -11,6 +10,6 @@ rclone copy \
 --bwlimit "12:00,1b 23:59,off" \
 --log-file /home/fileserver/Applications/rclone/rclone.log \
 --filter-from /home/fileserver/Applications/rclone/rclone_exclusions \
-/home/fileserver/Media gsuite:
+/home/fileserver/Media/TVShows gsuite:TVShows
 
 

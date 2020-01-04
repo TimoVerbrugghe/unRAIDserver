@@ -30,10 +30,3 @@ To                         Action      From
 
 # Zeroconf/Bonjour
 5353                       ALLOW       192.168.0.0/24
-
-# Unifi
-8080					   ALLOW	   192.168.0.0/24
-8443					   ALLOW	   Anywhere
-
-# Crashplan
-4243/tcp                   ALLOW       192.168.0.0/24

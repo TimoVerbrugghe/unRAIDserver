@@ -43,10 +43,8 @@
 	LAMP server & phpmyadmin					#check
 
 	Nextcloud									#check
-	scanner server (scanserv)					#check
+	scanner server (PHP Scanner Server)			#check
 											
 	Qemu-kvm & WindowsVM scripts				#check
-
-	Crashplan									#check
 
 	Google Authenticator for SSH				#check

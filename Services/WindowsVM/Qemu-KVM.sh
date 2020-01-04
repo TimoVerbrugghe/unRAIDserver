@@ -73,7 +73,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		Description="Bridge configuration for qemu"
 		Interface=br0
 		Connection=bridge
-		BindsToInterfaces=(enp3s0 tap0 tap1)
+		BindsToInterfaces=(enp3s0 tap0)
 
 		## IPv4 configuration
 		IP=static

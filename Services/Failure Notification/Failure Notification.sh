@@ -25,4 +25,3 @@ OnFailure=unit-failure-notification@%n
 	NFS
 	Samba (smbd,nmbd)
 	FTP
-	Crashplan

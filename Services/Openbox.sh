@@ -1,6 +1,10 @@
 ## Arch - Window Manager & Openbox installation
 	# Install openbox & Xinit (to start openbox)
-	pacman -Syu openbox xorg-server xorg-xinit xf86-video-intel mesa-libgl libva-intel-driver obconf lxappearance-obconf lxinput lxterminal pcmanfm tint2 numix-themes chromium
+	pacman -Syu openbox xorg-server xorg-xinit obconf lxappearance-obconf lxinput lxterminal pcmanfm tint2 numix-themes chromium
+
+		# for AMD graphics cards, install following packages as well, see https://wiki.archlinux.org/index.php/Hardware_video_acceleration#ATI/AMD
+		pacman -Syu xf86-video-ati mesa mesa-libgl libva-mesa-driver
+
 	cp /etc/X11/xinit/xinitrc ~/.xinitrc
 	nano ~/.xinitrc
 		exec openbox-session
