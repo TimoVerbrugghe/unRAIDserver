@@ -17,14 +17,14 @@
 - extrathumbs/**
 
 ## Folders to sync ##
-+ /Applications/**
-+ /Games/**
-+ /Movies/**
-+ /Music/**
-+ /Network/**
-+ /Photos/**
-+ /SystemImage/**
-+ /TVShows/**
+#+ /Applications/**
+#+ /Games/**
+#+ /Movies/**
+#+ /Music/**
+#+ /Network/**
+#+ /Photos/**
+#+ /SystemImage/**
+#+ /TVShows/**
 
 ## General catch-all ##
 - *

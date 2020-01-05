@@ -14,37 +14,34 @@
 	Basic utilities: wget, rsync, curl 			#check
 	ufw											#check
 	SSH								 			#check
+		Google Authenticator for SSH			#check
 	Failure Notification Service				#check
 
 	Window Manager (openbox)					#check
 	File Manager (pcmanfm)						#check
-	VNC & noVNC									#check
+	Chrome Remote Desktop						#check
 
-	Cron 										#check
-	Lets Encrypt								#check
-	Shellinabox									#check
-	Backup scripts & Pushbullet					#check
-		Clonezilla backup reboot				#check
+	Fstab & HDD initialization					#check
 
-	NFS											#check
-	FTP											#check
 	Samba										#check
 
-	Deluge										#check
-	Nzbget										#check		
+	Deluge										#check	
 	Sonarr										#check
 	Radarr										#check
 	Plex										#check
-
-	Netdata										#check					
-	CUPS & GCP									#check																
 	Jackett										#check
+					
+	CUPS & GCP									#check
 
-	LAMP server & phpmyadmin					#check
+	LAMP Server  								#check
+		Lets Encrypt							#check
 
 	Nextcloud									#check
 	scanner server (PHP Scanner Server)			#check
 											
 	Qemu-kvm & WindowsVM scripts				#check
 
-	Google Authenticator for SSH				#check
+	Backup scripts & Pushbullet					#check
+		Clonezilla backup reboot				#check
+
+	Systemd Timers 								#check

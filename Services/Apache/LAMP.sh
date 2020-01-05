@@ -6,7 +6,7 @@
 
 ## Apache & PHP
 # Install apache package
-	pacman -Syu apache php php-apache nghttp2 hiredis php-gd php-intl php-mcrypt php-apcu
+	pacman -Syu apache php php-apache nghttp2 hiredis php-gd php-intl php-apcu
 
 # Replace httpd.conf at /etc/httpd/conf/httpd.conf
 # Replace httpd-vhosts.conf at /etc/httpd/conf/extra/httpd-vhosts.conf

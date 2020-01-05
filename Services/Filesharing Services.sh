@@ -1,29 +1,5 @@
 ## Filesharing Services - Arch Install
 
-## NFS
-	# Install nfs-utils
-	pacman -Syu nfs-utils
-
-	# Add share to /etc/exports
-	/home/fileserver/Media 192.168.0.0/24(rw,async,all_squash,no_subtree_check,insecure,anonuid=1000)
-
-	# Enable systemd service for nfs
-	systemctl enable nfs-server.service
-
-## FTP
-	# Install vsftpd
-	pacman -Syu vsftpd
-
-	# Move correct vsftpd.conf (config/vsftpd.conf) to /etc/vsftpd.conf
-
-	# make folders in root mode
-	sudo su
-	mkdir /var/run/vsftpd
-	mkdir /var/run/vsftpd/empty
-
-	# Enable systemd service for ftp service
-	systemctl enable vsftpd.service
-
 ## SMB
 	# Install samba package
 	pacman -Syu samba avahi nss-mdns
@@ -31,7 +7,7 @@
 	## Avahi
 		# Set up avahi local hostname resolution
 		nano /etc/nsswitch.conf
-		hosts: files mdns_minimal [NOTFOUND=return] dns myhostname
+		hosts: files ... mdns_minimal [NOTFOUND=return] ... 
 
 		# Advertise smb server on Avahi network
 		nano /etc/avahi/services/smb.service
@@ -63,9 +39,4 @@
 		# Enter password
 
 	# Enable systemd samba services
-	systemctl enable smbd.service nmbd.service
-
-	## Enable network discovery of Samba servers for Windows 10
-		# Go to "Turn Windows Features On or Off"
-		# Enable SMB/CIFS 1.0 features
-		# Restart PC
+	systemctl enable smb.service nmb.service

@@ -17,9 +17,14 @@
 	# Default password deluge
 	# Password fileserver
 
+	# Change download folder
+
 # After initial startup, you can change the port in the config file
 	nano /home/fileserver/.config/deluge/web.conf
 		port: 8080
 
 # Install AutoRemovePlus plugin, download from https://github.com/omaralvarez/deluge-autoremoveplus/releases
 	# Upload the python egg file to the deluge web interface (settings -> plugins)  
+
+# Enable the label plugin
+	# Add radarr & sonarr label

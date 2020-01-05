@@ -57,13 +57,6 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 		cd yay
 		makepkg -si
 
-## Booting
-	# Num Lock activation
-
-## Multimedia
-	# (Optional) Unmute sound
-	amixer sset Master unmute
-
 ## Networking
 	# Synchronize time
 	timedatectl set-timezone Europe/Brussels
@@ -81,17 +74,10 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 		source /usr/share/doc/pkgfile/command-not-found.bash
 
 	# Console prompt - Console Bach prompt
-		# Terminfo escape sequences
-		
-		# Change escape sequence to color green & give a custom message
-		GREEN="\[$(tput setaf 2)\]"
-		RESET="\[$(tput sgr0)\]"
-
-		export PS1="${GREEN}\\u@\h \\W${RESET}> "
-
 		# Add neofetch prompt
 		# Install neofetch & move config file from config folder to /home/fileserver/Applications/neofetch/config
 		yay -Syu neofetch
+		nano ~/.bashrc
 			if [ -f /usr/bin/neofetch ]; then neofetch --config /home/fileserver/Applications/neofetch/config; fi
 
 ## Autologin
