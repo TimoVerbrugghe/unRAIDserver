@@ -18,4 +18,4 @@ UUID=96dac97c-a466-449b-aee3-1ffb87ba0cf8       /home/fileserver/Media  btrfs de
 UUID=a5fed9a7-6f74-4472-819a-6b69b27ea69a       /home/fileserver/Backup btrfs defaults,x-systemd.automount,x-systemd.device-timeout=60,nofail,noatime,nodiratime,autodefrag,compress=lzo,space_cache=v2 0 0
 
 # Hugepages
-hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=1003        0 0
+hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=992        0 0

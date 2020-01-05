@@ -1,14 +1,14 @@
 ## Qemu-KVM Installation on Arch
 # Install qemu & ovmf package
-	pacman -Syu qemu-headless ovmf-git dtc
+	pacman -Syu qemu-headless ovmf dtc
 
 # Create folder & OVMF (UEFI) vars file
 	mkdir /home/fileserver/Application/WindowsVM/
-	cp /usr/share/ovmf/ovmf_vars_x64.bin /home/fileserver/Applications/WindowsVM/ovmf_windowsvm_vars.bin
+	cp /usr/share/ovmf/x64/OVMF_VARS.fd /home/fileserver/Applications/WindowsVM/ovmf_windowsvm_vars.fd
 	chown fileserver:fileserver /home/fileserver/Applications/WindowsVM/ovmf_windowsvm_vars.bin
 
 # Change grub boot options - /etc/default/grub
-GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
+GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 amd_iommu=on iommu=pt"
 
 # Enable loading of virtio mdoules
 	nano /etc/modules-load.d/virtio-net.conf
@@ -29,9 +29,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 
 # Add Graphics card, USB 3.0 ports & Intel HD Audio Controller to vfio.conf
 	nano /etc/modprobe.d/vfio.conf
-	options vfio-pci ids=10de:1c03,10de:10f1,8086:8ca0
+	options vfio-pci ids=10de:1c03,10de:10f1,1022:1487
 		# 10de:1c03 & 10de:10f1 -> Nvidia Graphics Card
-		# 8086:8ca0 -> Intel HD Audio Controller
+		# 8086:8ca0 -> Starship/Matisse HD Audio Controller
 
 # Blacklist nvidia nouveau, USB 3.0 & Intel HD Audio Controller
 	nano /etc/modprobe.d/blacklist.conf
@@ -58,9 +58,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 # Add to /etc/fstab
 	hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=<GIDOFKVMGROUP>        0 0
 
-# Change HugePages to 12 gb (6144 * 2048kb)
+# Change HugePages to 16 gb (8192 * 2048kb)
 	nano /etc/sysctl.d/40-hugepage.conf
-	vm.nr_hugepages = 6144
+	vm.nr_hugepages = 8192
 
 ## Enabling networking
 # Enable bridge helper
@@ -73,7 +73,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 		Description="Bridge configuration for qemu"
 		Interface=br0
 		Connection=bridge
-		BindsToInterfaces=(enp3s0 tap0)
+		BindsToInterfaces=(eno1 tap0)
 
 		## IPv4 configuration
 		IP=static
@@ -103,8 +103,13 @@ GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=-1 intel_iommu=on iommu=pt"
 	netctl disable wired
 	rm -rf /etc/netctl/wired
 
+	netctl enable tuntap
 	netctl enable bridge
-	netctl disable enp3s0
+	netctl disable eno1
+
+	netctl start tuntap
+	netctl start bridge
+
 
 # Move windowsvm.service to /etc/systemd/system
 	systemctl enable windowsvm.service
