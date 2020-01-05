@@ -1,5 +1,5 @@
 ## Installation guide for Sonarr on Arch
-# Install sonarr package
+# Install dependencies
 	yay -Syu sonarr
 
 # Edit sonarr systemd file
@@ -14,10 +14,7 @@
 	systemctl start sonarr.service
 
 # Go to default port 8989 & start configuration
-	# First - Try the Backup & Restore method - https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore
+	# Set configuration
 
-	# Otherwise
-		# Set configuration
-
-		# Then, import series
-		# Go to add series & then import existing series from disk
+	# Then, import series
+	# Go to add series & then import existing series from disk

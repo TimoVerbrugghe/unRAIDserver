@@ -5,11 +5,13 @@
 # You can generate a new systemd-nspawn container with
 	# pacman -Syu arch-install-scripts
 	# mkdir ~/MyContainer
-	# pacstrap -i -c -d ~/MyContainer base base-devel --ignore linux
-		# Install Anyway? -> NO
+	# pacstrap -i -c -d ~/MyContainer base base-devel
+		# edit ~/MyContainer/etc/securetty and add pts/0 to pts/9 to the list
 	# systemd-nspawn -b -D ~/MyContainer
 	# Login with username "root" (no password)
 	# Poweroff vm with command "poweroff"
+
+# Move this script into the container before booting
 
 #######################################
 ## VARIABLES - REVIEW BEFORE INSTALL ##

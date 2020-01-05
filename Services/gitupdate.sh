@@ -5,13 +5,11 @@
 
 # Reset any changes done in the ArchServerGit repository (updating is only done one-way or by manually committing!)
 /usr/bin/git -C /home/fileserver/Applications/ArchServerGit/ reset --hard
-su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/vnc/ reset --hard"
 su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/scanner/ reset --hard"
 su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/alltube/ reset --hard"
 
 # Updating Git repositories
 /usr/bin/git -C /home/fileserver/Applications/ArchServerGit/ pull
-su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/vnc/ pull"
 su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/scanner/ pull"
 su fileserver -c "/usr/bin/git -C /home/fileserver/Media/Network/alltube/ pull"
 
@@ -33,19 +31,9 @@ su fileserver -c "composer install"
 /usr/bin/chmod +x /home/fileserver/Applications/failure-notification.sh
 /usr/bin/chmod +x /home/fileserver/Applications/gitupdate.sh
 /usr/bin/chmod +x /home/fileserver/Applications/pushbullet.sh
-/usr/bin/chmod +x /home/fileserver/Applications/stopx11vnc.sh
 /usr/bin/chmod +x /home/fileserver/Applications/certbot.sh
-/usr/bin/chmod +x /home/fileserver/Applications/xboxremotepower/xbox-remote-power.py
-/usr/bin/chmod +x /home/fileserver/Applications/autoupdate/autoupdate.sh
 /usr/bin/chmod +x /home/fileserver/Applications/deletelatenight/deletelatenight.sh
-
-/usr/bin/chmod +x /home/fileserver/Applications/ARM/arm_wrapper.sh
-/usr/bin/chmod +x /home/fileserver/Applications/ARM/audiorip.sh
-/usr/bin/chmod +x /home/fileserver/Applications/ARM/datarip.sh
-/usr/bin/chmod +x /home/fileserver/Applications/ARM/getmovietitle.py
-/usr/bin/chmod +x /home/fileserver/Applications/ARM/identify.sh
-/usr/bin/chmod +x /home/fileserver/Applications/ARM/videorip.sh
 
 # Restart services for which config files are linked
 # Apache, Samba, FTP
-/usr/bin/systemctl restart httpd smb nmb vsftpd
+/usr/bin/systemctl restart httpd smb nmb

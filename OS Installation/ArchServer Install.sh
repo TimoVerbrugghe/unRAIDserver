@@ -24,7 +24,7 @@ swapon /dev/sda3
 
 ## Install the base packages
 # Install these additional packages
-pacstrap /mnt base base-devel btrfs-progs openssh rsync wget curl ufw smartmontools sudo ntfs-3g ttf-dejavu haveged ccache libcdio libdvdread libdvdcss libdvdnav pacman-contrib irqbalance netctl nano
+base-devel btrfs-progs openssh rsync wget curl ufw smartmontools sudo ntfs-3g ttf-dejavu haveged ccache libcdio libdvdread libdvdcss libdvdnav pacman-contrib irqbalance unzip
 
 # Install either intel-ucode or amd-ucode for microcode support
 

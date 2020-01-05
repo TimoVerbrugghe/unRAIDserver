@@ -7,26 +7,14 @@ To                         Action      From
 22/tcp                     ALLOW       Anywhere
 
 # Plex
-32400                      ALLOW       Anywhere
-
-# FTP
-8084/tcp				   ALLOW       Anywhere
-40000:41000/tcp            ALLOW       Anywhere
+32400/tcp                  ALLOW       Anywhere
 
 # HTTP/Apache
-80                         ALLOW       Anywhere
-443                        ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+443/tcp                    ALLOW       Anywhere
 
 # SMB
 137/udp                    ALLOW       192.168.0.0/24
 138/udp                    ALLOW       192.168.0.0/24
 139/tcp                    ALLOW       192.168.0.0/24
 445/tcp                    ALLOW       192.168.0.0/24
-
-# NFS
-2049                       ALLOW       192.168.0.0/24
-111                        ALLOW       192.168.0.0/24
-20048                      ALLOW       192.168.0.0/24
-
-# Zeroconf/Bonjour
-5353                       ALLOW       192.168.0.0/24
