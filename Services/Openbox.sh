@@ -18,7 +18,6 @@
 	cp -R /etc/xdg/openbox ~/.config/
 
 ## Change openbox menu
-	# replace ~/.config/openbox/menu.xml with menu.xml in ArchServer Installation
 
 ## Change openstart file
 	nano ~/.config/openbox/autostart

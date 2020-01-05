@@ -31,12 +31,11 @@
 	Plex										#check
 	Jackett										#check
 					
-	CUPS & GCP									#check
-
 	LAMP Server  								#check
 		Lets Encrypt							#check
-
 	Nextcloud									#check
+
+	CUPS & GCP									#check
 	scanner server (PHP Scanner Server)			#check
 											
 	Qemu-kvm & WindowsVM scripts				#check
@@ -44,4 +43,4 @@
 	Backup scripts & Pushbullet					#check
 		Clonezilla backup reboot				#check
 
-	Systemd Timers 								#check
+	Gitupdate scripts							#check

@@ -1,6 +1,6 @@
 ## Installation guide for Bazarr on Arch
 # Install python2 & python2-pip
-	yay -Syu python2 python2-pip
+	yay -Syu python python-pip
 
 # Create folders & Git clone the bazarr github project
 	mkdir ~/Applications/bazarr
@@ -10,7 +10,7 @@
 	git clone https://github.com/morpheus65535/bazarr.git .
 
 # Install python requirements
-	python2 -m pip install -r requirements.txt
+	pip install -r requirements.txt
 
 # Move bazarr systemd file to /etc/systemd/system/
 # Enable & start systemd service

@@ -7,13 +7,14 @@
 	systemctl start org.cups.cupsd.service
 
 # Add user to correct groups
-	sudo usermod -a -G sys lp fileserver
+	sudo usermod -a -G sys fileserver
+	sudo usermod -a -G lp fileserver
 
 # Install printer
-	hp-setup -i 
-	# Follow instructions
+	hp-setup -i <PRINTERIP>
 
-# Go to port 631 and share a printer through the CUPS interface
+	# Go to port 631 
+	# Go to administation -> share a printer through the CUPS interface
 	# Enable "Share printers connected to this system" & "Allow printing from the internet"
 
 # Restart cups
@@ -32,7 +33,7 @@
 
 # Move files & clean up
 	mkdir ~/Applications/gcp-cups-connector
-	mv ~/go/bin/gcp-cups-connector ~/go/bin/gcp-cups-connector.config.json ~/Applications/gcp-cups-connector/
+	mv ~/go/bin/gcp-connector-util ~/go/bin/gcp-cups-connector.config.json ~/Applications/gcp-cups-connector/
 	rm -rf ~/go/
 
 # Move systemd files (gcp-cups-connector.service) to /etc/systemd/system and enable/start them
