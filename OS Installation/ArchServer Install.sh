@@ -61,13 +61,12 @@ netctl enable staticIPwired
 systemctl enable netctl-wait-online.service
 
 ## Bootloader installation
-# Make sure all partitions are mounted to the correct folders!
-# Mount /boot/ first before mounting /boot/efi !
+# Make sure all partitions (aka ESP partition to /mnt/efi) are mounted to the correct folders!
 arch-chroot /mnt /bin/bash
 pacman -Syu grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch-grub --boot-directory=/boot --debug
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=arch-grub --boot-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
 
 	## UEFI - Troubleshooting
 		# Make sure all other UEFI boot options (from previous installs) are erased using efibootmgr
-		# It could be that the bootloader has to have bootx64.efi in the esp/EFI/boot/ folder. If so, copy /mnt/boot/efi/EFI/arch/grubx64.efi to /mnt/boot/efi/EFI/boot/bootx64.efi
+		# It could be that the bootloader has to have bootx64.efi in the esp/EFI/boot/ folder. If so, copy /mnt/boot/efi/EFI/arch-grub/grubx64.efi to /mnt/boot/efi/EFI/boot/bootx64.efi
