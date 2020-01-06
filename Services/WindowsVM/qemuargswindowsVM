@@ -50,12 +50,10 @@ args = "-name Windows \
         # Use an EFI (OVMF) Bios, updated through arch package
 # -drive if=pflash,format=raw,file=/home/fileserver/Applications/WindowsVM/ovmf_windowsvm_vars.fd \
         # Use seperate vars file for OVMF
-
 # -daemonize \
 # -pidfile /run/qemu_windowsvm.pid \
 # -vga none \
         # do not use any of the built-in VGA emulation
-
 #-nodefaults \
 #-enable-kvm \
 #-machine type=q35,accel=kvm,kernel-irqchip=on \
