@@ -1,7 +1,6 @@
 ## Failure Notification service for Arch Home Server
 # This will send a failure notification when a specific systemd unit fails. This only works IF an OnFailure state is added to a .service file.
 
-# Move failure-notification.sh to Applications/failure-notification.sh
 # Move unit-failure-notification@.service to /etc/systemd/system/ & ~/.config/systemd/user/
 
 ## How to enable on other service

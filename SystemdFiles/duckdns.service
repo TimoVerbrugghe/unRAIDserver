@@ -5,5 +5,6 @@ After=network-online.target
 OnFailure=unit-failure-notification@%n
 
 [Service]
+EnvironmentFile=/home/fileserver/ArchServer/config/passwords
 Type=oneshot
-ExecStart=/usr/bin/flock -w 0 /home/fileserver/Applications/duckdns/duckdns.lock /home/fileserver/Applications/duckdns/duckdns.sh
+ExecStart=echo url="https://www.duckdns.org/update?domains=timoverbrugghe&token=${duckdnsapi}&ip=" | curl -k -K -
