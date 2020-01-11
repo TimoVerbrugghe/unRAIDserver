@@ -24,7 +24,7 @@ swapon /dev/sda3
 
 ## Install the base packages
 # Install these additional packages
-base-devel btrfs-progs openssh rsync wget curl ufw smartmontools sudo ntfs-3g ttf-dejavu haveged ccache libcdio libdvdread libdvdcss libdvdnav pacman-contrib irqbalance unzip
+base-devel btrfs-progs openssh rsync wget curl ufw smartmontools sudo ntfs-3g ttf-dejavu haveged ccache libcdio libdvdread libdvdcss libdvdnav pacman-contrib irqbalance unzip libstdc++5
 
 # Install either intel-ucode or amd-ucode for microcode support
 
