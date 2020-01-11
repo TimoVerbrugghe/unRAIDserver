@@ -8,11 +8,11 @@ ip addr # check for name of wifi device
 wpa_passphrase <SSIDNAME> <SSIDPASSWORD> > wpa.conf
 
 # 3. Activate Device
-sudo ifconfig <DEVICENAME> up
+ifconfig <DEVICENAME> up
 
 # 4. Connect to Wifi
 # -D option selects driver, -i option device, -c option configuration, -B background
-sudo wpa_supplicant -D wext -i wlan0 -c /home/user/wpa.conf -B
+wpa_supplicant -D wext -i wlan0 -c /home/user/wpa.conf -B
 
 # 5. Get IP (through DHCP)
-sudo dhclient wlan0
+dhclient wlan0
