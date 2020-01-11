@@ -1,5 +1,3 @@
-## Filesharing Services - Arch Install
-
 ## SMB
 	# Install samba package
 	pacman -Syu samba avahi nss-mdns
@@ -38,5 +36,13 @@
 	smbpasswd -a fileserver
 		# Enter password
 
-	# Enable systemd samba services
-	systemctl enable smb.service nmb.service
+
+## Enable WSD discovery method
+	# Download latest release from https://github.com/christgau/wsdd
+	# Move wsdd.py to /home/fileserver/Applications/wsdd and rename to wsdd
+	# Move wsdd.service to /etc/systemd/system
+
+## Enable systemd samba services
+	systemctl enable smb.service nmb.service wsdd.service
+	systemctl start smb.service nmb.service wsdd.service
+	

@@ -3,15 +3,11 @@ Apache				80/tcp & 443/tcp
 SSH					22/tcp
 Plex				32400/tcp & 1900/udp,32410/udp,32412/udp,32413/udp,32414/udp,32469/tcp
 SMB					137,138/udp & 139,445/tcp
+WSD                 3702, 5357
 Deluge				8080
 Sonarr				8081
 Radarr				8082
 Jackett				8083
 Bazarr				8084
 Cups				631
-Qemu (telnet)		7100, 7101
-RPC.statd			42417,48867
 MySQL				3306
-
-## Services and external/internal ports used by WindowsVM
-Parsec				8000-8011/udp

@@ -1,6 +1,7 @@
 #!/bin/bash
+source /home/fileserver/Applications/ArchServer/config/passwords.sh
 
-API=o.xYd9Q85uxflrzlSXukayL0XFiYfSfdqf
+API=$pushbulletapi
 TITLE="$1"
 MSG="$2"
 
