@@ -86,3 +86,48 @@ systemctl edit getty@tty1
 	[Service]
 	ExecStart=
 	ExecStart=-/usr/bin/agetty --autologin fileserver --noclear %I $TERM
+
+## Performance
+	# Change cpupower default settings -> governor to performance
+	nano /etc/default/cpupower
+		governor='performance'
+
+	systemctl enable cpupower
+
+	# You can measure current cpu frequency with below command
+		watch grep \"cpu MHz\" /proc/cpuinfo
+
+	## Turn off CPU mitigations - don't do this on critical systems
+	nano /etc/default/grub
+		mitigations=off
+
+	## Reduce swappiness
+	nano /etc/sysctl.d/99-swappiness.conf
+		vm.swappiness=10
+
+	## Increase network performance
+	nano /etc/sysctl.d/99-sizereceivequeue.conf
+		net.core.netdev_max_backlog = 100000
+		net.core.netdev_budget = 50000
+		net.core.netdev_budget_usecs = 5000
+
+	nano /etc/sysctl.d/99-increasemaxconnections.conf
+		net.core.somaxconn = 1024
+
+	nano /etc/sysctl.d/99-increasememorynetinterface.conf
+		net.core.rmem_default = 1048576
+		net.core.rmem_max = 16777216
+		net.core.wmem_default = 1048576
+		net.core.wmem_max = 16777216
+		net.core.optmem_max = 65536
+		net.ipv4.tcp_rmem = 4096 1048576 2097152
+		net.ipv4.tcp_wmem = 4096 65536 16777216
+		net.ipv4.udp_rmem_min = 8192
+		net.ipv4.udp_wmem_min = 8192
+
+	nano /etc/sysctl.d/99-tcpfastopen.conf
+		net.ipv4.tcp_fastopen = 3
+
+	nano /etc/sysctl.d/99-bbr.conf
+		net.core.default_qdisc = fq
+		net.ipv4.tcp_congestion_control = bbr

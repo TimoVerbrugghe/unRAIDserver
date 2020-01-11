@@ -7,9 +7,8 @@ rclone copy \
 --transfers=20 \
 --checkers=20 \
 --drive-chunk-size=1M \
---bwlimit "12:00,1b 23:59,off" \
 --log-file /home/fileserver/Applications/rclone/rclone.log \
 --filter-from /home/fileserver/Applications/rclone/rclone_exclusions \
 /home/fileserver/Media/TVShows gsuite:TVShows
 
-
+--bwlimit "12:00,1b 23:59,off" \
