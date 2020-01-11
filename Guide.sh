@@ -17,6 +17,8 @@
 		Google Authenticator for SSH			#check
 	Failure Notification Service				#check
 
+	Github repo clone							#check
+
 	Window Manager (openbox)					#check
 	File Manager (pcmanfm)						#check
 	Chrome Remote Desktop						#check
