@@ -24,10 +24,7 @@ su fileserver -c "composer install"
 
 # Set right permission for scripts, since they lose execution permission after doing git update
 /usr/bin/chmod +x /home/fileserver/Applications/Backup/dailybackup.sh
-/usr/bin/chmod +x /home/fileserver/Applications/Backup/mediarestore.sh
 /usr/bin/chmod +x /home/fileserver/Applications/Backup/Clonezilla/clonezillabackup.sh
-/usr/bin/chmod +x /home/fileserver/Applications/btrfscheck/btrfsdevicestats.sh
-/usr/bin/chmod +x /home/fileserver/Applications/btrfscheck/btrfsscrub.sh
 /usr/bin/chmod +x /home/fileserver/Applications/failure-notification.sh
 /usr/bin/chmod +x /home/fileserver/Applications/gitupdate.sh
 /usr/bin/chmod +x /home/fileserver/Applications/pushbullet.sh
