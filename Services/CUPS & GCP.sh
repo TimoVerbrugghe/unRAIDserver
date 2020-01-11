@@ -7,8 +7,8 @@
 	systemctl start org.cups.cupsd.service
 
 # Add user to correct groups
-	sudo usermod -a -G sys fileserver
-	sudo usermod -a -G lp fileserver
+	usermod -a -G sys fileserver
+	usermod -a -G lp fileserver
 
 # Install printer
 	hp-setup -i <PRINTERIP>

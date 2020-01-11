@@ -43,7 +43,7 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 	# Change makepkg for performance & general cleanup. For this, we are going to create an additional makepkg.conf file
 
 	mkdir .build/packages
-	sudo nano /home/fileserver/.makepkg.conf
+	nano /home/fileserver/.makepkg.conf
 
 	PACKAGER="Timo Verbrugghe <timo@hotmail.be>"
 	MAKEFLAGS="-j$(nproc)"

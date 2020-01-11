@@ -93,7 +93,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="... isolcpus=3-5,9-11 nohz_full=3-5,9-11 rcu_nocbs=3
 	netctl start bridge
 
 # Enable fileserver to be added to the libvirt group
-	sudo usermod -a -G libvirt fileserver
+	usermod -a -G libvirt fileserver
 
 # Autostart & autoshutdown
 	# change shutdown option in /etc/conf.d/libvirt-guests
