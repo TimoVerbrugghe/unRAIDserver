@@ -4,6 +4,8 @@
 # This backup is done through Clonezilla. Clonezilla-specific commands can be found at /etc/grub.d/40_custom
 # This script is only as preparation for the backup and actual launch of Clonezilla
 
+source /home/fileserver/Applications/ArchServer/config/variables.sh
+
 # Remove old backup logs, recreate them & set right permissions
 rm -rf /home/fileserver/Applications/Backup/logs/backup.log >/dev/null 2>&1
 rm -rf /home/fileserver/Applications/Backup/logs/rsync.log >/dev/null 2>&1
@@ -74,7 +76,7 @@ grub-reboot "Clonezilla (Arch Backup)" >/dev/null 2>&1
 
 # Send a notification to system administrator that a backup is about to happen
 printf "Send notification to System Administrator\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1
-/home/fileserver/Applications/pushbullet.sh "ArchServer: Monthly Backup Started" "Backup of Internal SSD to an image using Clonezilla has begun. All configuration files are in ~/Applications/Backup. Manual Clonezilla backup also possible using interactive Clonezilla environment (sudo grub-reboot \"Clonezilla (interactive)\")" >/dev/null 2>&1 &&
+$PUSHBULLET_SCRIPT "ArchServer: Monthly Backup Started" "Backup of Internal SSD to an image using Clonezilla has begun. All configuration files are in ~/Applications/Backup. Manual Clonezilla backup also possible using interactive Clonezilla environment (sudo grub-reboot \"Clonezilla (interactive)\")" >/dev/null 2>&1 &&
 
 # Reboot the system to initiate the backup
 printf "Rebooting system to start Clonezilla Backup\n\n" >>/home/fileserver/Applications/Backup/logs/backup.log 2>&1

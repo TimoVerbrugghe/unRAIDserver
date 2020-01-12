@@ -1,6 +1,4 @@
 ## Configuration for Backup in Arch Server
-# Move Backup folder to ~/Applications/Backup
-# Move pushbullet.sh to ~/Applications/
 # Make sure dailybackup.sh, clonezillabackup.sh & pushbullet.sh are executable
 chmod +x clonezillabackup.sh
 chmod +x dailybackup.sh

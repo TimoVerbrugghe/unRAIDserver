@@ -2,20 +2,7 @@
 
 # Daily Backup Script which backs up several folders on the RAID5 box (mounted at ~/Media) to a BTRFS RAID-0 (2 x 2TB) Backup Drive (mounted at ~/Backup)
 
-#############
-# Variables #
-#############
-
-RSYNC_LOG="/home/fileserver/Applications/Backup/logs/rsync.log"
-BACKUP_LOG="/home/fileserver/Applications/Backup/logs/backup.log"
-
-MEDIA_LOCATION="/home/fileserver/Media"
-BACKUP_LOCATION="/home/fileserver/Backup"
-
-BACKUP_FOLDERS=(Applications Books Games Movies Music Network OSInstallISO Photos Software SystemImage TVShows)
-ERRORVALUE=0
-
-PUSHBULLET_SCRIPT="/home/fileserver/Applications/pushbullet.sh"
+source /home/fileserver/Applications/ArchServer/config/variables.sh
 
 #############
 # Functions #
