@@ -78,7 +78,7 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 		# Install neofetch & move config file from config folder to /home/fileserver/Applications/neofetch/config
 		yay -Syu neofetch
 		nano ~/.bashrc
-			if [ -f /usr/bin/neofetch ]; then neofetch --config /home/fileserver/Applications/neofetch/config; fi
+			if [ -f /usr/bin/neofetch ]; then neofetch --config /home/fileserver/Applications/ArchServer/config/config; fi
 
 ## Autologin
 systemctl edit getty@tty1
