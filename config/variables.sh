@@ -1,6 +1,7 @@
 PUSHBULLET_SCRIPT="/home/fileserver/Applications/ArchServer/Services/pushbullet.sh"
-RSYNC_LOG="/home/fileserver/Applications/Backup/logs/rsync.log"
-BACKUP_LOG="/home/fileserver/Applications/Backup/logs/backup.log"
+RCLONE_LOG="/home/fileserver/Applications/ArchServer/Services/Backup/rclone.log"
+RCLONE_EXCLUSIONS="/home/fileserver/Applications/ArchServer/config/rclone_exclusions"
+BACKUP_LOG="/home/fileserver/Applications/ArchServer/Services/Backup/backup.log"
 MEDIA_LOCATION="/home/fileserver/Media"
 BACKUP_LOCATION="/home/fileserver/Backup"
 BACKUP_FOLDERS=(Applications Books Games Movies Music Network OSInstallISO Photos Software SystemImage TVShows)

@@ -20,7 +20,7 @@ function mountCheck () {
 function errorCheck () {
 	ERRORVALUE="$?"
 	if [ $ERRORVALUE -ne 0 ]; then
-  		$PUSHBULLET_SCRIPT "ERROR - ArchServer Backup failed" "During daily backup, rsync failed backing up files (error code different than 0)." >/dev/null 2>&1
+  		$PUSHBULLET_SCRIPT "ERROR - ArchServer Backup failed" "During daily backup, rclone failed backing up files (error code different than 0)." >/dev/null 2>&1
 		exit 1
 	fi
 }
@@ -28,7 +28,7 @@ function errorCheck () {
 function backup () {
 	# This function expects 2 arguments, the backup location & the folder you want to restore
 	printf "Backing up %s to %s\n" "$1" "$2" >> $BACKUP_LOG 2>&1
-	rsync --log-file=$RSYNC_LOG -avhP --delete "$1/" "$2" >/dev/null 2>&1
+	rclone sync --delete-excluded -v -P --fast-list --transfers=20 --checkers=20 --drive-chunk-size=1M --log-file $RCLONE_LOG --filter-from $RCLONE_EXCLUSIONS "$1" "$2"
 
 	errorCheck
 }
@@ -43,7 +43,7 @@ printf "Starting Daily Backup. Time & Date right now is $(date)\n" >> $BACKUP_LO
 printf "Checking if Media & Backup is successfully mounted\n" >> $BACKUP_LOG 2>&1
 
 mountCheck $MEDIA_LOCATION
-#mountCheck $BACKUP_LOCATION
+mountCheck $BACKUP_LOCATION
 
 # Backing up Applications Folder to ~/Media
 backup /home/fileserver/Applications $MEDIA_LOCATION/Applications

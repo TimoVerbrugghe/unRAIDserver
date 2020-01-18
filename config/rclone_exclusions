@@ -16,15 +16,28 @@
 - extrafanart/**
 - extrathumbs/**
 
+## Specific exclusions or inclusions for Applications Folder ##
+
++ ArchServer/config/passwords.sh
+
+- ArchServer/**
+- bazarr/**
+- jackett/**
+- plexmediaserver/**
+- radarr/**
+- rclone/**
+- sonarr/**
+- wsdd/**
+
 ## Folders to sync ##
-#+ /Applications/**
-#+ /Games/**
-#+ /Movies/**
-#+ /Music/**
-#+ /Network/**
-#+ /Photos/**
-#+ /SystemImage/**
-#+ /TVShows/**
++ /Applications/**
++ /Games/**
++ /Movies/**
++ /Music/**
++ /Network/**
++ /Photos/**
++ /SystemImage/**
++ /TVShows/**
 
 ## General catch-all ##
-- *
+#- *
