@@ -1,4 +1,3 @@
 config/passwords.sh
-Services/Backup/backup.log
-Services/Backup/rclone.log
 Services/Backup/lockfiles/dailybackup.lock
+Services/Backup/Clonezilla/clonezilla.iso

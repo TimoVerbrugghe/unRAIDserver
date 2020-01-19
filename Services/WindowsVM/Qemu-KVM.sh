@@ -11,11 +11,14 @@
 
 # Change grub boot options - /etc/default/grub
 # Enables iommu, ignores MSRS for avoiding blue screen, enables 64 bit timer for HPET and allows unsafe interrupts
-# Grabs the PCI ids from NVIDIA graphics card and applies driver vfio-pci to it
-GRUB_CMDLINE_LINUX_DEFAULT="... amd_iommu=on iommu=pt kvm.ignore_msrs=1 hpet64 vfio_iommu_type1.allow_unsafe_interrupts=1 vfio-pci.ids=10de:1c03,10de:10f1 ..."
+# Grabs the PCI ids from NVIDIA graphics card and Audio Device and applies driver vfio-pci to it
+GRUB_CMDLINE_LINUX_DEFAULT="... amd_iommu=on iommu=pt kvm.ignore_msrs=1 hpet64 vfio_iommu_type1.allow_unsafe_interrupts=1 vfio-pci.ids=10de:1c03,10de:10f1,1022:1487 ..."
 
 # Change grub boot options to isolate cpus from the linux scheduler by using isolcpus
 GRUB_CMDLINE_LINUX_DEFAULT="... isolcpus=3-5,9-11 nohz_full=3-5,9-11 rcu_nocbs=3-5,9-11 ..."
+
+# Recreate grub settings
+grub-mkconfig -o /boot/grub/grub.cfg
 
 # Enable loading of virtio mdoules
 	nano /etc/modules-load.d/virtio-net.conf
@@ -124,22 +127,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="... isolcpus=3-5,9-11 nohz_full=3-5,9-11 rcu_nocbs=3
 	# Exit bios (continue/reset options)
 
 ## Change Graphics Card to accept Signal Based Interrupts
-	# Go to Device Manager -> Graphics Card -> Details -> Device Instance Path
-		# Note down Device Instance Path
-	# Open up Register Editor (regedit.exe)
-	# Go to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\PCI
-		# Find Device Instance Path
-	 # Go to Device Parameters
-	 	# Add new Key Interrupt Management (if necessary)
-	 	# Add new Key MessageSignaledInterruptProperties
-	 		# Add new DWORD (32-Bit) Value MSISupported
-	 		# Change value to 1
-
-	 # Repeat same steps for PCI High Definition Audio Controller (x2 for Nvidia Audio & Realtek Audio)
-
-	 # Check if changes were succesfully Implemented
-	 	# Go to Device Manager -> View -> Resources By Type -> Interrupt Request (IRQ) -> Scroll down to PCI devices
-	 	# Both Graphics card AS the PCI High Definition Audio Controller must have a NEGATIVE value between brackets
+	# Download the MSI enable tool from https://github.com/CHEF-KOCH/MSI-utility
+	# Enable MSI on the NVIDIA Graphics card and audio card
 
 ## Change Audio Settings
 	# Make sure Audio Level is at 16 bit, 48000 hz for streaming purposes
