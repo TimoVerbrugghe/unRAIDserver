@@ -8,7 +8,7 @@
   <os>
     <type arch="x86_64" machine="q35">hvm</type>
     <loader readonly="yes" type="pflash">/home/fileserver/Applications/HackintoshVM/OVMF_CODE.fd</loader>
-    <nvram>/home/fileserver/Applications/HackintoshVM/OVMF_VARS-1024x768.fd</nvram>
+    <nvram template="/usr/share/ovmf/x64/OVMF_VARS.fd">/home/fileserver/Applications/HackintoshVM/ovmf_hackintoshvm_vars.fd</nvram>
     <boot dev='hd'/>
   </os>
   
@@ -43,6 +43,20 @@
   <!-- Initializing devices -->
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
+
+    <!-- Initializing PCI root ports -->
+    <controller type="pci" index="0" model="pcie-root"/>
+
+    <controller type="pci" index="1" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="1" port="0x8"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0" multifunction="on"/>
+    </controller>
+
+    <controller type="pci" index="2" model="pcie-to-pci-bridge">
+      <model name="pcie-pci-bridge"/>
+      <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
+    </controller>
 
     <!-- Initializing USB & Sata Controllers -->
     <controller type='usb' index='0' model='piix3-uhci'>
@@ -80,34 +94,55 @@
       <address type='drive' controller='0' bus='0' target='0' unit='2'/>
     </disk>
 
+    <!-- Initializing PCIe graphics card -->
+    <controller type="pci" index="3" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="3" port="0x9"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x1"/>
+    </controller>
+    
+    <controller type="pci" index="4" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="4" port="0xa"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x2"/>
+    </controller>
+
+    <hostdev mode="subsystem" type="pci" managed="yes">
+      <source>
+        <address domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
+      </source>
+      <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
+    </hostdev>
+
+    <hostdev mode="subsystem" type="pci" managed="yes">
+      <source>
+        <address domain="0x0000" bus="0x06" slot="0x00" function="0x1"/>
+      </source>
+      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
+    </hostdev>
+
     <!-- Turning off memory ballooning & usb controller (are normally automatically added by libvirt) -->
     <memballoon model="none"/>
 
-    <!-- Input & Video (temporary for install) -->
-    <input type='keyboard' bus='usb'>
-      <address type='usb' bus='0' port='1'/>
-    </input>
-    <input type='mouse' bus='usb'>
-      <address type='usb' bus='0' port='2'/>
-    </input>
-    <graphics type='spice' autoport='yes'>
-      <listen type='address'/>
-      <image compression='off'/>
-      <gl enable='no' rendernode='/dev/dri/by-path/pci-0000:05:00.0-render'/>
-    </graphics>
+    <!-- Built-in Sound -->
     <sound model='ich9'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x1b' function='0x0'/>
     </sound>
-    <video>
-      <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
-    </video>
 
-    <!-- Adding in required devices (Q35 needs sata controller, qemu needs ps/2 input) 
-    <controller type="sata" index="0">
-      <address type="pci" domain="0x0000" bus="0x00" slot="0x1f" function="0x2"/>
-    </controller>
+    <!-- Adding in required devices (Q35 needs sata controller, qemu needs ps/2 input) -->
     <input type="mouse" bus="ps2"/>
-    <input type="keyboard" bus="ps2"/> -->
+    <input type="keyboard" bus="ps2"/>
+
+    <!-- Pass through usb mouse and keyboard
+    <hostdev mode="subsystem" type="usb" managed="yes">
+      <source>
+        <vendor id="0x045e"/>
+        <product id="0x0800"/>
+        <address bus="3" device="2"/>
+      </source>
+      <alias name="hostdev2"/>
+      <address type="usb" bus="0" port="1"/>
+    </hostdev> -->
 
   </devices>
 

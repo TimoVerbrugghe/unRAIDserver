@@ -157,20 +157,6 @@
       <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
     </hostdev>
 
-    <!-- Initializing Audio Controller from Motherboard --> 
-    <controller type="pci" index="7" model="pcie-root-port">
-      <model name="pcie-root-port"/>
-      <target chassis="7" port="0xg"/>
-      <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x6"/>
-    </controller>
-
-    <hostdev mode="subsystem" type="pci" managed="yes">
-      <source>
-        <address domain="0x0000" bus="0x08" slot="0x00" function="0x4"/>
-      </source>
-      <address type="pci" domain="0x0000" bus="0x07" slot="0x00" function="0x0"/>
-    </hostdev>
-
     <!-- SSD & HDD -->
     <disk type="block" device="disk">
       <driver name="qemu" type="raw" cache="none" io="native" discard="unmap"/>
@@ -201,6 +187,23 @@
     </controller>
     <input type="mouse" bus="ps2"/>
     <input type="keyboard" bus="ps2"/>
+
+    <!-- Pass through usb mouse and keyboard
+
+    <controller type='usb' index='0' model='piix3-uhci'>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x01' function='0x0'/>
+    </controller>
+
+        <hostdev mode="subsystem" type="usb" managed="yes">
+          <source>
+            <vendor id="0x045e"/>
+            <product id="0x0800"/>
+            <address bus="3" device="2"/>
+          </source>
+          <alias name="hostdev2"/>
+          <address type="usb" bus="0" port="1"/>
+        </hostdev> -->
+
   </devices>
 
   <!-- libvirt settings -->
