@@ -1,11 +1,7 @@
 #!/bin/bash
 # This script deletes episodes from late night talkshows (Full Frontal with Samantha Bee, Late Show with Stephen Colbert, Daily Show, Opposition with Jordan Klepper, The Jim Jefferies Show, Last Week Tonight with John Oliver, The President Show)
 
-#############
-# Variables #
-#############
-DELETE_LOG="/home/fileserver/Applications/deletelatenight/deletelatenight.log"
-LATENIGHT_FOLDERS=("Full Frontal with Samantha Bee" "The President Show" "The Late Show with Stephen Colbert" "The Daily Show" "The Opposition with Jordan Klepper" "The Jim Jefferies Show" "Last Week Tonight with John Oliver")
+source /home/fileserver/Applications/ArchServer/config/variables.sh
 
 #############
 # Functions #

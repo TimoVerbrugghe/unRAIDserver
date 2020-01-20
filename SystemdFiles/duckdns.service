@@ -7,4 +7,4 @@ OnFailure=unit-failure-notification@%n
 [Service]
 EnvironmentFile=/home/fileserver/Applications/ArchServer/config/passwords.sh
 Type=oneshot
-ExecStart=echo url="https://www.duckdns.org/update?domains=timoverbrugghe&token=${duckdnsapi}&ip=" | curl -k -K -
+ExecStart=echo url="https://www.duckdns.org/update?domains=timoverbrugghe&token=${duckdnsapi}&ip=" | curl -k -o /home/fileserver/Applications/logs/duck.log -K -
