@@ -4,4 +4,4 @@ OnFailure=unit-failure-notification@%n
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/flock -w 0 /home/fileserver/Applications/dailybackup.lock /home/fileserver/Applications/ArchServer/Services/Backup/dailybackup.sh
+ExecStart=/usr/bin/flock -w 0 /home/fileserver/Applications/dailybackup.lock /home/fileserver/Applications/ArchServer/scripts/dailybackup.sh

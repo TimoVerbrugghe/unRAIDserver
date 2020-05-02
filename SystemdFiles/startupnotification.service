@@ -6,7 +6,7 @@ OnFailure=unit-failure-notification@%n
 
 [Service]
 Type=oneshot
-ExecStart=/home/fileserver/Applications/ArchServer/Services/pushbullet.sh "ArchServer: Boot Sequence finished" "ArchServer has successfully booted and is now fully operational."
+ExecStart=/home/fileserver/Applications/ArchServer/scripts/pushbullet.sh "ArchServer: Boot Sequence finished" "ArchServer has successfully booted and is now fully operational."
 
 [Install]
 WantedBy=multi-user.target

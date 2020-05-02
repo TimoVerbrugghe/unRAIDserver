@@ -4,4 +4,4 @@ OnFailure=unit-failure-notification@%n
 
 [Service]
 Type=oneshot
-ExecStart=/home/fileserver/Applications/deletelatenight/deletelatenight.sh
+ExecStart=/home/fileserver/Applications/ArchServer/scripts/deletelatenight.sh
