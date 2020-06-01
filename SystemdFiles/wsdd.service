@@ -6,7 +6,7 @@ Wants=smb.service
 
 [Service]
 Type=simple
-ExecStart=/home/fileserver/Applications/wsdd/wsdd --shortlog
+ExecStart=/home/fileserver/Applications/wsdd/wsdd --shortlog -i br0
 User=nobody
 Group=nobody
 

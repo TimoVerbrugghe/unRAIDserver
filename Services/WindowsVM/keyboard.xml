@@ -1,0 +1,14 @@
+<!-- 
+    You can use this file to dynamically attach keyboard through virsh attach-device <vmname> <path to this file> 
+    The bus and device number can be found through lsusb command
+-->
+
+<hostdev mode="subsystem" type="usb" managed="yes">
+          <source>
+            <vendor id="0x045e"/>
+            <product id="0x0800"/>
+            <address bus="1" device="3"/>
+          </source>
+          <alias name="hostdev2"/>
+          <address type="usb" bus="0" port="1"/>
+        </hostdev>

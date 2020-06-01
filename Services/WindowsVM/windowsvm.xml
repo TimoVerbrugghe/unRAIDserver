@@ -19,7 +19,8 @@
   </os>
   
   <!-- RAM Memory -->
-  <memory unit="KiB">16777216</memory>
+  <memory unit="GB">16</memory>
+  <currentMemory unit="GB">16</currentMemory>
   <memoryBacking>
     <hugepages/>
   </memoryBacking>
@@ -115,7 +116,6 @@
       <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
     </controller>
 
-
     <!-- Initializing Network controller -->
     <controller type="pci" index="4" model="pcie-root-port">
       <model name="pcie-root-port"/>
@@ -124,6 +124,7 @@
     </controller>
 
     <interface type="bridge">
+      <driver name="qemu"/>
       <mac address="52:54:00:00:00:01"/>
       <source bridge="br0"/>
       <model type="virtio"/>
@@ -177,10 +178,6 @@
       <address type="drive" controller="1" bus="0" target="0" unit="0"/>
     </disk>
 
-    <!-- Turning off memory ballooning & usb controller (are normally automatically added by libvirt) -->
-    <memballoon model="none"/>
-    <controller type='usb' model='none'/>
-
     <!-- Adding in required devices (Q35 needs sata controller, qemu needs ps/2 input) -->
     <controller type="sata" index="0">
       <address type="pci" domain="0x0000" bus="0x00" slot="0x1f" function="0x2"/>
@@ -188,21 +185,41 @@
     <input type="mouse" bus="ps2"/>
     <input type="keyboard" bus="ps2"/>
 
-    <!-- Pass through usb mouse and keyboard
+  <!-- Turning off memory ballooning (is normally automatically added by libvirt) -->
+    <memballoon model="none"/>
+    <controller type='usb' model='none'/> 
 
-    <controller type='usb' index='0' model='piix3-uhci'>
-      <address type='pci' domain='0x0000' bus='0x02' slot='0x01' function='0x0'/>
+   <!-- Pass through usb mouse and keyboard (remove the previous line - <controller type='usb' model='none'/> - if you want to disable this)
+    <controller type="pci" index="7" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="7" port="0xf"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x6"/>
     </controller>
+    
+    <controller type='usb' index='0' model='piix3-uhci'>
+      <address type='pci' domain='0x0000' bus='0x07' slot='0x0' function='0x0'/>
+    </controller> 
 
-        <hostdev mode="subsystem" type="usb" managed="yes">
-          <source>
-            <vendor id="0x045e"/>
-            <product id="0x0800"/>
-            <address bus="3" device="2"/>
-          </source>
-          <alias name="hostdev2"/>
-          <address type="usb" bus="0" port="1"/>
-        </hostdev> -->
+    -->
+
+  <!-- Add Windows 10 ISO & virtio win iso (through the SATA controller)
+    <disk type="file" device="cdrom">
+      <driver name="qemu" type="raw" cache="none" io="native" discard="unmap"/>
+      <source file="/home/fileserver/Applications/WindowsVM/windows10.iso"/>
+      <backingStore/>
+      <target dev="sdc" bus="sata"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="0"/>
+    </disk>
+
+    <disk type="file" device="cdrom">
+      <driver name="qemu" type="raw" cache="none" io="native" discard="unmap"/>
+      <source file="/home/fileserver/Applications/WindowsVM/virtio-win.iso"/>
+      <backingStore/>
+      <target dev="sdd" bus="sata"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="1"/>
+    </disk>
+    
+    -->
 
   </devices>
 

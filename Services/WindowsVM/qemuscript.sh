@@ -1,0 +1,41 @@
+qemu-system-x86_64 -D /tmp/qemu.log -name Windows \
+-drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
+-vga none \
+-nodefaults \
+-enable-kvm \
+-machine type=q35,accel=kvm,kernel-irqchip=on \
+-cpu host,+topoext,kvm=off,hv_spinlocks=0x1fff,hv_relaxed,hv_vapic,hv_time,hv_crash,hv_reset,hv_vpindex,hv_runtime,hv_synic,hv_stimer,hv_vendor_id=whatever \
+-smp 12,sockets=1,cores=6,threads=2 \
+-global ICH9-LPC.disable_s3=1 \
+-global ICH9-LPC.disable_s4=1 \
+-rtc clock=host,base=localtime,driftfix=slew \
+-global kvm-pit.lost_tick_policy=delay \
+-overcommit mem-lock=off \
+-global kvm-pit.lost_tick_policy=discard \
+-m 8192 \
+-mem-path /dev/hugepages \
+-mem-prealloc \
+-monitor telnet:localhost:7100,server,nowait,nodelay \
+-nographic \
+-serial none \
+-parallel none \
+-device ioh3420,chassis=1,bus=pcie.0,addr=03.0,id=ioh3420-root-port-1 \
+-device vfio-pci,host=06:00.0,bus=ioh3420-root-port-1,addr=00.0,multifunction=on \
+-device vfio-pci,host=06:00.1,bus=pcie.0 \
+-device virtio-net-pci,netdev=network0,mac=52:54:00:00:00:01 \
+-usb -device usb-host,productid=0x0800,vendorid=0x045e \
+-drive id=cdrom0,if=none,format=raw,readonly=on,file=/home/fileserver/Applications/WindowsVM/windows10.iso \
+-device virtio-scsi-pci,id=scsi2 \
+-device scsi-cd,bus=scsi2.0,drive=cdrom0 \
+-netdev tap,id=network0,ifname=tap0,script=no,downscript=no \
+-drive file=/dev/disk/by-id/ata-Samsung_SSD_750_EVO_500GB_S36SNWBH531856L,id=disk0,if=none,aio=native,cache=none,format=raw,discard=unmap \
+-drive file=/dev/disk/by-id/ata-WDC_WD20EFRX-68EUZN0_WD-WCC4M7NSP35V,id=disk1,if=none,aio=native,cache=none,format=raw,discard=unmap \
+-object iothread,id=iothread0 \
+-object iothread,id=iothread1 \
+-device virtio-scsi,iothread=iothread0,id=scsi0 \
+-device virtio-scsi,iothread=iothread1,id=scsi1 \
+-device scsi-hd,drive=disk0,bus=scsi0.0 \
+-device scsi-hd,drive=disk1,bus=scsi1.0 \
+-drive if=pflash,format=raw,file=/home/fileserver/Applications/WindowsVM/ovmf_windowsvm_vars.fd \
+-daemonize \
+-pidfile /run/qemu_windowsvm.pid 
