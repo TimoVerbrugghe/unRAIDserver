@@ -1,0 +1,6 @@
+[Unit]
+Description = ArchServer git folder backup
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rsync --log-file=/tmp/rsync.log -avhP /home/fileserver/ArchServer /home/fileserver/Media

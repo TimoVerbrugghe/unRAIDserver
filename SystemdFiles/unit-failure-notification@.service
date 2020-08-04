@@ -1,8 +1,0 @@
-[Unit]
-Description = Unit Failure Notification Service
-Wants=network-online.target
-After=network-online.target
-
-[Service]
-Type=oneshot
-ExecStart=/home/fileserver/Applications/ArchServer/pushbullet.sh "ArchServer: \"$I\" failed" "WARNING - The unit \"$I\" has failed according to systemd. You can find more information in the systemd log (journalctl -xe)."

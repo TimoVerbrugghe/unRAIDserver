@@ -1,0 +1,6 @@
+[Unit]
+Description = CloneZilla Backup Script
+
+[Service]
+Type=oneshot
+ExecStart=/home/fileserver/ArchServer/scripts/clonezillabackup.sh

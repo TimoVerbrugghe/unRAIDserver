@@ -1,7 +1,9 @@
 #!/bin/bash
 # This script deletes episodes from late night talkshows (Full Frontal with Samantha Bee, Late Show with Stephen Colbert, Daily Show, Opposition with Jordan Klepper, The Jim Jefferies Show, Last Week Tonight with John Oliver, The President Show)
 
-source /home/fileserver/Applications/ArchServer/config/variables.sh
+DELETE_LOG=/tmp/deletelatenight.log
+MEDIA_LOCATION=/home/fileserver/Media
+LATENIGHT_FOLDERS=("The Late Show with Stephen Colbert" "The Daily Show" "Last Week Tonight with John Oliver")
 
 #############
 # Functions #
@@ -44,7 +46,7 @@ for i in "${LATENIGHT_FOLDERS[@]}"; do
 		printf "Starting deletion of $i\n" >> $DELETE_LOG 2>&1
 
 		# Go into directory of late night show
-		cd "/home/fileserver/Media/TVShows/$i"
+		cd "${MEDIA_LOCATION}/TVShows/$i"
 
 		# Find the last season and cd into the last season directory
 		last_season=$(find_last_season)
@@ -57,14 +59,5 @@ for i in "${LATENIGHT_FOLDERS[@]}"; do
 		rm -rf $episodes
 	
 	done
-
-#################
-# Update Sonarr #
-#################
-
-printf "Deletion of all episodes is done. Will now send a request to sonarr to scan disk\n" >> $DELETE_LOG 2>&1
-
-# Sends a curl post request to sonarr api to rescan series on disk
-echo '{"name":"RescanSeries"}' | curl -d @- http://localhost:8081/sonarr/api/command?apikey=9bb6f10e192944bb974e4e7ce2e6fafe --header "X-Api-Key:9bb6f10e192944bb974e4e7ce2e6fafe" >> $DELETE_LOG 2>&1
 
 printf "Deletion done \n\n" >> $DELETE_LOG 2>&1

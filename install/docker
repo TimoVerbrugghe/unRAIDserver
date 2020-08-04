@@ -1,0 +1,33 @@
+## Setup of docker & if needed, specific instructions for services on ArchServer
+
+# Create docker folder in /home/fileserver
+    mkdir /home/fileserver/docker
+
+# Symlink to necessary files in git folder 
+    ln -s {gitfolder}/.env
+    ln -s {gitfolder}/docker-compose.yml
+
+## Traefik
+    # Set up traefik folders & files
+        mkdir {dockerdir}/traefik2
+        mkdir {dockerdir}/traefik2/rules
+        mkdir {dockerdir}/traefik2/acme
+
+        touch {dockerdir}/traefik2/acme/acme.json
+        chmod 600 {dockerdir}/traefik2/acme/acme.json
+        touch {dockerdir}/traefik2/traefik.log
+
+        ln -s {gitfolder}/middlewares.toml {dockerdir}/traefik2/rules/middlewares.toml
+        ln -s {gitfolder}/middleware-chains.toml {dockerdir}/traefik2/rules/middleware-chains.toml
+
+## Wetty
+    # Create ssh keys
+        mkdir {dockerdir}/wetty
+        ssh-keygen -f {dockerdir}/wetty/id_rsa
+
+    # Copy content of id_rsa.pub in /home/fileserver/.ssh/authorized_keys
+
+        
+        
+        
+        

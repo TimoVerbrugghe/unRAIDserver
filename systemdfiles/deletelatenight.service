@@ -1,0 +1,6 @@
+[Unit]
+Description = Delete Late Night Shows Service
+
+[Service]
+Type=oneshot
+ExecStart=/home/fileserver/ArchServer/scripts/deletelatenight.sh

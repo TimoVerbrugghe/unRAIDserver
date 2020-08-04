@@ -1,7 +1,0 @@
-[Unit]
-Description = Delete Late Night Shows Service
-OnFailure=unit-failure-notification@%n
-
-[Service]
-Type=oneshot
-ExecStart=/home/fileserver/Applications/ArchServer/scripts/deletelatenight.sh

@@ -1,3 +1,4 @@
-config/passwords.sh
-Services/Backup/lockfiles/dailybackup.lock
-Services/Backup/Clonezilla/clonezilla.iso
+.env
+clonezilla.iso
+windowsvm/ovmf_windowsvm_vars.fd
+windowsvm/virtio-win.iso
