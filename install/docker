@@ -17,8 +17,8 @@
         chmod 600 {dockerdir}/traefik2/acme/acme.json
         touch {dockerdir}/traefik2/traefik.log
 
-        ln -s {gitfolder}/middlewares.toml {dockerdir}/traefik2/rules/middlewares.toml
-        ln -s {gitfolder}/middleware-chains.toml {dockerdir}/traefik2/rules/middleware-chains.toml
+        cp -r {gitfolder}/middlewares.toml {dockerdir}/traefik2/rules/middlewares.toml
+        cp -r {gitfolder}/middleware-chains.toml {dockerdir}/traefik2/rules/middleware-chains.toml
 
 ## Wetty
     # Create ssh keys
