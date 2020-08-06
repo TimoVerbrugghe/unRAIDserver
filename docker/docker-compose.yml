@@ -537,6 +537,7 @@ services:
       - GLOBAL8=aio write size = 1
       - GLOBAL9=socket options = IPTOS_LOWDELAY TCP_NODELAY IPTOS_THROUGHPUT SO_RCVBUF=131072 SO_SNDBUF=131072
       - GLOBAL10=netbios name = ArchServer
+      - GLOBAL11=load printers = yes
     
     read_only: true
     tmpfs:
@@ -604,39 +605,6 @@ services:
       - traefik.http.routers.pihole-rtr.service=pihole-svc
       - traefik.http.services.pihole-svc.loadbalancer.server.port=80
 
-  # PHP-scanner-server - A webserver that can connect to a scanner
-  scannerserver:
-    container_name: scannerserver
-    build: 
-      context: ${DOCKERDIR}/phpscannerserver/build
-      args:
-        proxy: $proxy
-    volumes:
-      - ${DOCKERDIR}/phpscannerserver/scans:/var/www/html/scans
-      - ${DOCKERDIR}/phpscannerserver/config:/var/www/html/config
-    ports:
-      - "8088:80"
-    restart: unless-stopped
-    devices:
-      - "/dev/bus/usb:/dev/bus/usb"
-    networks:
-        - dockerproxy
-    labels:
-      - traefik.enable=true
-
-      ## HTTP Routers
-      - traefik.http.routers.phpscannerserver-rtr.entrypoints=https
-      - traefik.http.routers.phpscannerserver-rtr.rule=Host(`scan.$DOMAINNAME`)
-      - traefik.http.routers.phpscannerserver-rtr.tls=true
-      - traefik.http.routers.phpscannerserver-rtr.tls.certresolver=leresolver
-    
-      ## Middlewares
-      - traefik.http.routers.phpscannerserver-rtr.middlewares=chain-no-auth@file
-
-      ## HTTP Services
-      - traefik.http.routers.phpscannerserver-rtr.service=phpscannerserver-svc
-      - traefik.http.services.phpscannerserver-svc.loadbalancer.server.port=80
-  
   # Duplicacy - Local & Cloud backup
   duplicacy:
     image: saspus/duplicacy-web:mini
@@ -669,16 +637,62 @@ services:
       ## HTTP Services
       - traefik.http.routers.duplicacy-rtr.service=duplicacy-svc
       - traefik.http.services.duplicacy-svc.loadbalancer.server.port=3875
+
+  # PHP-scanner-server - A webserver that can connect to a scanner
+  scannerserver:
+    container_name: scannerserver
+    build: 
+      context: ${DOCKERDIR}/scannerserver/build
+      args:
+        proxy: $proxy
+    volumes:
+      - ${DOCKERDIR}/scannerserver/scans:/var/www/html/scans
+      - ${DOCKERDIR}/scannerserver/config:/var/www/html/config
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    restart: unless-stopped
+    networks:
+      - dockerproxy
+    labels:
+      - traefik.enable=true
+
+      ## HTTP Routers
+      - traefik.http.routers.phpscannerserver-rtr.entrypoints=https
+      - traefik.http.routers.phpscannerserver-rtr.rule=Host(`scan.$DOMAINNAME`)
+      - traefik.http.routers.phpscannerserver-rtr.tls=true
+      - traefik.http.routers.phpscannerserver-rtr.tls.certresolver=leresolver
+    
+      ## Middlewares
+      - traefik.http.routers.phpscannerserver-rtr.middlewares=chain-no-auth@file
+
+      ## HTTP Services
+      - traefik.http.routers.phpscannerserver-rtr.service=phpscannerserver-svc
+      - traefik.http.services.phpscannerserver-svc.loadbalancer.server.port=80
   
   # CUPS - Printing server
   cups:
     image: ydkn/cups
     container_name: cups
-    environment: 
-      - ADMIN_PASSWORD=$CUPS_WEBPASSWORD
     volumes:
       - ${DOCKERDIR}/cups:/etc/cups
+    environment:
+      - ADMIN_PASSWORD=${CUPS_PASSWORD}
     restart: unless-stopped
-    network_mode: host
+    networks:
+      - dockerproxy
+    ports: 
+      - 631:631
+    privileged: true
+    volumes:
+      - /var/run/dbus:/var/run/dbus
     devices:
-      - "/dev/bus/usb:/dev/bus/usb"
+      - /dev/bus/usb:/dev/bus/usb
+
+  # Avahi
+  avahi:
+    image: ydkn/avahi
+    container_name: avahi
+    network_mode: host
+    privileged: true
+    volumes:
+      - ${DOCKERDIR}/avahi:/etc/avahi/services

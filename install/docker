@@ -4,8 +4,8 @@
     mkdir /home/fileserver/docker
 
 # Symlink to necessary files in git folder 
-    ln -s {gitfolder}/.env
-    ln -s {gitfolder}/docker-compose.yml
+    ln -s {gitdir}/docker/.env
+    ln -s {gitdir}/docker/docker-compose.yml
 
 ## Traefik
     # Set up traefik folders & files
@@ -17,8 +17,8 @@
         chmod 600 {dockerdir}/traefik2/acme/acme.json
         touch {dockerdir}/traefik2/traefik.log
 
-        cp -r {gitfolder}/middlewares.toml {dockerdir}/traefik2/rules/middlewares.toml
-        cp -r {gitfolder}/middleware-chains.toml {dockerdir}/traefik2/rules/middleware-chains.toml
+        cp -r {gitdir}/docker/middlewares.toml {dockerdir}/traefik2/rules/middlewares.toml
+        cp -r {gitdir}/docker/middleware-chains.toml {dockerdir}/traefik2/rules/middleware-chains.toml
 
 ## Wetty
     # Create ssh keys
@@ -27,6 +27,29 @@
 
     # Copy content of id_rsa.pub in /home/fileserver/.ssh/authorized_keys
 
+## Avahi
+    # Move print.service file to {dockerdir}/avahi in order to correctly advertise printer to windows/android devices
+        cp -r {gitdir}/docker/print.service {dockerdir}/avahi
+
+## Scannerserver
+    # Create an lp group with groupid 7 (the same groupid used in the docker container)
+        groupadd -g 7 lp
+    # Set up udev rule so that printer will automatically be assigned the lp group
+        cp -r {gitdir}/docker/scannerserver/40-scanner.rules /etc/udev/rules.d/40-scanner.rules
+
+    # Create necessary folders for phpscannerserver
+        mkdir {dockerdir}/scannerserver
+        mkdir {dockerdir}/scannerserver/build
+
+        mkdir {dockerdir}/scannerserver/scans
+        mkdir {dockerdir}/scannerserver/config
+        chown -R 33:33 {dockerdir}/scannerserver/scans
+        chown -R 33:33 {dockerdir}/scannerserver/config
+        
+    
+    # Link dockerfile & docker-entrypoint.sh file in build folder
+        cp -r {gitdir}/docker/scannerserver/Dockerfile {dockerdir}/scannerserver/build/Dockerfile
+        cp -r {gitdir}/docker/scannerserver/docker-entrypoint.sh {dockerdir}/scannerserver/build/docker-entrypoint.sh
         
         
         
