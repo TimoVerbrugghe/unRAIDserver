@@ -1,6 +1,6 @@
 ## Qemu-KVM Installation on Arch
 	# Install qemu & ovmf package
-		pacman -Syu qemu-headless ovmf dtc libvirt
+		pacman -Syu qemu-headless ovmf libvirt
 
 	# Create folder & OVMF (UEFI) vars file
 		mkdir {GITFOLDER}/WindowsVM/
@@ -103,8 +103,6 @@
 				[Service]
 				ExecStartPre=/usr/bin/iptables -D FORWARD -p all -i br0 -j ACCEPT
 				ExecStartPre=/usr/bin/iptables -A FORWARD -p all -i br0 -j ACCEPT
-
-
 
 
 # Enable fileserver to be added to the libvirt group

@@ -68,26 +68,6 @@
 ## Package Management ##
 ########################
 
-## Mirrors
-	# Install reflector
-	# https://wiki.archlinux.org/index.php/Reflector
-
-	# Create pacman hook
-
-[Trigger]
-Operation = Upgrade
-Type = Package
-Target = pacman-mirrorlist
-
-[Action]
-Description = Updating pacman-mirrorlist with reflector and removing pacnew...
-When = PostTransaction
-Depends = reflector
-Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist; if [[ -f /etc/pacman.d/mirrorlist.pacnew ]]; then rm /etc/pacman.d/mirrorlist.pacnew; fi"
-
-	# Create systemd service & weekly systemd timer
-		# Move reflector.service & reflector.timer to /etc/systemd/system/
-
 ## Synchronize time
 	timedatectl set-timezone Europe/Brussels
 
@@ -96,14 +76,6 @@ Exec = /usr/bin/env sh -c "reflector --protocol https --latest 20 --sort rate --
 	updatedb
 
 ## Console Improvements
-	# Bash Additions - Bash Tips & Tricks
-		# Command not found
-		pacman -Syu pkgfile
-		pkgfile --update
-		
-		# Search for commands in non-installed packages if command not found
-		source /usr/share/doc/pkgfile/command-not-found.bash
-
 	# Console prompt - Console Bach prompt
 		# Add neofetch prompt
 		pacman -Syu neofetch

@@ -19,7 +19,7 @@
 
 ## Install the base packages
 	# Install these additional packages
-	btrfs-progs git openssh rsync wget ufw rsync smartmontools sudo ntfs-3g ttf-dejavu haveged irqbalance unzip cpupower mlocate docker docker-compose
+	btrfs-progs git openssh rsync wget ufw smartmontools sudo ntfs-3g haveged irqbalance unzip cpupower mlocate docker docker-compose pacman-contrib
 
 	# Install either intel-ucode or amd-ucode for microcode support
 

@@ -19,3 +19,6 @@ UUID=a5fed9a7-6f74-4472-819a-6b69b27ea69a       /home/fileserver/Backup btrfs de
 
 # Hugepages
 hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=992        0 0
+
+# tmpfs cache folder
+tmpfs /home/fileserver/.cache tmpfs nodev,nosuid,size=6G 0 0
