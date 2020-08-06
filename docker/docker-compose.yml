@@ -107,7 +107,7 @@ services:
       - INSECURE_COOKIE=false
       - AUTH_HOST=oauth.$DOMAINNAME
       - URL_PATH=/_oauth
-      - WHITELIST=$OAUTH_EMAIL
+      - WHITELIST=$OAUTH_EMAIL,$OAUTH_EMAIL2
       - LOG_LEVEL=info
       - LOG_FORMAT=text
       - LIFETIME=2592000 # 30 days
