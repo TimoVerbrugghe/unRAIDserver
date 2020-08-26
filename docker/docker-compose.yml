@@ -682,9 +682,6 @@ services:
       - dockerproxy
     ports: 
       - 631:631
-    privileged: true
-    volumes:
-      - /var/run/dbus:/var/run/dbus
     devices:
       - /dev/bus/usb:/dev/bus/usb
 
@@ -694,5 +691,6 @@ services:
     container_name: avahi
     network_mode: host
     privileged: true
+    restart: unless-stopped
     volumes:
       - ${DOCKERDIR}/avahi:/etc/avahi/services
