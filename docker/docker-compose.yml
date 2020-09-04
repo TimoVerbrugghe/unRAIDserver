@@ -374,7 +374,7 @@ services:
       - traefik.http.routers.jackett-rtr.tls=true
       - traefik.http.routers.jackett-rtr.tls.certresolver=leresolver
       ## Middlewares
-      - traefik.http.routers.jackett-rtr.middlewares=chain-oauth@file
+      - traefik.http.routers.jackett-rtr.middlewares=chain-basic-auth@file
       ## HTTP Services
       - traefik.http.routers.jackett-rtr.service=jackett-svc
       - traefik.http.services.jackett-svc.loadbalancer.server.port=9117
