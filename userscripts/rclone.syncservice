@@ -1,0 +1,31 @@
+#!/bin/bash
+
+## Define PIDFILE
+PIDFILE="/var/run/rclonesync.pid"
+
+## If PIDFILE exists & the pid inside of it is still running, then quit this script
+
+if [ -f $PIDFILE ]; then
+  if ps h $(cat $PIDFILE) ; then
+    exit 1
+  fi
+fi
+
+## Add current pid of process in pidfile
+
+echo $$ > $PIDFILE
+
+## Run rclone
+rclone sync \
+-v \
+-P \
+--transfers=8 \
+--checkers=20 \
+--fast-list \
+--bwlimit "12:00,1b 23:59,off" \
+--log-file /tmp/rclone.log \
+--filter-from /mnt/user/other/unRAIDserver/userscripts/rclone.exclusions \
+/mnt/user azureblob-secure:
+
+## Delete pidfile
+rm $PIDFILE

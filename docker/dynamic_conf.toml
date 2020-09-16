@@ -1,4 +1,18 @@
+# HTTP middlewares - enables basic auth & oauth -> can be used as labels or inside traefik.toml file
+
 [http.middlewares]
+  [http.middlewares.chain-no-auth]
+    [http.middlewares.chain-no-auth.chain]
+      middlewares = [ "middlewares-rate-limit", "middlewares-secure-headers"]
+
+  [http.middlewares.chain-basic-auth]
+    [http.middlewares.chain-basic-auth.chain]
+      middlewares = [ "middlewares-rate-limit", "middlewares-secure-headers", "middlewares-basic-auth"]
+
+  [http.middlewares.chain-oauth]
+    [http.middlewares.chain-oauth.chain]
+      middlewares = [ "middlewares-rate-limit", "middlewares-secure-headers", "middlewares-oauth"]
+      
   [http.middlewares.middlewares-basic-auth]
     [http.middlewares.middlewares-basic-auth.basicAuth]
       users = [
@@ -34,3 +48,28 @@
       address = "http://oauth:4181" # Make sure you have the OAuth service in docker-compose.yml
       trustForwardHeader = true
       authResponseHeaders = ["X-Forwarded-User"]
+
+# Traefik dashboard router
+[http.routers.traefikapi]
+  rule = "Host(`traefik.timo.be`)"
+  service = "api@internal"
+  entryPoints = ["https"]
+  middlewares = ["chain-oauth"]
+
+  [http.routers.traefikapi.tls]
+    certResolver = "leresolver"
+
+# Unraid dashboard - unraid ui is configured to run on port 81
+[http.services]
+  [http.services.unraid-svc.loadBalancer]
+    [[http.services.unraid-svc.loadBalancer.servers]]
+      url = "http://192.168.0.3:81/"
+    
+[http.routers.unraid-rtr]
+  rule = "Host(`unraid.timo.be`)"
+  service = "unraid-svc"
+  entryPoints = ["https"]
+  middlewares = ["chain-no-auth"]
+
+  [http.routers.unraid-rtr.tls]
+    certResolver = "leresolver"

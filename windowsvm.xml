@@ -1,0 +1,55 @@
+<!-- Add/Replace the following lines in the windowsvm.xml -->
+
+  <!-- Initializing IOthreads -->
+  <iothreads>1</iothreads>
+  
+  <!-- CPU settings & pinning -->
+  <!-- Pinning emulator thread and iothreads to cores that remain on the host  -->
+  <cputune>
+    <emulatorpin cpuset='0,6'/>
+    <iothreadpin iothread='1' cpuset='1,7'/>
+  </cputune>
+
+<!-- Initializing additional hyperv features -->
+<features>
+      <reset state="on"/>
+      <vpindex state="on"/>
+      <runtime state="on"/>
+      <synic state="on"/>
+      <stimer state="on"/>
+      <frequencies state='on'/>
+    </hyperv>
+    <vmport state="off"/>
+    <ioapic driver="kvm"/>
+    <kvm>
+      <hidden state="on"/>
+    </kvm>
+</features>
+
+<clock offset="localtime">
+    <timer name="rtc" tickpolicy="catchup"/>
+    <timer name="pit" tickpolicy="delay"/>
+</clock>
+
+
+  <!-- Changing storage backend (scsi & support for iothread) -->
+
+   <controller type='scsi' index='0' model='virtio-scsi'>
+      <driver iothread='1'/>
+    </controller>
+
+   <!-- Optimizing graphics card (ensuring that graphics + sound are on same bus/slot with other function) -->
+   <hostdev mode='subsystem' type='pci' managed='yes'>
+      <driver name='vfio'/>
+      <source>
+        <address domain='0x0000' bus='0x06' slot='0x00' function='0x0'/>
+      </source>
+      <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x0' multifunction='on'/>
+    </hostdev>
+    <hostdev mode='subsystem' type='pci' managed='yes'>
+      <driver name='vfio'/>
+      <source>
+        <address domain='0x0000' bus='0x06' slot='0x00' function='0x1'/>
+      </source>
+      <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x1'/>
+    </hostdev>

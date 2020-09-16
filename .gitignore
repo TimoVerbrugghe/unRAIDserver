@@ -1,4 +1,1 @@
 docker/.env
-clonezilla.iso
-windowsvm/ovmf_windowsvm_vars.fd
-windowsvm/virtio-win.iso

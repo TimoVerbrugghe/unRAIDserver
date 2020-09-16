@@ -1,0 +1,25 @@
+<!-- Enable traefik -->
+<Config Name="Enable traefik" Target="traefik.enable" Default="true" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="always" Required="false" Mask="false">true</Config>
+
+<!-- Require https as entrypoint -->
+<Config Name="Router entrypoint" Target="traefik.http.routers.unifi-rtr.entrypoints" Default="https" Mode="" Description="Container Label: traefik.http.routers.unifi-rtr.entrypoints" Type="Label" Display="always" Required="false" Mask="false">https</Config>
+
+<!-- Host rule (should be changed to containername.domainname) -->
+<Config Name="Traefik Host Rule" Target="traefik.http.routers.unifi-rtr.rule" Default="" Mode="" Description="Container Label: traefik.http.routers.unifi-rtr.rule" Type="Label" Display="always" Required="false" Mask="false">Host(`unifi.timo.be`)</Config>
+
+<!-- Enable TLS -->
+<Config Name="Traefik TLS" Target="traefik.http.routers.unifi-rtr.tls" Default="true" Mode="" Description="Container Label: traefik.http.routers.unifi-rtr.tls" Type="Label" Display="always" Required="false" Mask="false">true</Config>
+
+<!-- Which certresolver to use -->
+<Config Name="Traefik Certresolver" Target="traefik.http.routers.unifi-rtr.tls.certresolver" Default="" Mode="" Description="Container Label: traefik.http.routers.unifi-rtr.tls.certresolver" Type="Label" Display="always" Required="false" Mask="false">leresolver</Config>
+
+<!-- Container service name (should be renamed to containername-svc) -->
+<Config Name="Traefik Service name" Target="traefik.http.routers.unifi-rtr.service" Default="unifi-svc" Mode="" Description="Container Label: traefik.http.routers.unifi-rtr.service" Type="Label" Display="always" Required="false" Mask="false">unifi-svc</Config>
+
+<!-- Port of the container that traefik should listen on -->
+<Config Name="Traefik container port" Target="traefik.http.services.unifi-svc.loadbalancer.server.port" Default="4181" Mode="" Description="Container Label: traefik.http.services.unifi-svc.loadbalancer.server.port" Type="Label" Display="always" Required="false" Mask="false">8443</Config>
+
+<!-- Only need to enable this for the Unifi & nextcloud container 
+<Config Name="Traefik container server scheme" Target="traefik.http.services.unifi-svc.loadbalancer.server.scheme" Default="https" Mode="" Description="Container Label: traefik.http.services.unifi-svc.loadbalancer.server.scheme - Since unifi is using SSL cert internally, traefik needs to connect to unifi service through https" Type="Label" Display="always" Required="false" Mask="false">https</Config> -->
+
+<Config Name="Middlewares - Auth" Target="traefik.http.routers.unifi-rtr.middlewares" Default="chain-oauth@file" Mode="" Description="Container Label: traefik.http.routers.unifi-rtr.middlewares" Type="Label" Display="always" Required="false" Mask="false">chain-no-auth@file</Config>

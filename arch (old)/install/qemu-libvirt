@@ -12,7 +12,7 @@
 ## Change grub boot options - /etc/default/grub
 	# Enables iommu, ignores MSRS for avoiding blue screen, enables 64 bit timer for HPET and allows unsafe interrupts
 	# Grabs the PCI ids from NVIDIA graphics card and Audio Device and applies driver vfio-pci to it
-	GRUB_CMDLINE_LINUX_DEFAULT="... amd_iommu=on iommu=pt kvm.ignore_msrs=1 hpet64 vfio_iommu_type1.allow_unsafe_interrupts=1 vfio-pci.ids=10de:1c03,10de:10f1,1022:1487 ..."
+	GRUB_CMDLINE_LINUX_DEFAULT="... amd_iommu=on iommu=pt kvm.ignore_msrs=1 hpet64 vfio_iommu_type1.allow_unsafe_interrupts=1 vfio-pci.ids=10de:1c03,10de:10f1,1022:1487 pcie_acs_override=downstream,multifunction ..."
 
 	# Change grub boot options to isolate cpus from the linux scheduler by using isolcpus
 	GRUB_CMDLINE_LINUX_DEFAULT="... isolcpus=3-5,9-11 nohz_full=3-5,9-11 rcu_nocbs=3-5,9-11 ..."

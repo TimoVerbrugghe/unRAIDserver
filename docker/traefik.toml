@@ -1,0 +1,68 @@
+## Traefik TOML file which provides general settings for traefik docker container
+
+[global]
+  checkNewVersion = true
+  sendAnonymousUsage = true
+  
+# TLS insecure skip verify (needed for Unifi controller)
+[serversTransport]
+  insecureSkipVerify = true
+
+# Logging options
+[log]
+  level = "ERROR" #DEBUG, INFO, WARN, ERROR, FATAL, PANIC
+
+[accessLog]
+  filePath = "/etc/traefik/traefik.log"
+  bufferingSize = 100
+  [accessLog.filters]
+    statusCodes = ["400-499"]
+
+[providers.file]
+  filename = "/etc/traefik/dynamic_conf.toml"
+
+# Traefik dashboard
+[entryPoints.traefik]
+  address=":8081"
+
+[api]
+  dashboard = true
+
+# Define HTTP & HTTPS entrypoints (& force HTTPS)
+[entryPoints.http]
+  address = ":80"
+
+  [entryPoints.http.http.redirections]
+    [entryPoints.http.http.redirections.entryPoint]
+      to = "https"
+      scheme = "https"
+
+[entryPoints.https]
+  address = ":443"
+
+# Docker options
+[providers.docker]
+  endpoint = "unix:///var/run/docker.sock"
+  defaultRule = "Host(`{{ .Name }}.timo.be`)"
+  network = "dockerproxy"
+  # This will hide all docker containers that don't have explicitly
+  # set label to "enable"
+  exposedByDefault = false
+
+# SSL options
+[certificatesResolvers.leresolver.acme]
+  email = "timo@hotmail.be"
+  storage = "/etc/traefik/acme.json"
+  # CA server to use.
+  # Uncomment the line to use Let's Encrypt's staging server,
+  # leave commented to go to prod.
+  #
+  # Optional
+  # Default: "https://acme-v02.api.letsencrypt.org/directory"
+  #
+  # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+
+  [certificatesResolvers.leresolver.acme.httpchallenge]
+    entryPoint = "http"
+
+  
