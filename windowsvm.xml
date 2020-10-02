@@ -1,13 +1,9 @@
 <!-- Add/Replace the following lines in the windowsvm.xml -->
-
-  <!-- Initializing IOthreads -->
-  <iothreads>1</iothreads>
   
   <!-- CPU settings & pinning -->
   <!-- Pinning emulator thread and iothreads to cores that remain on the host  -->
   <cputune>
     <emulatorpin cpuset='0,6'/>
-    <iothreadpin iothread='1' cpuset='1,7'/>
   </cputune>
 
 <!-- Initializing additional hyperv features -->
@@ -31,25 +27,68 @@
     <timer name="pit" tickpolicy="delay"/>
 </clock>
 
-
-  <!-- Changing storage backend (scsi & support for iothread) -->
-
-   <controller type='scsi' index='0' model='virtio-scsi'>
-      <driver iothread='1'/>
-    </controller>
-
    <!-- Optimizing graphics card (ensuring that graphics + sound are on same bus/slot with other function) -->
    <hostdev mode='subsystem' type='pci' managed='yes'>
       <driver name='vfio'/>
       <source>
-        <address domain='0x0000' bus='0x06' slot='0x00' function='0x0'/>
+        <address domain='0x0000' bus='0x07' slot='0x00' function='0x0'/>
       </source>
       <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x0' multifunction='on'/>
     </hostdev>
     <hostdev mode='subsystem' type='pci' managed='yes'>
       <driver name='vfio'/>
       <source>
-        <address domain='0x0000' bus='0x06' slot='0x00' function='0x1'/>
+        <address domain='0x0000' bus='0x07' slot='0x00' function='0x1'/>
       </source>
       <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x1'/>
     </hostdev>
+
+  <!-- Add NVME drive -->
+  <hostdev mode='subsystem' type='pci' managed='yes'>
+    <driver name='vfio'/>
+    <source>
+      <address domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+    </source>
+    <boot order='1'/>
+  </hostdev>
+
+  <!-- Add Hardware audio controller -->
+  <hostdev mode='subsystem' type='pci' managed='yes'>
+    <driver name='vfio'/>
+    <source>
+      <address domain='0x0000' bus='0x09' slot='0x00' function='0x4'/>
+    </source>
+  </hostdev>
+
+<!-- Additional Steps to take after installing Windows 
+  ## POSSIBLE -> When first booting into windows, EFI shell needs the windows efi file added as a boot option
+	# Type "exit" in the efi shell
+	# Press escape key to get into OVMF bios
+	# In the bios, go to Boot Maintenance Manager
+	# Boot options -> Add boot option -> Select hard drive (No volume label) -> <EFI> -> <Microsoft> -> <Boot> -> bootmgfw.efi 
+	# Input any description
+	# Commit changes
+
+	# Change boot order
+	# Put your newly added boot order as first one -> F10 Save
+	# Exit bios (continue/reset options)
+
+## Change Graphics Card to accept Signal Based Interrupts
+	# Download the MSI enable tool from https://forums.guru3d.com/threads/windows-line-based-vs-message-signaled-based-interrupts-msi-tool.378044/
+	# Enable MSI on the NVIDIA Graphics card and audio card
+
+## Change Audio Settings
+	# Make sure Audio Level is at 16 bit, 48000 hz for streaming purposes
+
+## Enabling remote moonlight streaming
+	# Assign a static IP(v4 & v6) to the Windows VM
+	# Open the required moonlight streaming ports, more information at their Github -> https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#streaming-over-the-internet
+
+## Nvidia Control Panel Update
+	# Nvidia control panel 
+	# Open “3D settings” branch -> Select “Manage 3D settings” -> Select “Global settings” tab
+	# set “Power Management mode” -> “Prefer maximum performance”
+	# set “Low Latency Mode” -> “On
+
+## Programs to Install
+	# Steam, Parsec, Epic Games Launcher, Origin, Geforce experience, Virtualhere server, Moonlight
