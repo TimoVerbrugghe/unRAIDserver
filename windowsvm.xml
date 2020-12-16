@@ -1,6 +1,11 @@
 <!-- Add/Replace the following lines in the windowsvm.xml -->
   
-  <!-- CPU settings & pinning -->
+  <!-- CPU settings (hiding that this is a VM) -->
+
+  <cpu>
+    <feature policy='disable' name='hypervisor'/>
+  </cpu>
+
   <!-- Pinning emulator thread and iothreads to cores that remain on the host  -->
   <cputune>
     <emulatorpin cpuset='0,6'/>

@@ -1,6 +1,9 @@
 ## Static IP overview
+
 Telenet Modem/Router combo		192.168.0.1 / <Static IPv6 created by using local link address>
 Ubiquity Unifi AC AP Pro		192.168.0.2 / <Static IPv6 not set>
 UnraidServer					192.168.0.3 / 2a02:1810:4f2b:7900::3
 Windows 10 Gaming VM			192.168.0.4 / 2a02:1810:4f2b:7900::4
+Ubiquity Unifi AC AP Lite       192.168.0.5 / 2a02:1810:4f2b:7900::5
+Pi-Hole                         192.168.0.6 / 2a02:1810:4f2b:7900::6
 Switch                          192.168.0.7 / 2a02:1810:4f2b:7900::7
