@@ -63,7 +63,7 @@
 [http.services]
   [http.services.unraid-svc.loadBalancer]
     [[http.services.unraid-svc.loadBalancer.servers]]
-      url = "http://192.168.0.3:81/"
+      url = "http://192.168.1.3:81/"
     
 [http.routers.unraid-rtr]
   rule = "Host(`unraid.timo.be`)"

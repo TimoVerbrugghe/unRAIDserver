@@ -1,2 +1,0 @@
-# HP, Inc DeskJet F4200 series
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="2504", GROUP="lp"
