@@ -19,7 +19,11 @@
 <!-- Port of the container that traefik should listen on -->
 <Config Name="Traefik container port" Target="traefik.http.services.unifi-svc.loadbalancer.server.port" Default="4181" Mode="" Description="Container Label: traefik.http.services.unifi-svc.loadbalancer.server.port" Type="Label" Display="always" Required="false" Mask="false">8443</Config>
 
-<!-- Only need to enable this for the Unifi & nextcloud container 
-<Config Name="Traefik container server scheme" Target="traefik.http.services.unifi-svc.loadbalancer.server.scheme" Default="https" Mode="" Description="Container Label: traefik.http.services.unifi-svc.loadbalancer.server.scheme - Since unifi is using SSL cert internally, traefik needs to connect to unifi service through https" Type="Label" Display="always" Required="false" Mask="false">https</Config> -->
-
 <Config Name="Middlewares - Auth" Target="traefik.http.routers.unifi-rtr.middlewares" Default="chain-oauth@file" Mode="" Description="Container Label: traefik.http.routers.unifi-rtr.middlewares" Type="Label" Display="always" Required="false" Mask="false">chain-no-auth@file</Config>
+
+<!-- Only need to enable this for the traefik & nextcloud container 
+<Config Name="traefik container server scheme" Target="traefik.http.services.prowlarr-svc.loadbalancer.server.scheme" Default="https" Mode="" Description="Container Label: traefik.http.services.prowlarr-svc.loadbalancer.server.scheme - Since prowlarr is using SSL cert internally, traefik needs to connect to prowlarr service through https" Type="Label" Display="always" Required="false" Mask="false">https</Config> -->
+
+<!-- Only need this to enable automatic opening of workspace in vs code -->
+<Config Name="Middlewares - Custom Repath" Target="traefik.http.routers.prowlarr-rtr.middlewares" Default="chain-oauth@file, custom_repath" Mode="" Description="Container Label: traefik.http.routers.prowlarr-rtr.middlewares (for custom repath)" Type="Label" Display="always" Required="false" Mask="false">chain-oauth@file, custom_repath</Config>
+<Config Name="Custom Repath - Regex" Target="traefik.http.middlewares.custom_repath.replacepath.path" Default="/?workspace=/config/data/User/Workspaces/unraiddefault.code-workspace" Mode="" Description="Container Label: traefik.http.middlewares.custom_repath.replacepath.path" Type="Label" Display="always" Required="false" Mask="false">/?workspace=/config/data/User/Workspaces/unraiddefault.code-workspace</Config>
