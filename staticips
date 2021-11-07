@@ -1,9 +1,8 @@
 ## Static IP overview
 
 Telenet Modem/Router combo		192.168.0.1 / <Static IPv6 created by using local link address>
-
 UnraidServer					        192.168.0.3 / 2a02:1810:4f2b:7900::3
-Ubiquity Unifi nanoHD   		  192.168.0.4 / <Static IPv6 not set>
 Ubiquity Unifi Lite 6         192.168.0.5 / <Static IPv6 not set>
 Raspberry Pi Printer          192.168.0.6 / <Static IPv6 not set>
 Windows 10 Gaming VM			    192.168.0.7 / 2a02:1810:4f2b:7900::7
+Living Room TV                192.168.0.9 / <Static IPv6 not set>
